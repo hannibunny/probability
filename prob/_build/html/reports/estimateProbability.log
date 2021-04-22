@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/asyncio/base_events.py", line 608, in run_until_complete
+    return future.result()
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from numpy import mgrid
+from matplotlib import cm
+x,y = mgrid[40:110:100j, 120:210:100j]
+[m1,m2]=est_mean
+s11=np.sqrt(est_cov[0,0])
+s22=np.sqrt(est_cov[1,1])
+corr=est_cov[0,1]/(s11*s22)
+
+
+#2-dimensionale Gaußverteilung nach Definition http://de.wikipedia.org/wiki/Mehrdimensionale_Normalverteilung
+a=1.0/(2*np.pi*s11*s22*np.sqrt(1-corr**2))*np.exp(-1.0/(2*(1-corr**2))*(((x-m1)**2)/(s11**2)+((y-m2)**2)/(s22**2)-2*corr*(x-m1)*(y-m2)/(s11*s22)))  
+##############################################################################################################
+fig = plt.figure(num=None, figsize=(12, 10), dpi=80, facecolor='w', edgecolor='k')
+ax = fig.gca(projection='3d')
+surf = ax.plot_surface(x,y,a,rstride=1, cstride=1, cmap=cm.jet,
+        linewidth=0.0, antialiased=False)
+#plt.text(0.5,0.5,0.2,'$\sigma_{11}$='+str(s11)+'\n$\sigma_{22}$='+str(s22)+'\n$corr$='+str(corr),fontsize=14,backgroundcolor='white')
+plt.title('s11='+str(s11)+'  s22 = '+str(s22)+'  corr ='+str(corr))
+plt.xlabel('weight[kg]')
+plt.ylabel('height[cm]')
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-16-f72c6594f5a4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mcm[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0mx[0m[0;34m,[0m[0my[0m [0;34m=[0m [0mmgrid[0m[0;34m[[0m[0;36m40[0m[0;34m:[0m[0;36m110[0m[0;34m:[0m[0;36m100j[0m[0;34m,[0m [0;36m120[0m[0;34m:[0m[0;36m210[0m[0;34m:[0m[0;36m100j[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;34m[[0m[0mm1[0m[0;34m,[0m[0mm2[0m[0;34m][0m[0;34m=[0m[0mest_mean[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0ms11[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0mest_cov[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0ms22[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0mest_cov[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'est_mean' is not defined
+NameError: name 'est_mean' is not defined
+

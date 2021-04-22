@@ -1,0 +1,71 @@
+network "Asia" {
+// written by aGrUM 0.20.1
+}
+
+variable A {
+   type discrete[2] {0, 1};
+}
+
+variable S {
+   type discrete[2] {0, 1};
+}
+
+variable T {
+   type discrete[2] {0, 1};
+}
+
+variable L {
+   type discrete[2] {0, 1};
+}
+
+variable B {
+   type discrete[2] {0, 1};
+}
+
+variable E {
+   type discrete[2] {0, 1};
+}
+
+variable D {
+   type discrete[2] {0, 1};
+}
+
+variable X {
+   type discrete[2] {0, 1};
+}
+
+probability (A) {
+   default 0.99 0.01;
+}
+probability (S) {
+   default 0.5 0.5;
+}
+probability (T | A) {
+   (0) 0.99 0.01;
+   (1) 0.95 0.05;
+}
+probability (L | S) {
+   (0) 0.99 0.01;
+   (1) 0.9 0.1;
+}
+probability (B | S) {
+   (0) 0.7 0.3;
+   (1) 0.4 0.6;
+}
+probability (E | T, L) {
+   (0, 0) 1 0;
+   (1, 0) 0 1;
+   (0, 1) 0 1;
+   (1, 1) 0 1;
+}
+probability (D | B, E) {
+   (0, 0) 0.9 0.1;
+   (1, 0) 0.2 0.8;
+   (0, 1) 0.3 0.7;
+   (1, 1) 0.1 0.9;
+}
+probability (X | E) {
+   (0) 0.95 0.05;
+   (1) 0.02 0.98;
+}
+

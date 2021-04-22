@@ -1,0 +1,26 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+- file: intro
+
+- part: Probability Theory
+  chapters:
+  - file: ProbabilityUnivariate
+  - file: ProbabilityMultivariate
+  - file: estimateProbability
+
+- part: Exercises and Applications
+  chapters:
+  - file: exampleProbEst
+  - file: parametricClassification1D
+  - file: Thrombosis
+  
+- part: Bayesian Networks
+  chapters:
+  - file: BayesNetAsia
+  - file: BayesNetLearningWithPandas
+  
+
+#- part: Global, Local and Subspace Features
+#  chapters:
+#  - file: 

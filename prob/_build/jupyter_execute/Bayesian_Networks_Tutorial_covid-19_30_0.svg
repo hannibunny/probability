@@ -1,0 +1,644 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="403pt" viewBox="0.00 0.00 864.00 403.10">
+<g id="graph0" class="graph" transform="scale(1.72 1.72) rotate(0) translate(4 688)">
+<title>G</title>
+<!-- Adenovirus -->
+<g id="node1" class="node">
+<title>Adenovirus</title>
+<g id="a_node1"><a xlink:title="(17) Adenovirus : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="176.46" cy="-90" rx="51.24" ry="18"/>
+<text text-anchor="middle" x="176.46" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Adenovirus</text>
+</a>
+</g>
+</g>
+<!-- Strepto A -->
+<g id="node7" class="node">
+<title>Strepto A</title>
+<g id="a_node7"><a xlink:title="(26) Strepto A : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1431.46" cy="-18" rx="43.53" ry="18"/>
+<text text-anchor="middle" x="1431.46" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Strepto A</text>
+</a>
+</g>
+</g>
+<!-- Adenovirus&#45;&gt;Strepto A -->
+<g id="edge27" class="edge">
+<title>Adenovirus-&gt;Strepto A</title>
+<g id="a_edge27"><a xlink:title="(17, 26) : ">
+<path fill="none" stroke="#4a4a4a" d="M226.74,-86.23C291.1,-82.72 406.06,-76.58 504.46,-72 698.64,-62.97 1187.07,-69.99 1378.46,-36 1382.36,-35.31 1386.37,-34.4 1390.36,-33.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1391.48,-36.68 1400.14,-30.58 1389.57,-29.95 1391.48,-36.68"/>
+</a>
+</g>
+</g>
+<!-- CoronavirusNL63 -->
+<g id="node2" class="node">
+<title>CoronavirusNL63</title>
+<g id="a_node2"><a xlink:title="(12) CoronavirusNL63 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="74.46" cy="-162" rx="74.42" ry="18"/>
+<text text-anchor="middle" x="74.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">CoronavirusNL63</text>
+</a>
+</g>
+</g>
+<!-- CoronavirusNL63&#45;&gt;Adenovirus -->
+<g id="edge39" class="edge">
+<title>CoronavirusNL63-&gt;Adenovirus</title>
+<g id="a_edge39"><a xlink:title="(12, 17) : ">
+<path fill="none" stroke="#4a4a4a" d="M98.12,-144.76C112.19,-135.11 130.2,-122.75 145.4,-112.31"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="147.72,-114.97 153.98,-106.43 143.75,-109.2 147.72,-114.97"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis -->
+<g id="node3" class="node">
+<title>Bordetella pertussis</title>
+<g id="a_node3"><a xlink:title="(22) Bordetella pertussis : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="409.46" cy="-234" rx="80.21" ry="18"/>
+<text text-anchor="middle" x="409.46" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Bordetella pertussis</text>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Adenovirus -->
+<g id="edge7" class="edge">
+<title>Bordetella pertussis-&gt;Adenovirus</title>
+<g id="a_edge7"><a xlink:title="(22, 17) : ">
+<path fill="none" stroke="#4a4a4a" d="M336.49,-226.49C298.68,-219.89 253.79,-206.62 221.46,-180 202.11,-164.07 190.25,-137.7 183.6,-117.78"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="186.89,-116.57 180.59,-108.05 180.2,-118.64 186.89,-116.57"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;CoronavirusNL63 -->
+<g id="edge37" class="edge">
+<title>Bordetella pertussis-&gt;CoronavirusNL63</title>
+<g id="a_edge37"><a xlink:title="(22, 12) : ">
+<path fill="none" stroke="#4a4a4a" d="M353.01,-221.2C293.84,-208.84 201.01,-189.44 138.98,-176.48"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="139.42,-173 128.92,-174.38 137.99,-179.85 139.42,-173"/>
+</a>
+</g>
+</g>
+<!-- Metapneumovirus -->
+<g id="node10" class="node">
+<title>Metapneumovirus</title>
+<g id="a_node10"><a xlink:title="(23) Metapneumovirus : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="484.46" cy="-162" rx="74.41" ry="18"/>
+<text text-anchor="middle" x="484.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Metapneumovirus</text>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Metapneumovirus -->
+<g id="edge8" class="edge">
+<title>Bordetella pertussis-&gt;Metapneumovirus</title>
+<g id="a_edge8"><a xlink:title="(22, 23) : ">
+<path fill="none" stroke="#4a4a4a" d="M427.23,-216.41C436.78,-207.5 448.72,-196.36 459.22,-186.56"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="461.63,-189.09 466.55,-179.71 456.85,-183.98 461.63,-189.09"/>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 1 -->
+<g id="node15" class="node">
+<title>Parainfluenza 1</title>
+<g id="a_node15"><a xlink:title="(11) Parainfluenza 1 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="578.46" cy="-90" rx="64.74" ry="18"/>
+<text text-anchor="middle" x="578.46" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Parainfluenza 1</text>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Parainfluenza 1 -->
+<g id="edge3" class="edge">
+<title>Bordetella pertussis-&gt;Parainfluenza 1</title>
+<g id="a_edge3"><a xlink:title="(22, 11) : ">
+<path fill="none" stroke="#4a4a4a" d="M344.31,-223.46C280.16,-211.38 196.72,-186.81 233.46,-144 267.52,-104.31 412.47,-94.05 503.31,-91.57"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="503.65,-95.07 513.56,-91.32 503.48,-88.07 503.65,-95.07"/>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 3 -->
+<g id="node19" class="node">
+<title>Parainfluenza 3</title>
+<g id="a_node19"><a xlink:title="(15) Parainfluenza 3 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="641.46" cy="-162" rx="64.74" ry="18"/>
+<text text-anchor="middle" x="641.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Parainfluenza 3</text>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Parainfluenza 3 -->
+<g id="edge40" class="edge">
+<title>Bordetella pertussis-&gt;Parainfluenza 3</title>
+<g id="a_edge40"><a xlink:title="(22, 15) : ">
+<path fill="none" stroke="#4a4a4a" d="M455.3,-219.17C493.97,-207.5 549.31,-190.8 589.59,-178.65"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="590.67,-181.98 599.23,-175.74 588.65,-175.28 590.67,-181.98"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus229E -->
+<g id="node22" class="node">
+<title>Coronavirus229E</title>
+<g id="a_node22"><a xlink:title="(19) Coronavirus229E : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="796.46" cy="-162" rx="72.49" ry="18"/>
+<text text-anchor="middle" x="796.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Coronavirus229E</text>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Coronavirus229E -->
+<g id="edge23" class="edge">
+<title>Bordetella pertussis-&gt;Coronavirus229E</title>
+<g id="a_edge23"><a xlink:title="(22, 19) : ">
+<path fill="none" stroke="#4a4a4a" d="M472.28,-222.79C534.23,-212.56 631.53,-196.07 715.46,-180 721.25,-178.89 727.26,-177.7 733.27,-176.49"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="734.26,-179.86 743.36,-174.43 732.86,-173 734.26,-179.86"/>
+</a>
+</g>
+</g>
+<!-- CoronavirusOC43 -->
+<g id="node26" class="node">
+<title>CoronavirusOC43</title>
+<g id="a_node26"><a xlink:title="(20) CoronavirusOC43 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="317.46" cy="-162" rx="74.91" ry="18"/>
+<text text-anchor="middle" x="317.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">CoronavirusOC43</text>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;CoronavirusOC43 -->
+<g id="edge6" class="edge">
+<title>Bordetella pertussis-&gt;CoronavirusOC43</title>
+<g id="a_edge6"><a xlink:title="(22, 20) : ">
+<path fill="none" stroke="#4a4a4a" d="M387.66,-216.41C375.63,-207.26 360.51,-195.76 347.39,-185.77"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="349.18,-182.74 339.11,-179.47 344.94,-188.31 349.18,-182.74"/>
+</a>
+</g>
+</g>
+<!-- Lymphocytes -->
+<g id="node4" class="node">
+<title>Lymphocytes</title>
+<g id="a_node4"><a xlink:title="(6) Lymphocytes : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1074.46" cy="-450" rx="57.52" ry="18"/>
+<text text-anchor="middle" x="1074.46" y="-445.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Lymphocytes</text>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test -->
+<g id="node23" class="node">
+<title>Influenza A rapid test</title>
+<g id="a_node23"><a xlink:title="(25) Influenza A rapid test : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1074.46" cy="-306" rx="85.53" ry="18"/>
+<text text-anchor="middle" x="1074.46" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Influenza A rapid test</text>
+</a>
+</g>
+</g>
+<!-- Lymphocytes&#45;&gt;Influenza A rapid test -->
+<g id="edge35" class="edge">
+<title>Lymphocytes-&gt;Influenza A rapid test</title>
+<g id="a_edge35"><a xlink:title="(6, 25) : ">
+<path fill="none" stroke="#4a4a4a" d="M1074.46,-431.87C1074.46,-407.67 1074.46,-363.21 1074.46,-334.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1077.96,-334.19 1074.46,-324.19 1070.96,-334.19 1077.96,-334.19"/>
+</a>
+</g>
+</g>
+<!-- Rhinovirus/Enterovirus -->
+<g id="node5" class="node">
+<title>Rhinovirus/Enterovirus</title>
+<g id="a_node5"><a xlink:title="(13) Rhinovirus/Enterovirus : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="980.46" cy="-162" rx="93.26" ry="18"/>
+<text text-anchor="middle" x="980.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Rhinovirus/Enterovirus</text>
+</a>
+</g>
+</g>
+<!-- Rhinovirus/Enterovirus&#45;&gt;Parainfluenza 1 -->
+<g id="edge15" class="edge">
+<title>Rhinovirus/Enterovirus-&gt;Parainfluenza 1</title>
+<g id="a_edge15"><a xlink:title="(13, 11) : ">
+<path fill="none" stroke="#4a4a4a" d="M913.63,-149.36C838.14,-136.22 716.2,-114.98 642.07,-102.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="642.39,-98.58 631.93,-100.31 641.19,-105.48 642.39,-98.58"/>
+</a>
+</g>
+</g>
+<!-- Influenza A -->
+<g id="node18" class="node">
+<title>Influenza A</title>
+<g id="a_node18"><a xlink:title="(9) Influenza A : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="980.46" cy="-90" rx="51.25" ry="18"/>
+<text text-anchor="middle" x="980.46" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Influenza A</text>
+</a>
+</g>
+</g>
+<!-- Rhinovirus/Enterovirus&#45;&gt;Influenza A -->
+<g id="edge42" class="edge">
+<title>Rhinovirus/Enterovirus-&gt;Influenza A</title>
+<g id="a_edge42"><a xlink:title="(13, 9) : ">
+<path fill="none" stroke="#4a4a4a" d="M980.46,-143.7C980.46,-135.98 980.46,-126.71 980.46,-118.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="983.96,-118.1 980.46,-108.1 976.96,-118.1 983.96,-118.1"/>
+</a>
+</g>
+</g>
+<!-- semi_intensive_care -->
+<g id="node6" class="node">
+<title>semi_intensive_care</title>
+<g id="a_node6"><a xlink:title="(2) semi_intensive_care : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1287.46" cy="-18" rx="82.1" ry="18"/>
+<text text-anchor="middle" x="1287.46" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">semi_intensive_care</text>
+</a>
+</g>
+</g>
+<!-- covid_19 -->
+<g id="node8" class="node">
+<title>covid_19</title>
+<g id="a_node8"><a xlink:title="(0) covid_19 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1221.46" cy="-234" rx="43.04" ry="18"/>
+<text text-anchor="middle" x="1221.46" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">covid_19</text>
+</a>
+</g>
+</g>
+<!-- covid_19&#45;&gt;Rhinovirus/Enterovirus -->
+<g id="edge28" class="edge">
+<title>covid_19-&gt;Rhinovirus/Enterovirus</title>
+<g id="a_edge28"><a xlink:title="(0, 13) : ">
+<path fill="none" stroke="#4a4a4a" d="M1188.79,-222.09C1182.4,-220.02 1175.73,-217.9 1169.46,-216 1127.43,-203.24 1079.82,-189.9 1042.89,-179.79"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1043.35,-176.29 1032.78,-177.03 1041.5,-183.04 1043.35,-176.29"/>
+</a>
+</g>
+</g>
+<!-- Respiratory Syncytial Virus -->
+<g id="node9" class="node">
+<title>Respiratory Syncytial Virus</title>
+<g id="a_node9"><a xlink:title="(8) Respiratory Syncytial Virus : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1289.46" cy="-90" rx="108.32" ry="18"/>
+<text text-anchor="middle" x="1289.46" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Respiratory Syncytial Virus</text>
+</a>
+</g>
+</g>
+<!-- covid_19&#45;&gt;Respiratory Syncytial Virus -->
+<g id="edge14" class="edge">
+<title>covid_19-&gt;Respiratory Syncytial Virus</title>
+<g id="a_edge14"><a xlink:title="(0, 8) : ">
+<path fill="none" stroke="#4a4a4a" d="M1241.26,-217.94C1252.48,-208.32 1265.77,-194.89 1273.46,-180 1283.4,-160.76 1287.27,-136.42 1288.73,-118.06"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1292.23,-118.21 1289.34,-108.02 1285.24,-117.79 1292.23,-118.21"/>
+</a>
+</g>
+</g>
+<!-- regular_ward -->
+<g id="node24" class="node">
+<title>regular_ward</title>
+<g id="a_node24"><a xlink:title="(1) regular_ward : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1106.46" cy="-90" rx="57.5" ry="18"/>
+<text text-anchor="middle" x="1106.46" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">regular_ward</text>
+</a>
+</g>
+</g>
+<!-- covid_19&#45;&gt;regular_ward -->
+<g id="edge25" class="edge">
+<title>covid_19-&gt;regular_ward</title>
+<g id="a_edge25"><a xlink:title="(0, 1) : ">
+<path fill="none" stroke="#4a4a4a" d="M1221.87,-215.89C1221.48,-196.61 1218.18,-165.19 1202.46,-144 1190.5,-127.87 1172.09,-116.04 1154.59,-107.7"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1155.57,-104.3 1145.01,-103.42 1152.71,-110.69 1155.57,-104.3"/>
+</a>
+</g>
+</g>
+<!-- Respiratory Syncytial Virus&#45;&gt;semi_intensive_care -->
+<g id="edge22" class="edge">
+<title>Respiratory Syncytial Virus-&gt;semi_intensive_care</title>
+<g id="a_edge22"><a xlink:title="(8, 2) : ">
+<path fill="none" stroke="#4a4a4a" d="M1288.97,-71.7C1288.74,-63.98 1288.48,-54.71 1288.23,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1291.73,-46 1287.95,-36.1 1284.74,-46.2 1291.73,-46"/>
+</a>
+</g>
+</g>
+<!-- intensive_care -->
+<g id="node13" class="node">
+<title>intensive_care</title>
+<g id="a_node13"><a xlink:title="(3) intensive_care : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1126.46" cy="-18" rx="61.35" ry="18"/>
+<text text-anchor="middle" x="1126.46" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">intensive_care</text>
+</a>
+</g>
+</g>
+<!-- Respiratory Syncytial Virus&#45;&gt;intensive_care -->
+<g id="edge9" class="edge">
+<title>Respiratory Syncytial Virus-&gt;intensive_care</title>
+<g id="a_edge9"><a xlink:title="(8, 3) : ">
+<path fill="none" stroke="#4a4a4a" d="M1252.06,-72.94C1227.31,-62.31 1194.79,-48.34 1169.04,-37.29"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1170.11,-33.93 1159.54,-33.2 1167.34,-40.37 1170.11,-33.93"/>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 4 -->
+<g id="node11" class="node">
+<title>Parainfluenza 4</title>
+<g id="a_node11"><a xlink:title="(18) Parainfluenza 4 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="758.46" cy="-306" rx="64.74" ry="18"/>
+<text text-anchor="middle" x="758.46" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Parainfluenza 4</text>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009 -->
+<g id="node21" class="node">
+<title>Inf A H1N1 2009</title>
+<g id="a_node21"><a xlink:title="(21) Inf A H1N1 2009 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="796.46" cy="-234" rx="71.55" ry="18"/>
+<text text-anchor="middle" x="796.46" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Inf A H1N1 2009</text>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 4&#45;&gt;Inf A H1N1 2009 -->
+<g id="edge34" class="edge">
+<title>Parainfluenza 4-&gt;Inf A H1N1 2009</title>
+<g id="a_edge34"><a xlink:title="(18, 21) : ">
+<path fill="none" stroke="#4a4a4a" d="M767.66,-288.05C772.03,-280.01 777.35,-270.2 782.22,-261.23"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="785.39,-262.73 787.08,-252.28 779.23,-259.39 785.39,-262.73"/>
+</a>
+</g>
+</g>
+<!-- Influenza B rapid test -->
+<g id="node12" class="node">
+<title>Influenza B rapid test</title>
+<g id="a_node12"><a xlink:title="(24) Influenza B rapid test : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1074.46" cy="-234" rx="85.99" ry="18"/>
+<text text-anchor="middle" x="1074.46" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Influenza B rapid test</text>
+</a>
+</g>
+</g>
+<!-- Influenza B -->
+<g id="node16" class="node">
+<title>Influenza B</title>
+<g id="a_node16"><a xlink:title="(10) Influenza B : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1142.46" cy="-162" rx="51.24" ry="18"/>
+<text text-anchor="middle" x="1142.46" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Influenza B</text>
+</a>
+</g>
+</g>
+<!-- Influenza B rapid test&#45;&gt;Influenza B -->
+<g id="edge29" class="edge">
+<title>Influenza B rapid test-&gt;Influenza B</title>
+<g id="a_edge29"><a xlink:title="(24, 10) : ">
+<path fill="none" stroke="#4a4a4a" d="M1090.92,-216.05C1099.48,-207.24 1110.08,-196.33 1119.44,-186.69"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1122.16,-188.92 1126.62,-179.31 1117.14,-184.04 1122.16,-188.92"/>
+</a>
+</g>
+</g>
+<!-- Platelets -->
+<g id="node14" class="node">
+<title>Platelets</title>
+<g id="a_node14"><a xlink:title="(4) Platelets : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="976.46" cy="-594" rx="40.14" ry="18"/>
+<text text-anchor="middle" x="976.46" y="-589.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Platelets</text>
+</a>
+</g>
+</g>
+<!-- Platelets&#45;&gt;covid_19 -->
+<g id="edge2" class="edge">
+<title>Platelets-&gt;covid_19</title>
+<g id="a_edge2"><a xlink:title="(4, 0) : ">
+<path fill="none" stroke="#4a4a4a" d="M963.01,-576.79C955.33,-566.76 946.14,-553.3 940.46,-540 924.58,-502.8 921.46,-491.45 921.46,-451 921.46,-451 921.46,-451 921.46,-377 921.46,-329.79 940.23,-314.28 979.46,-288 1050.86,-240.16 1086.22,-273.4 1169.46,-252 1172.83,-251.13 1176.3,-250.17 1179.77,-249.15"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1180.94,-252.45 1189.47,-246.17 1178.89,-245.76 1180.94,-252.45"/>
+</a>
+</g>
+</g>
+<!-- Red blood Cells -->
+<g id="node17" class="node">
+<title>Red blood Cells</title>
+<g id="a_node17"><a xlink:title="(5) Red blood Cells : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1016.46" cy="-522" rx="67.19" ry="18"/>
+<text text-anchor="middle" x="1016.46" y="-517.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Red blood Cells</text>
+</a>
+</g>
+</g>
+<!-- Platelets&#45;&gt;Red blood Cells -->
+<g id="edge18" class="edge">
+<title>Platelets-&gt;Red blood Cells</title>
+<g id="a_edge18"><a xlink:title="(4, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M985.94,-576.41C990.65,-568.16 996.45,-558.01 1001.73,-548.78"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1004.85,-550.38 1006.77,-539.96 998.77,-546.9 1004.85,-550.38"/>
+</a>
+</g>
+</g>
+<!-- Influenza B&#45;&gt;Respiratory Syncytial Virus -->
+<g id="edge26" class="edge">
+<title>Influenza B-&gt;Respiratory Syncytial Virus</title>
+<g id="a_edge26"><a xlink:title="(10, 8) : ">
+<path fill="none" stroke="#4a4a4a" d="M1171.5,-147.17C1192.85,-137 1222.21,-123.02 1246.3,-111.55"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1248.06,-114.59 1255.58,-107.13 1245.05,-108.27 1248.06,-114.59"/>
+</a>
+</g>
+</g>
+<!-- Influenza B&#45;&gt;Influenza A -->
+<g id="edge12" class="edge">
+<title>Influenza B-&gt;Influenza A</title>
+<g id="a_edge12"><a xlink:title="(10, 9) : ">
+<path fill="none" stroke="#4a4a4a" d="M1111.22,-147.5C1085.56,-136.42 1049.02,-120.63 1021.09,-108.56"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1022.17,-105.21 1011.6,-104.46 1019.39,-111.63 1022.17,-105.21"/>
+</a>
+</g>
+</g>
+<!-- Influenza B&#45;&gt;regular_ward -->
+<g id="edge41" class="edge">
+<title>Influenza B-&gt;regular_ward</title>
+<g id="a_edge41"><a xlink:title="(10, 1) : ">
+<path fill="none" stroke="#4a4a4a" d="M1133.74,-144.05C1129.61,-136.01 1124.56,-126.2 1119.95,-117.23"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1123.03,-115.57 1115.34,-108.28 1116.8,-118.77 1123.03,-115.57"/>
+</a>
+</g>
+</g>
+<!-- Red blood Cells&#45;&gt;Lymphocytes -->
+<g id="edge20" class="edge">
+<title>Red blood Cells-&gt;Lymphocytes</title>
+<g id="a_edge20"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M1030.5,-504.05C1037.55,-495.54 1046.23,-485.07 1054.01,-475.68"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1056.86,-477.72 1060.55,-467.79 1051.47,-473.26 1056.86,-477.72"/>
+</a>
+</g>
+</g>
+<!-- Chlamydophila pneumoniae -->
+<g id="node25" class="node">
+<title>Chlamydophila pneumoniae</title>
+<g id="a_node25"><a xlink:title="(16) Chlamydophila pneumoniae : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="517.46" cy="-450" rx="110.13" ry="18"/>
+<text text-anchor="middle" x="517.46" y="-445.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Chlamydophila pneumoniae</text>
+</a>
+</g>
+</g>
+<!-- Red blood Cells&#45;&gt;Chlamydophila pneumoniae -->
+<g id="edge10" class="edge">
+<title>Red blood Cells-&gt;Chlamydophila pneumoniae</title>
+<g id="a_edge10"><a xlink:title="(5, 16) : ">
+<path fill="none" stroke="#4a4a4a" d="M958.24,-512.83C872.03,-500.74 709.67,-477.96 607.89,-463.69"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="608.32,-460.21 597.93,-462.29 607.34,-467.14 608.32,-460.21"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus HKU1 -->
+<g id="node20" class="node">
+<title>Coronavirus HKU1</title>
+<g id="a_node20"><a xlink:title="(14) Coronavirus HKU1 : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="517.46" cy="-378" rx="79.74" ry="18"/>
+<text text-anchor="middle" x="517.46" y="-373.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Coronavirus HKU1</text>
+</a>
+</g>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;CoronavirusNL63 -->
+<g id="edge21" class="edge">
+<title>Coronavirus HKU1-&gt;CoronavirusNL63</title>
+<g id="a_edge21"><a xlink:title="(14, 12) : ">
+<path fill="none" stroke="#4a4a4a" d="M485.24,-361.44C406.19,-323.25 202.72,-224.96 115.34,-182.75"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="116.78,-179.56 106.26,-178.36 113.74,-185.86 116.78,-179.56"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;Bordetella pertussis -->
+<g id="edge11" class="edge">
+<title>Coronavirus HKU1-&gt;Bordetella pertussis</title>
+<g id="a_edge11"><a xlink:title="(14, 22) : ">
+<path fill="none" stroke="#4a4a4a" d="M504.65,-360.15C485.73,-335.28 450.21,-288.57 428.31,-259.79"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="431.1,-257.67 422.26,-251.82 425.52,-261.9 431.1,-257.67"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;Parainfluenza 4 -->
+<g id="edge24" class="edge">
+<title>Coronavirus HKU1-&gt;Parainfluenza 4</title>
+<g id="a_edge24"><a xlink:title="(14, 18) : ">
+<path fill="none" stroke="#4a4a4a" d="M564.21,-363.42C604.76,-351.64 663.42,-334.6 705.65,-322.34"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="706.85,-325.63 715.48,-319.48 704.9,-318.91 706.85,-325.63"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Rhinovirus/Enterovirus -->
+<g id="edge4" class="edge">
+<title>Inf A H1N1 2009-&gt;Rhinovirus/Enterovirus</title>
+<g id="a_edge4"><a xlink:title="(21, 13) : ">
+<path fill="none" stroke="#4a4a4a" d="M834.14,-218.67C862.03,-208.05 900.3,-193.49 930.71,-181.93"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="932.18,-185.11 940.28,-178.29 929.69,-178.57 932.18,-185.11"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Respiratory Syncytial Virus -->
+<g id="edge33" class="edge">
+<title>Inf A H1N1 2009-&gt;Respiratory Syncytial Virus</title>
+<g id="a_edge33"><a xlink:title="(21, 8) : ">
+<path fill="none" stroke="#4a4a4a" d="M862.56,-226.76C969.8,-216.29 1172.73,-194.85 1202.46,-180 1231.68,-165.4 1256.73,-137.01 1272.34,-116.21"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1275.19,-118.24 1278.24,-108.09 1269.53,-114.12 1275.19,-118.24"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Metapneumovirus -->
+<g id="edge36" class="edge">
+<title>Inf A H1N1 2009-&gt;Metapneumovirus</title>
+<g id="a_edge36"><a xlink:title="(21, 23) : ">
+<path fill="none" stroke="#4a4a4a" d="M744.94,-221.44C690.62,-209.25 605.02,-190.05 546.9,-177.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="547.62,-173.58 537.1,-174.81 546.09,-180.41 547.62,-173.58"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Influenza B -->
+<g id="edge1" class="edge">
+<title>Inf A H1N1 2009-&gt;Influenza B</title>
+<g id="a_edge1"><a xlink:title="(21, 10) : ">
+<path fill="none" stroke="#4a4a4a" d="M855.4,-223.72C913.46,-214.2 1004.52,-198.22 1082.46,-180 1086.55,-179.04 1090.78,-177.99 1095.01,-176.88"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1096.08,-180.22 1104.83,-174.24 1094.26,-173.46 1096.08,-180.22"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Parainfluenza 3 -->
+<g id="edge19" class="edge">
+<title>Inf A H1N1 2009-&gt;Parainfluenza 3</title>
+<g id="a_edge19"><a xlink:title="(21, 15) : ">
+<path fill="none" stroke="#4a4a4a" d="M763.21,-217.98C739.78,-207.4 708.24,-193.16 683.14,-181.82"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="684.41,-178.56 673.86,-177.63 681.53,-184.94 684.41,-178.56"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Coronavirus229E -->
+<g id="edge5" class="edge">
+<title>Inf A H1N1 2009-&gt;Coronavirus229E</title>
+<g id="a_edge5"><a xlink:title="(21, 19) : ">
+<path fill="none" stroke="#4a4a4a" d="M796.46,-215.7C796.46,-207.98 796.46,-198.71 796.46,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="799.96,-190.1 796.46,-180.1 792.96,-190.1 799.96,-190.1"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;CoronavirusOC43 -->
+<g id="edge38" class="edge">
+<title>Inf A H1N1 2009-&gt;CoronavirusOC43</title>
+<g id="a_edge38"><a xlink:title="(21, 20) : ">
+<path fill="none" stroke="#4a4a4a" d="M732.64,-225.76C654.38,-216.57 517.8,-199.56 401.46,-180 394.95,-178.91 388.18,-177.68 381.43,-176.4"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="382.07,-172.96 371.59,-174.5 380.74,-179.84 382.07,-172.96"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test&#45;&gt;Strepto A -->
+<g id="edge44" class="edge">
+<title>Influenza A rapid test-&gt;Strepto A</title>
+<g id="a_edge44"><a xlink:title="(25, 26) : ">
+<path fill="none" stroke="#4a4a4a" d="M1145.98,-295.97C1185.69,-288.57 1234.73,-275.36 1273.46,-252 1348.06,-207.01 1363.95,-184.04 1406.46,-108 1417.26,-88.68 1423.68,-64.34 1427.3,-46"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1430.78,-46.45 1429.13,-35.98 1423.89,-45.19 1430.78,-46.45"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test&#45;&gt;Influenza B rapid test -->
+<g id="edge31" class="edge">
+<title>Influenza A rapid test-&gt;Influenza B rapid test</title>
+<g id="a_edge31"><a xlink:title="(25, 24) : ">
+<path fill="none" stroke="#4a4a4a" d="M1074.46,-287.7C1074.46,-279.98 1074.46,-270.71 1074.46,-262.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1077.96,-262.1 1074.46,-252.1 1070.96,-262.1 1077.96,-262.1"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test&#45;&gt;Inf A H1N1 2009 -->
+<g id="edge30" class="edge">
+<title>Influenza A rapid test-&gt;Inf A H1N1 2009</title>
+<g id="a_edge30"><a xlink:title="(25, 21) : ">
+<path fill="none" stroke="#4a4a4a" d="M1021.84,-291.75C974.28,-279.77 904.35,-262.17 855.02,-249.75"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="855.69,-246.3 845.14,-247.26 853.98,-253.09 855.69,-246.3"/>
+</a>
+</g>
+</g>
+<!-- Chlamydophila pneumoniae&#45;&gt;Bordetella pertussis -->
+<g id="edge17" class="edge">
+<title>Chlamydophila pneumoniae-&gt;Bordetella pertussis</title>
+<g id="a_edge17"><a xlink:title="(16, 22) : ">
+<path fill="none" stroke="#4a4a4a" d="M474.6,-433.37C457.5,-424.93 439.33,-412.75 428.46,-396 402.06,-355.31 402.59,-296.43 405.76,-262.3"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="409.26,-262.46 406.85,-252.15 402.3,-261.71 409.26,-262.46"/>
+</a>
+</g>
+</g>
+<!-- Chlamydophila pneumoniae&#45;&gt;Coronavirus HKU1 -->
+<g id="edge13" class="edge">
+<title>Chlamydophila pneumoniae-&gt;Coronavirus HKU1</title>
+<g id="a_edge13"><a xlink:title="(16, 14) : ">
+<path fill="none" stroke="#4a4a4a" d="M517.46,-431.7C517.46,-423.98 517.46,-414.71 517.46,-406.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="520.96,-406.1 517.46,-396.1 513.96,-406.1 520.96,-406.1"/>
+</a>
+</g>
+</g>
+<!-- Leukocytes -->
+<g id="node27" class="node">
+<title>Leukocytes</title>
+<g id="a_node27"><a xlink:title="(7) Leukocytes : 0.66000">
+<ellipse fill="#39a256" stroke="black" cx="1044.46" cy="-666" rx="50.74" ry="18"/>
+<text text-anchor="middle" x="1044.46" y="-661.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">Leukocytes</text>
+</a>
+</g>
+</g>
+<!-- Leukocytes&#45;&gt;Lymphocytes -->
+<g id="edge32" class="edge">
+<title>Leukocytes-&gt;Lymphocytes</title>
+<g id="a_edge32"><a xlink:title="(7, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M1053.21,-648.19C1064.88,-624.72 1084.96,-580.46 1092.46,-540 1095.38,-524.27 1095.07,-519.79 1092.46,-504 1091.02,-495.28 1088.33,-486.06 1085.46,-477.8"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1088.69,-476.46 1081.94,-468.3 1082.13,-478.89 1088.69,-476.46"/>
+</a>
+</g>
+</g>
+<!-- Leukocytes&#45;&gt;Platelets -->
+<g id="edge16" class="edge">
+<title>Leukocytes-&gt;Platelets</title>
+<g id="a_edge16"><a xlink:title="(7, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M1028.69,-648.76C1019.81,-639.62 1008.57,-628.06 998.8,-618"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1001.16,-615.4 991.68,-610.67 996.14,-620.28 1001.16,-615.4"/>
+</a>
+</g>
+</g>
+<!-- Leukocytes&#45;&gt;Red blood Cells -->
+<g id="edge43" class="edge">
+<title>Leukocytes-&gt;Red blood Cells</title>
+<g id="a_edge43"><a xlink:title="(7, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M1041.08,-647.87C1036.29,-623.56 1027.47,-578.82 1021.79,-550.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1025.22,-549.32 1019.85,-540.19 1018.35,-550.68 1025.22,-549.32"/>
+</a>
+</g>
+</g>
+</g>
+</svg>

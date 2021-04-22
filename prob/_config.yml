@@ -1,0 +1,17 @@
+# Book settings
+title: Modelling of Uncertainty
+author: Prof. Dr. Johannes Maucher
+logo: hdmlogomed.jpg
+
+only_build_toc_files: true
+
+
+parse:
+  myst_extended_syntax: true
+
+latex:
+  latex_documents:
+    targetname: or.tex
+
+html:
+  only_build_toc_files: true
