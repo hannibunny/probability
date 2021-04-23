@@ -27,7 +27,7 @@ The following probabilities shall be estimated from the given dataset:
 7. probability that an employee in division *design* is a *male* with *high* income -> $P(male,medium|design)$
 8. probability that a *male* which is at least 4 years in the company has *medium* income -> $P(medium|male,\geq4)$
 
-For calculating joint probabilities and conditional probabilities the [pandas method crosstab()](https://pandas.pydata.org/docs/reference/api/pandas.crosstab.html) can be applied. **This method creates a table in which the frequencies of all value-combinations of two or more random variables can be determined.** Moreover, by applying the argument *normalize* of the `crosstab()`-method it is possible to calculate instead of the frequencies the joint probabilities or conditional probabilities of all value-combinations. This is demonstrated below: 
+For calculating joint probabilities and conditional probabilities the [pandas method crosstab()](https://pandas.pydata.org/pandas-docs/version/0.23/generated/pandas.crosstab.html) can be applied. **This method creates a table in which the frequencies of all value-combinations of two or more random variables can be determined.** Moreover, by applying the argument *normalize* of the `crosstab()`-method it is possible to calculate instead of the frequencies the joint probabilities or conditional probabilities of all value-combinations. This is demonstrated below: 
 
 First we calculate the frequencies of all value-combinations of the variables *sex* and *income*: 
 

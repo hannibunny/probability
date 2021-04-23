@@ -251,28 +251,28 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#direct-comparison-of-parameters">
-   Direct comparison of parameters
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exact-kl-divergence">
    Exact KL-divergence
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generate-a-database-from-the-original-bn">
-   Generate a database from the original BN
+  <a class="reference internal nav-link" href="#generate-a-data-from-the-original-bn">
+   Generate a data from the original BN
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-pandas-for-counting">
-   Using pandas for _counting
+  <a class="reference internal nav-link" href="#learn-cpts-of-bayesian-network-from-data">
+   Learn CPTs of Bayesian Network from Data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#now-let-s-try-to-learn-the-parameters-with-pandas">
-     Now, let’s try to learn the parameters with pandas
+    <a class="reference internal nav-link" href="#apply-pyagrum-learners">
+     Apply pyAgrum Learners
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-pandas-to-learn-cpts">
+     Apply pandas to learn CPTs
     </a>
    </li>
   </ul>
@@ -300,20 +300,23 @@
                 
   <div class="section" id="learn-cpts-of-bayesian-netork">
 <h1>Learn CPTs of Bayesian Netork<a class="headerlink" href="#learn-cpts-of-bayesian-netork" title="Permalink to this headline">¶</a></h1>
+<p>For the design of Bayesian Networks for a given problem domain, one can follow one of the following approaches:</p>
+<ol class="simple">
+<li><p>topology (nodes and arcs) and the conditional propabilities are configured by applying expert knowledge, i.e. experts determine the relevant variables, their dependencies and estimate the conditional probabilities</p></li>
+<li><p>topology is determined by experts, but the conditional probabilities of the CPTs are learned from data</p></li>
+<li><p>topology and conditional probabilities are learned from data</p></li>
+</ol>
+<p>In this section it is shown how <a class="reference external" href="https://pyagrum.readthedocs.io/en/0.16.3/index.html">pyAgrum</a> can be applied for the second option, i.e. to learn the Conditional Probability Tables (CPTs) of Bayesian Networks, whose topology is known.</p>
+<p>As demonstrated for example in <a class="reference external" href="https://github.com/AlvaroCorrales/BayesianNetworks/blob/main/Bayesian_Networks_Tutorial_covid-19.ipynb">learn Bayesian Network from covid-19 data</a> pyAgrum can also applied for option 3, where the topology and the CPTs are learned from data.</p>
+<p>In contrast to Machine Learning algorithms, <strong>Bayesian Networks provide the important capability to integrate knowledge from data with expert knowledge.</strong></p>
+<p>In order to demonstrate the learning capability we apply two Bayesian Networks. Both have the identical topology, but they are initialized with different random CPTs. Since a Bayesian Network represents a joint probability distribution (JPT), data can be generated from this network by sampling according to the networks JPT. We sample 10000 instances from one network and apply this data to learn the CPTs of the other. By comparing the distance between the JPTs before and after the second network has been trained with the data from the first network, one can verify, that the second network learns to get similar to the first network, by learning from the first networks data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
 <span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyAgrum</span> <span class="k">as</span> <span class="nn">gum</span>
+<span class="kn">import</span> <span class="nn">pyAgrum</span> <span class="k">as</span> <span class="nn">gum</span>
 <span class="kn">import</span> <span class="nn">pyAgrum.lib.notebook</span> <span class="k">as</span> <span class="nn">gnb</span>
 </pre></div>
 </div>
@@ -321,6 +324,7 @@
 </div>
 <div class="section" id="loading-two-bns">
 <h2>Loading two BNs<a class="headerlink" href="#loading-two-bns" title="Permalink to this headline">¶</a></h2>
+<p>Two identical Bayes Nets for the <em>Visit to Asia?</em>-problem (see section <a class="reference internal" href="BayesNetAsia.html"><span class="doc std std-doc">Bayesian Networks with pyAgrum</span></a> are loaded from disk.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">loadBN</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;VisitAsia.bif&quot;</span><span class="p">))</span>
@@ -335,75 +339,21 @@
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
-<!-- B -->
+<!-- L -->
 <g id="node1" class="node">
-<title>B</title>
-<g id="a_node1"><a xlink:title="(4) B">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
-</a>
-</g>
-</g>
-<!-- D -->
-<g id="node5" class="node">
-<title>D</title>
-<g id="a_node5"><a xlink:title="(6) D">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">D</text>
-</a>
-</g>
-</g>
-<!-- B&#45;&gt;D -->
-<g id="edge1" class="edge">
-<title>B-&gt;D</title>
-<g id="a_edge1"><a xlink:title="(4, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+<title>L</title>
+<g id="a_node1"><a xlink:title="(3) L">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
 </g>
 </g>
 <!-- E -->
-<g id="node2" class="node">
+<g id="node5" class="node">
 <title>E</title>
-<g id="a_node2"><a xlink:title="(5) E">
+<g id="a_node5"><a xlink:title="(5) E">
 <ellipse fill="#404040" stroke="black" cx="99" cy="-90" rx="27" ry="18"/>
 <text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">E</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;D -->
-<g id="edge5" class="edge">
-<title>E-&gt;D</title>
-<g id="a_edge5"><a xlink:title="(5, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
-</a>
-</g>
-</g>
-<!-- X -->
-<g id="node7" class="node">
-<title>X</title>
-<g id="a_node7"><a xlink:title="(7) X">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">X</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;X -->
-<g id="edge2" class="edge">
-<title>E-&gt;X</title>
-<g id="a_edge2"><a xlink:title="(5, 7) : ">
-<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
-</a>
-</g>
-</g>
-<!-- L -->
-<g id="node3" class="node">
-<title>L</title>
-<g id="a_node3"><a xlink:title="(3) L">
-<ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="82" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
 </g>
 </g>
@@ -417,18 +367,18 @@
 </g>
 </g>
 <!-- A -->
-<g id="node4" class="node">
+<g id="node2" class="node">
 <title>A</title>
-<g id="a_node4"><a xlink:title="(0) A">
+<g id="a_node2"><a xlink:title="(0) A">
 <ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
 <text text-anchor="middle" x="154" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">A</text>
 </a>
 </g>
 </g>
 <!-- T -->
-<g id="node8" class="node">
+<g id="node3" class="node">
 <title>T</title>
-<g id="a_node8"><a xlink:title="(2) T">
+<g id="a_node3"><a xlink:title="(2) T">
 <ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
 <text text-anchor="middle" x="154" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">T</text>
 </a>
@@ -443,21 +393,21 @@
 </a>
 </g>
 </g>
-<!-- S -->
-<g id="node6" class="node">
-<title>S</title>
-<g id="a_node6"><a xlink:title="(1) S">
-<ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="54" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">S</text>
+<!-- T&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>T-&gt;E</title>
+<g id="a_edge6"><a xlink:title="(2, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
 </a>
 </g>
 </g>
-<!-- S&#45;&gt;B -->
-<g id="edge3" class="edge">
-<title>S-&gt;B</title>
-<g id="a_edge3"><a xlink:title="(1, 4) : ">
-<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+<!-- S -->
+<g id="node4" class="node">
+<title>S</title>
+<g id="a_node4"><a xlink:title="(1) S">
+<ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="54" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">S</text>
 </a>
 </g>
 </g>
@@ -470,12 +420,66 @@
 </a>
 </g>
 </g>
-<!-- T&#45;&gt;E -->
-<g id="edge6" class="edge">
-<title>T-&gt;E</title>
-<g id="a_edge6"><a xlink:title="(2, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
+<!-- B -->
+<g id="node7" class="node">
+<title>B</title>
+<g id="a_node7"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</a>
+</g>
+</g>
+<!-- S&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>S-&gt;B</title>
+<g id="a_edge3"><a xlink:title="(1, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+</a>
+</g>
+</g>
+<!-- D -->
+<g id="node6" class="node">
+<title>D</title>
+<g id="a_node6"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node8" class="node">
+<title>X</title>
+<g id="a_node8"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;X -->
+<g id="edge2" class="edge">
+<title>E-&gt;X</title>
+<g id="a_edge2"><a xlink:title="(5, 7) : ">
+<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
+</a>
+</g>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>B-&gt;D</title>
+<g id="a_edge1"><a xlink:title="(4, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
 </a>
 </g>
 </g>
@@ -483,75 +487,21 @@
 </svg></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
-<!-- B -->
+<!-- L -->
 <g id="node1" class="node">
-<title>B</title>
-<g id="a_node1"><a xlink:title="(4) B">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
-</a>
-</g>
-</g>
-<!-- D -->
-<g id="node5" class="node">
-<title>D</title>
-<g id="a_node5"><a xlink:title="(6) D">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">D</text>
-</a>
-</g>
-</g>
-<!-- B&#45;&gt;D -->
-<g id="edge1" class="edge">
-<title>B-&gt;D</title>
-<g id="a_edge1"><a xlink:title="(4, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+<title>L</title>
+<g id="a_node1"><a xlink:title="(3) L">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
 </g>
 </g>
 <!-- E -->
-<g id="node2" class="node">
+<g id="node5" class="node">
 <title>E</title>
-<g id="a_node2"><a xlink:title="(5) E">
+<g id="a_node5"><a xlink:title="(5) E">
 <ellipse fill="#404040" stroke="black" cx="99" cy="-90" rx="27" ry="18"/>
 <text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">E</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;D -->
-<g id="edge5" class="edge">
-<title>E-&gt;D</title>
-<g id="a_edge5"><a xlink:title="(5, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
-</a>
-</g>
-</g>
-<!-- X -->
-<g id="node7" class="node">
-<title>X</title>
-<g id="a_node7"><a xlink:title="(7) X">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">X</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;X -->
-<g id="edge2" class="edge">
-<title>E-&gt;X</title>
-<g id="a_edge2"><a xlink:title="(5, 7) : ">
-<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
-</a>
-</g>
-</g>
-<!-- L -->
-<g id="node3" class="node">
-<title>L</title>
-<g id="a_node3"><a xlink:title="(3) L">
-<ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="82" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
 </g>
 </g>
@@ -565,18 +515,18 @@
 </g>
 </g>
 <!-- A -->
-<g id="node4" class="node">
+<g id="node2" class="node">
 <title>A</title>
-<g id="a_node4"><a xlink:title="(0) A">
+<g id="a_node2"><a xlink:title="(0) A">
 <ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
 <text text-anchor="middle" x="154" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">A</text>
 </a>
 </g>
 </g>
 <!-- T -->
-<g id="node8" class="node">
+<g id="node3" class="node">
 <title>T</title>
-<g id="a_node8"><a xlink:title="(2) T">
+<g id="a_node3"><a xlink:title="(2) T">
 <ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
 <text text-anchor="middle" x="154" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">T</text>
 </a>
@@ -591,21 +541,21 @@
 </a>
 </g>
 </g>
-<!-- S -->
-<g id="node6" class="node">
-<title>S</title>
-<g id="a_node6"><a xlink:title="(1) S">
-<ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="54" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">S</text>
+<!-- T&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>T-&gt;E</title>
+<g id="a_edge6"><a xlink:title="(2, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
 </a>
 </g>
 </g>
-<!-- S&#45;&gt;B -->
-<g id="edge3" class="edge">
-<title>S-&gt;B</title>
-<g id="a_edge3"><a xlink:title="(1, 4) : ">
-<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+<!-- S -->
+<g id="node4" class="node">
+<title>S</title>
+<g id="a_node4"><a xlink:title="(1) S">
+<ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="54" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">S</text>
 </a>
 </g>
 </g>
@@ -618,37 +568,101 @@
 </a>
 </g>
 </g>
-<!-- T&#45;&gt;E -->
-<g id="edge6" class="edge">
-<title>T-&gt;E</title>
-<g id="a_edge6"><a xlink:title="(2, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
+<!-- B -->
+<g id="node7" class="node">
+<title>B</title>
+<g id="a_node7"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</a>
+</g>
+</g>
+<!-- S&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>S-&gt;B</title>
+<g id="a_edge3"><a xlink:title="(1, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+</a>
+</g>
+</g>
+<!-- D -->
+<g id="node6" class="node">
+<title>D</title>
+<g id="a_node6"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node8" class="node">
+<title>X</title>
+<g id="a_node8"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;X -->
+<g id="edge2" class="edge">
+<title>E-&gt;X</title>
+<g id="a_edge2"><a xlink:title="(5, 7) : ">
+<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
+</a>
+</g>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>B-&gt;D</title>
+<g id="a_edge1"><a xlink:title="(4, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
 </a>
 </g>
 </g>
 </g>
 </svg></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>First bn</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>Second bn</small></div></td></tr></table></div></div>
 </div>
+<p>As shown below, both BNs have the same CPTs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">sideBySide</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">),</span><span class="n">bn2</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">),</span>
+               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CPT Dyspnoae bn&#39;</span><span class="p">,</span><span class="s1">&#39;CPT Dyspnoae bn2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table style="border:1px solid black;">
+<div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#e59864;text-align:right;'>0.2000</td><td style='color:black;background-color:#98e564;text-align:right;'>0.8000</td></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#d8a564;text-align:right;'>0.3000</td><td style='color:black;background-color:#a5d864;text-align:right;'>0.7000</td></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td></tr>
-</table></div></div>
+</table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#e59864;text-align:right;'>0.2000</td><td style='color:black;background-color:#98e564;text-align:right;'>0.8000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#d8a564;text-align:right;'>0.3000</td><td style='color:black;background-color:#a5d864;text-align:right;'>0.7000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td></tr>
+</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Dyspnoae bn</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Dyspnoae bn2</small></div></td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="randomizing-the-parameters">
 <h2>Randomizing the parameters<a class="headerlink" href="#randomizing-the-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Next, for both BNs the values of the CPTs are randomized</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">generateCPTs</span><span class="p">()</span>
@@ -657,16 +671,35 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="direct-comparison-of-parameters">
-<h2>Direct comparison of parameters<a class="headerlink" href="#direct-comparison-of-parameters" title="Permalink to this headline">¶</a></h2>
+<p>As can be seen below, the CPTs of both BNs now have new and different values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-
-<span class="n">gnb</span><span class="o">.</span><span class="n">sideBySide</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-               <span class="n">bn2</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;h3&gt;cpt of node 3 in first bn&lt;/h3&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;h3&gt;same cpt in second bn&lt;/h3&gt;&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">sideBySide</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">),</span><span class="n">bn2</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">),</span>
+               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CPT Dyspnoae bn&#39;</span><span class="p">,</span><span class="s1">&#39;CPT Dyspnoae bn2&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#f18c64;text-align:right;'>0.1063</td><td style='color:black;background-color:#8cf164;text-align:right;'>0.8937</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#b6c764;text-align:right;'>0.5666</td><td style='color:black;background-color:#c7b664;text-align:right;'>0.4334</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#acd164;text-align:right;'>0.6457</td><td style='color:black;background-color:#d1ac64;text-align:right;'>0.3543</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#fe7f64;text-align:right;'>0.0071</td><td style='color:black;background-color:#7ffe64;text-align:right;'>0.9929</td></tr>
+</table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#a2db64;text-align:right;'>0.7248</td><td style='color:black;background-color:#dba264;text-align:right;'>0.2752</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#c7b664;text-align:right;'>0.4320</td><td style='color:black;background-color:#b6c764;text-align:right;'>0.5680</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#c2bb64;text-align:right;'>0.4695</td><td style='color:black;background-color:#bbc264;text-align:right;'>0.5305</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#fb8264;text-align:right;'>0.0249</td><td style='color:black;background-color:#82fb64;text-align:right;'>0.9751</td></tr>
+</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Dyspnoae bn</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Dyspnoae bn2</small></div></td></tr></table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">sideBySide</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">),</span><span class="n">bn2</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">),</span>
+               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CPT Lung Cancer bn&#39;</span><span class="p">,</span><span class="s1">&#39;CPT Lung Cancer bn2&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -674,19 +707,19 @@
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bdc064;text-align:right;'>0.5154</td><td style='color:black;background-color:#c0bd64;text-align:right;'>0.4846</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#b8c564;text-align:right;'>0.5507</td><td style='color:black;background-color:#c5b864;text-align:right;'>0.4493</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bcc164;text-align:right;'>0.5194</td><td style='color:black;background-color:#c1bc64;text-align:right;'>0.4806</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#93ea64;text-align:right;'>0.8361</td><td style='color:black;background-color:#ea9364;text-align:right;'>0.1639</td></tr>
 </table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#c6b764;text-align:right;'>0.4443</td><td style='color:black;background-color:#b7c664;text-align:right;'>0.5557</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#bbc264;text-align:right;'>0.5293</td><td style='color:black;background-color:#c2bb64;text-align:right;'>0.4707</td></tr>
-</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small><h3>cpt of node 3 in first bn</h3></small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small><h3>same cpt in second bn</h3></small></div></td></tr></table></div></div>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#e59864;text-align:right;'>0.1989</td><td style='color:black;background-color:#98e564;text-align:right;'>0.8011</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#f18c64;text-align:right;'>0.1018</td><td style='color:black;background-color:#8cf164;text-align:right;'>0.8982</td></tr>
+</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Lung Cancer bn</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Lung Cancer bn2</small></div></td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="exact-kl-divergence">
 <h2>Exact KL-divergence<a class="headerlink" href="#exact-kl-divergence" title="Permalink to this headline">¶</a></h2>
-<p>Since the BN is not too big, BruteForceKL can be computed …</p>
+<p>A Bayesian Network represents a joint probability distribution (JPT). For measuring the  similarity of two probability distributions, different metrics exist. Here, we apply the <a class="reference external" href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback-Leibler (KL) Divergence</a>. The lower the KL-divergence, the higher the similarity of the two distributions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g1</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">ExactBNdistance</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">bn2</span><span class="p">)</span>
@@ -696,7 +729,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1507546203131174
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.8997093287973037
 </pre></div>
 </div>
 </div>
@@ -715,9 +748,29 @@
 </div>
 </div>
 </div>
+<p>As shown below, the <code class="docutils literal notranslate"><span class="pre">compute()</span></code>-method of class <code class="docutils literal notranslate"><span class="pre">ExactBNdistance()</span></code>, does not only provide the Kullback-Leibler Divergence, but also other distance measures. However, here we just apply KL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">before_learning</span>
+</pre></div>
 </div>
-<div class="section" id="generate-a-database-from-the-original-bn">
-<h2>Generate a database from the original BN<a class="headerlink" href="#generate-a-database-from-the-original-bn" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;klPQ&#39;: 3.8997093287973037,
+ &#39;errorPQ&#39;: 0,
+ &#39;klQP&#39;: 3.998023350227729,
+ &#39;errorQP&#39;: 0,
+ &#39;hellinger&#39;: 1.0224638569378504,
+ &#39;bhattacharya&#39;: 0.7396439322927275,
+ &#39;jensen-shannon&#39;: 0.6288012627037836}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generate-a-data-from-the-original-bn">
+<h2>Generate a data from the original BN<a class="headerlink" href="#generate-a-data-from-the-original-bn" title="Permalink to this headline">¶</a></h2>
+<p>By applying the methode <code class="docutils literal notranslate"><span class="pre">generateCSV()</span></code> one can sample data from a Bayesian Network. In the code-cell below 10000 samples, each describing the values of the 8 random variables for one fictional patient, are generated and saved in <code class="docutils literal notranslate"><span class="pre">out/test.csv</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gum</span><span class="o">.</span><span class="n">generateCSV</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;test.csv&quot;</span><span class="p">),</span><span class="mi">10000</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
@@ -725,42 +778,62 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-69612.60067622665
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-64330.74200746451
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="using-pandas-for-counting">
-<h2>Using pandas for _counting<a class="headerlink" href="#using-pandas-for-counting" title="Permalink to this headline">¶</a></h2>
-<p>As an exercise, we will use pandas to learn the parameters. However <strong><font color="red">the simplest way to learn parameters is to use <code class="docutils literal notranslate"><span class="pre">BNLearner</span></code> :-)</font></strong>. Moreover, you will be able to add priors, etc.</p>
+<div class="section" id="learn-cpts-of-bayesian-network-from-data">
+<h2>Learn CPTs of Bayesian Network from Data<a class="headerlink" href="#learn-cpts-of-bayesian-network-from-data" title="Permalink to this headline">¶</a></h2>
+<p>Next, we will apply the data, as sampled from Bayesian Network <code class="docutils literal notranslate"><span class="pre">bn</span></code> above, to learn the CPTs of another Bayesian Network <code class="docutils literal notranslate"><span class="pre">bnx</span></code> with the same topology as <code class="docutils literal notranslate"><span class="pre">bn</span></code>. We expect, that after a successfull learning process, the KL-Divergence between <code class="docutils literal notranslate"><span class="pre">bn</span></code> and <code class="docutils literal notranslate"><span class="pre">bn2</span></code> is low, i.e. both nets are similar.</p>
+<p>There exist different options to learn the CPTs of a Bayesian Network. Below, we implement the following 3 options:</p>
+<ol class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">BNLearner()</span></code>-class from pyAgrum</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">BNLearner()</span></code>-class from pyAgrum with Laplace Smoothing</p></li>
+<li><p>the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.23/generated/pandas.crosstab.html">pandas crosstab() method</a> for calculating CPTs</p></li>
+</ol>
+<div class="section" id="apply-pyagrum-learners">
+<h3>Apply pyAgrum Learners<a class="headerlink" href="#apply-pyagrum-learners" title="Permalink to this headline">¶</a></h3>
+<p><strong>BNLearner() without smoothing:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using bn as a template for the specification of variables in test.csv</span>
-<span class="n">learner</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">BNLearner</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;test.csv&quot;</span><span class="p">),</span><span class="n">bn</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">learner</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">BNLearner</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;test.csv&quot;</span><span class="p">),</span><span class="n">bn</span><span class="p">)</span> 
 <span class="n">bn3</span><span class="o">=</span><span class="n">learner</span><span class="o">.</span><span class="n">learnParameters</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
-
-<span class="c1">#the same but we add a Laplace adjustment as a Prior</span>
-<span class="n">learner</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">BNLearner</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;test.csv&quot;</span><span class="p">),</span><span class="n">bn</span><span class="p">)</span> 
-<span class="n">learner</span><span class="o">.</span><span class="n">useAprioriSmoothing</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># a count C is replaced by C+1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>BNLearner() without Laplace Smoothing:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">learner</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">BNLearner</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;test.csv&quot;</span><span class="p">),</span><span class="n">bn</span><span class="p">)</span> 
+<span class="n">learner</span><span class="o">.</span><span class="n">useAprioriSmoothing</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># a count C is replaced by C+100</span>
 <span class="n">bn4</span><span class="o">=</span><span class="n">learner</span><span class="o">.</span><span class="n">learnParameters</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>
-
-<span class="n">after_pyAgrum_learning</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">ExactBNdistance</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">bn3</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown below, both approaches learn Bayesian Networks, which have a small KL-divergence to the Bayesian Network, from which training data has been sampled:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">after_pyAgrum_learning</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">ExactBNdistance</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">bn3</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 <span class="n">after_pyAgrum_learning_with_laplace</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">ExactBNdistance</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">bn4</span><span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;without priori :</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">after_pyAgrum_learning</span><span class="p">[</span><span class="s1">&#39;klPQ&#39;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;with prior smooting(1000):</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">after_pyAgrum_learning_with_laplace</span><span class="p">[</span><span class="s1">&#39;klPQ&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KL-Divergence for option without smoothing :</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">after_pyAgrum_learning</span><span class="p">[</span><span class="s1">&#39;klPQ&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KL-Divergence for option with smooting(100):</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">after_pyAgrum_learning_with_laplace</span><span class="p">[</span><span class="s1">&#39;klPQ&#39;</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>without priori :0.002022052419198859
-with prior smooting(1000):0.1361356677351893
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL-Divergence for option without smoothing :0.0008320831554976575
+KL-Divergence for option with smooting(100):0.013701987248860887
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="now-let-s-try-to-learn-the-parameters-with-pandas">
-<h3>Now, let’s try to learn the parameters with pandas<a class="headerlink" href="#now-let-s-try-to-learn-the-parameters-with-pandas" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="apply-pandas-to-learn-cpts">
+<h3>Apply pandas to learn CPTs<a class="headerlink" href="#apply-pandas-to-learn-cpts" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
@@ -788,81 +861,81 @@ with prior smooting(1000):0.1361356677351893
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>T</th>
-      <th>A</th>
       <th>S</th>
+      <th>E</th>
+      <th>T</th>
       <th>L</th>
+      <th>B</th>
+      <th>A</th>
       <th>X</th>
       <th>D</th>
-      <th>B</th>
-      <th>E</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
       <td>1</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>We use the crosstab function in pandas</p>
+<p>We use the crosstab function in pandas, to determine conditional counts:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">],[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]])</span>
-<span class="n">c</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_counts</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">],[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]])</span>
+<span class="n">d_counts</span>
 </pre></div>
 </div>
 </div>
@@ -888,7 +961,7 @@ with prior smooting(1000):0.1361356677351893
 <table border="1" class="dataframe">
   <thead>
     <tr>
-      <th>T</th>
+      <th>E</th>
       <th colspan="2" halign="left">0</th>
       <th colspan="2" halign="left">1</th>
     </tr>
@@ -910,44 +983,89 @@ with prior smooting(1000):0.1361356677351893
   <tbody>
     <tr>
       <th>0</th>
-      <td>750</td>
-      <td>716</td>
-      <td>1843</td>
-      <td>2190</td>
+      <td>277</td>
+      <td>1108</td>
+      <td>2083</td>
+      <td>17</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>724</td>
-      <td>451</td>
-      <td>2124</td>
-      <td>1202</td>
+      <td>2444</td>
+      <td>814</td>
+      <td>1125</td>
+      <td>2132</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Playing with numpy reshaping, we retrieve the good form for the CPT from the pandas cross-table</p>
+<p>The same function can be applied, to determine conditional probabilities:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">sideBySide</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">c</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;&lt;/pre&gt;&#39;</span><span class="p">,</span>
-               <span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">idFromName</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)),</span>
-               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;&lt;h3&gt;Learned parameters in crosstab&quot;</span><span class="p">,</span><span class="s2">&quot;&lt;h3&gt;Original parameters in bn&lt;/h3&gt;&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_condprob</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;D&#39;</span><span class="p">],[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+<span class="n">d_condprob</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><pre>[[[0.50881954 0.49118046]
-  [0.61353899 0.38646101]]
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
- [[0.46458281 0.53541719]
-  [0.64563679 0.35436321]]]</pre></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
-<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#c3ba64;text-align:right;'>0.4666</td><td style='color:black;background-color:#bac364;text-align:right;'>0.5334</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#a7d664;text-align:right;'>0.6821</td><td style='color:black;background-color:#d6a764;text-align:right;'>0.3179</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bfbe64;text-align:right;'>0.4931</td><td style='color:black;background-color:#bebf64;text-align:right;'>0.5069</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#b1cc64;text-align:right;'>0.6070</td><td style='color:black;background-color:#ccb164;text-align:right;'>0.3930</td></tr>
-</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small><h3>Learned parameters in crosstab</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small><h3>Original parameters in bn</h3></small></div></td></tr></table></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>E</th>
+      <th colspan="2" halign="left">0</th>
+      <th colspan="2" halign="left">1</th>
+    </tr>
+    <tr>
+      <th>B</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+    <tr>
+      <th>D</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.101801</td>
+      <td>0.576483</td>
+      <td>0.649314</td>
+      <td>0.007911</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.898199</td>
+      <td>0.423517</td>
+      <td>0.350686</td>
+      <td>0.992089</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -967,8 +1085,8 @@ with prior smooting(1000):0.1361356677351893
     <span class="n">parents</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
-        <span class="n">c</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">],[</span><span class="n">df</span><span class="p">[</span><span class="n">parent</span><span class="p">]</span> <span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">])</span>
-        <span class="n">s</span><span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="n">c</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">],[</span><span class="n">df</span><span class="p">[</span><span class="n">parent</span><span class="p">]</span> <span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+        <span class="c1">#s=c/c.sum().apply(np.float32)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">s</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         
@@ -1005,9 +1123,9 @@ with prior smooting(1000):0.1361356677351893
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BEFORE LEARNING
-2.1507546203131174
+3.8997093287973037
 AFTER LEARNING
-0.016727399217190093
+0.0008320831554976575
 </pre></div>
 </div>
 </div>
@@ -1017,7 +1135,7 @@ AFTER LEARNING
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">sideBySide</span><span class="p">(</span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
                <span class="n">bn2</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
-               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;&lt;h3&gt;Original BN&quot;</span><span class="p">,</span><span class="s2">&quot;&lt;h3&gt;learned BN&lt;/h3&gt;&quot;</span><span class="p">])</span>
+               <span class="n">captions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Original BN&quot;</span><span class="p">,</span><span class="s2">&quot;learned BN&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1025,14 +1143,14 @@ AFTER LEARNING
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bdc064;text-align:right;'>0.5154</td><td style='color:black;background-color:#c0bd64;text-align:right;'>0.4846</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#b8c564;text-align:right;'>0.5507</td><td style='color:black;background-color:#c5b864;text-align:right;'>0.4493</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bcc164;text-align:right;'>0.5194</td><td style='color:black;background-color:#c1bc64;text-align:right;'>0.4806</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#93ea64;text-align:right;'>0.8361</td><td style='color:black;background-color:#ea9364;text-align:right;'>0.1639</td></tr>
 </table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bebf64;text-align:right;'>0.5057</td><td style='color:black;background-color:#bfbe64;text-align:right;'>0.4943</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#b6c764;text-align:right;'>0.5650</td><td style='color:black;background-color:#c7b664;text-align:right;'>0.4350</td></tr>
-</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small><h3>Original BN</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small><h3>learned BN</h3></small></div></td></tr></table></div></div>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bcc164;text-align:right;'>0.5189</td><td style='color:black;background-color:#c1bc64;text-align:right;'>0.4811</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#94e964;text-align:right;'>0.8316</td><td style='color:black;background-color:#e99464;text-align:right;'>0.1684</td></tr>
+</table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>Original BN</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>learned BN</small></div></td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters">
@@ -1045,17 +1163,19 @@ AFTER LEARNING
     <span class="n">ParametersLearning</span><span class="p">(</span><span class="n">bn2</span><span class="p">,</span><span class="n">df</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span>
     <span class="n">g1</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">ExactBNdistance</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">bn2</span><span class="p">)</span>
     <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g1</span><span class="o">.</span><span class="n">compute</span><span class="p">()[</span><span class="s1">&#39;klPQ&#39;</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">=</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">10001</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">res</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;size of the database&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;KL&quot;</span><span class="p">)</span>
-<span class="n">t</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;klPQ(bn,learnedBN(x))&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">10001</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">res</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;size of the database&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;KL&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;klPQ(bn,learnedBN(x))&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/BayesNetLearningWithPandas_34_0.svg" src="_images/BayesNetLearningWithPandas_34_0.svg" /></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;klPQ(bn,learnedBN(x))&#39;)
+</pre></div>
+</div>
+<img alt="_images/BayesNetLearningWithPandas_42_1.svg" src="_images/BayesNetLearningWithPandas_42_1.svg" /></div>
 </div>
 </div>
 </div>
