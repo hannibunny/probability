@@ -283,6 +283,14 @@ P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 \label{eq:bayesU} \tag{5}
 \end{equation}
 
+Visually, the Bayes Theorem can be explained as shown below:
+
+<figure align="center">
+<img src="https://maucher.home.hdm-stuttgart.de/Pics/probVisual.png" style="width:600px" align="center">
+<figcaption>
+    Visualisation of Bayes Theorem, Joint- and Conditional Probabilities.
+</figcaption>
+
 ## Multiple Continuous Random Variables
 
 Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the **marginalisation rule** (equation $\eqref{eq:marg}$) the sum over discrete joint probabilities must be replaced by the integral of the **joint probability function** $p_{X,Y}(x,y)$ in order to calculate the **marginal probability density function** $p_X(x)$ as follows:
