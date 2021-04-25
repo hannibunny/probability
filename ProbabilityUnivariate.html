@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discrete and Continuous Random Variables &#8212; Modelling of Uncertainty</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multiple Random Variables" href="ProbabilityMultivariate.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modelling of Uncertainty</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability Theory
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Discrete and Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityMultivariate.html">
+   Multiple Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimateProbability.html">
+   Estimating Probabilities
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises and Applications
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exampleProbEst.html">
+   Estimation of Probabilities from Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parametricClassification1D.html">
+   Bayes- and Naive Bayes Classifier
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Thrombosis.html">
+   Correlation is not Causality
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bayesian Networks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="BayesNetAsia.html">
+   Bayesian Networks with pyAgrum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="BayesNetLearningWithPandas.html">
+   Learn CPTs of Bayesian Netork
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ProbabilityUnivariate.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ProbabilityUnivariate.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-mass-function-and-cumulative-distribution-function-of-discrete-random-variables">
+   Probability Mass Function and Cumulative Distribution Function of Discrete Random Variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete-uniform-distribution">
+     Discrete Uniform Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bernoulli-distribution">
+     Bernoulli Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binomial-distribution">
+     Binomial Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometric-distribution">
+     Geometric Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete-variables-with-infinite-value-range">
+     Discrete Variables with infinite value range
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-density-function-and-cumulative-distribution-function-of-continuous-random-variables">
+   Probability Density Function and Cumulative Distribution Function of Continuous Random Variables
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-distributed-random-variable">
+     Gaussian Distributed Random Variable
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="discrete-and-continuous-random-variables">
+<h1>Discrete and Continuous Random Variables<a class="headerlink" href="#discrete-and-continuous-random-variables" title="Permalink to this headline">¶</a></h1>
+<p>A random variable <span class="math notranslate nohighlight">\(X\)</span> is a variable that can take multiple values <span class="math notranslate nohighlight">\(X=x_i\)</span> depending on the outcome of a random event. We denote the set of possible values, that can be taken by the variable, by <span class="math notranslate nohighlight">\(V(X)\)</span>.</p>
+<p>If the outcomes are finite (for example the 6 possibilities in a die throwing event) the random variable is said to be <strong>discrete</strong>. If the possible outcomes are not finite, for example, drawing a real number <span class="math notranslate nohighlight">\(x \in \left[0,1\right] \subset \mathbb{R}\)</span>, the random variable is said to be <strong>continuous</strong>.</p>
+<p>The probability that the random variable <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x\)</span> is dentoted by <span class="math notranslate nohighlight">\(P(X=x)\)</span> or for short <span class="math notranslate nohighlight">\(P(x)\)</span>. The description of the probabilities <span class="math notranslate nohighlight">\(P(x)\)</span> for all possible <span class="math notranslate nohighlight">\(x \in V(X)\)</span> is called the <strong>probability distribution</strong> of variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<div class="section" id="probability-mass-function-and-cumulative-distribution-function-of-discrete-random-variables">
+<h2>Probability Mass Function and Cumulative Distribution Function of Discrete Random Variables<a class="headerlink" href="#probability-mass-function-and-cumulative-distribution-function-of-discrete-random-variables" title="Permalink to this headline">¶</a></h2>
+<p>In the case of discrete random variables <span class="math notranslate nohighlight">\(X\)</span>, the probability distribution is called <strong>probability mass function (pdf) <span class="math notranslate nohighlight">\(p_X(x)\)</span></strong>, it assigns to all <span class="math notranslate nohighlight">\(x \in V(X)\)</span> the corresponding probability <span class="math notranslate nohighlight">\(P(x)\)</span>. For all probabilities the following conditions must be satisfied:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum\limits_{x \in V(X)} p_X(x) = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P(X=x)&gt; 0 \quad \forall x \in V(X) 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P(X=x)=0 \quad \forall x \notin V(X) 
+\]</div>
+<p>The <strong>cumulative distribution function (cdf) <span class="math notranslate nohighlight">\(F_X(x)\)</span></strong> of a real-valued random variable <span class="math notranslate nohighlight">\(X\)</span> is the probability that <span class="math notranslate nohighlight">\(X\)</span> will take a value less than or equal to <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+F_X(x) = P(X \leq x)
+\]</div>
+<p>Hence, the probability that X takes a value larger than <span class="math notranslate nohighlight">\(x=a\)</span> and smaller or equal than <span class="math notranslate nohighlight">\(x=b\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+P(a &lt;x \leq b) = F_X(b) - F_X(a)
+\]</div>
+<p>Every CDF is non-decreasing and has a maximum value of 1.</p>
+<div class="section" id="discrete-uniform-distribution">
+<h3>Discrete Uniform Distribution<a class="headerlink" href="#discrete-uniform-distribution" title="Permalink to this headline">¶</a></h3>
+<p>For the experiment “rolling a dice” the possible outcomes are 1,2,3,4,5 and 6. The corresponding discrete random variable <span class="math notranslate nohighlight">\(X\)</span>, has the probability mass function <span class="math notranslate nohighlight">\(p_X(x)\)</span>, which is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X=1) = P(X=2) = P(X=3) =P(X=4) = P(X=5) = P(X=6)= \frac{1}{6}
+\]</div>
+<p>Such a distribution, for which <span class="math notranslate nohighlight">\(P(x)\)</span> is equal for all <span class="math notranslate nohighlight">\(x \in V(X)\)</span> is called a <strong>uniform distribution</strong>. The visualisation of the pdf and the cdf of a uniform distributed discrete variable is plotted below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">comb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),[</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$PMF(x)$&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Probability Mass Function of Dice Rolling Experiment&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">),[</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$CDF(x)$&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cumulative Distribution Function of Dice Rolling Experiment&quot;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_5_0.png" src="_images/ProbabilityUnivariate_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bernoulli-distribution">
+<h3>Bernoulli Distribution<a class="headerlink" href="#bernoulli-distribution" title="Permalink to this headline">¶</a></h3>
+<p>A discrete binary random variable <span class="math notranslate nohighlight">\(X\)</span> has only two possible outcomes: <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>, i.e. in this case <span class="math notranslate nohighlight">\(V(X) = \lbrace 0,1 \rbrace\)</span>. The corresponding probability mass function is the <strong>Bernoulli distribution</strong>, which is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p_X(x) = \left\{ 
+\begin{array}{ll}
+p &amp; \mbox{ for } x=1 \\
+1-p &amp; \mbox{ for } x=0
+\end{array}
+\right.
+\end{split}\]</div>
+<p>For example, if the probability <span class="math notranslate nohighlight">\(P(X=1)=p=0.7\)</span>, the pdf visualisation of the Bernoulli distribution is as plotted below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$X$&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$P(X)$&quot;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bernoulli Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_8_0.png" src="_images/ProbabilityUnivariate_8_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="binomial-distribution">
+<h3>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">¶</a></h3>
+<p>Another important distribution of a discrete random variable is the <strong>Binomial Distribution</strong>. This distribution models the number <span class="math notranslate nohighlight">\(k\)</span> of successes when someone draws <span class="math notranslate nohighlight">\(n\)</span> times with replacement. Each draw or experiment is independent, with two possible outcomes 0 or 1, where <span class="math notranslate nohighlight">\(p\)</span> is the probability that the outcome is 1 (=success). The associated probability mass function is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{c}
+n \\ 
+k
+\end{array}
+\right) 
+p^k (1-p)^{n-k}
+\end{split}\]</div>
+<p>For example in a coin-tossing experiment the probability of success is <span class="math notranslate nohighlight">\(P(X=1)=p=0.5\)</span>. If we toss the coin <span class="math notranslate nohighlight">\(n=5\)</span> times the probability, that exactly <span class="math notranslate nohighlight">\(k=4\)</span> tosses yield success is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{c}
+5 \\ 
+4
+\end{array}
+\right) 
+0.5^4 (1-0.5)^{5-4}
+= 0.15625 
+\end{split}\]</div>
+<p>The pdf and cdf of binomial distributed variables of different success probabilities <span class="math notranslate nohighlight">\(p\)</span> are plotted below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">30</span>
+<span class="n">p_list</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.7</span><span class="p">]</span>
+<span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p_list</span><span class="p">,</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">**</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;o&quot;</span><span class="o">+</span><span class="n">c</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;p=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;k successes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Prob. for k successes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PMF of Binomial Distribution, $n=30$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p_list</span><span class="p">,</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">**</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;o&quot;</span><span class="o">+</span><span class="n">c</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;p=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;k successes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Prob. for k successes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;CDF of Binomial Distribution, $n=30$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_11_0.png" src="_images/ProbabilityUnivariate_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="geometric-distribution">
+<h3>Geometric Distribution<a class="headerlink" href="#geometric-distribution" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Geometric Distribution</strong> describes the number <span class="math notranslate nohighlight">\(k\)</span> of trials needed to get one success. Each draw or experiment is independent, with two possible outcomes 0 or 1, where <span class="math notranslate nohighlight">\(p\)</span> is the probability that the outcome is 1 (=success). The associated probability mass function is defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+(1-p)^{(k-1)} \cdot p
+\]</div>
+<p>For example for the coin-tossing experiment, the probability that the first success comes</p>
+<ul class="simple">
+<li><p>at the first toss (k=1) is $<span class="math notranslate nohighlight">\(0.5^0 \cdot 0.5 =0.5\)</span>$</p></li>
+<li><p>at the second toss(k=2) is $<span class="math notranslate nohighlight">\(0.5^1 \cdot 0.5 =0.25\)</span>$</p></li>
+<li><p>at the third toss(k=3) is $<span class="math notranslate nohighlight">\(0.5^2 \cdot 0.5 =0.125\)</span>$</p></li>
+<li><p>…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">30</span>
+<span class="n">p_list</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.7</span><span class="p">]</span>
+<span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;o&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p_list</span><span class="p">,</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">**</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;o&quot;</span><span class="o">+</span><span class="n">c</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;p=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;k successes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Prob. for k successes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Binomial Distribution for different success probabilities and $n=30$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_13_0.png" src="_images/ProbabilityUnivariate_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">p_list</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.7</span><span class="p">]</span>
+<span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p_list</span><span class="p">,</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">p</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="n">y</span><span class="p">,</span><span class="s2">&quot;o&quot;</span><span class="o">+</span><span class="n">c</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;p=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;k draws&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Prob. for first successes after k draws&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Geometric Distribution for different success probabilities&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_14_0.png" src="_images/ProbabilityUnivariate_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="discrete-variables-with-infinite-value-range">
+<h3>Discrete Variables with infinite value range<a class="headerlink" href="#discrete-variables-with-infinite-value-range" title="Permalink to this headline">¶</a></h3>
+<p>For the discrete random variables <span class="math notranslate nohighlight">\(X\)</span> considered above, the value range <span class="math notranslate nohighlight">\(V(X)\)</span> has always been finite. However, it is also possible to habe an infinite value range for discrete variables. For example an experiment, for which the probability mass function is</p>
+<div class="math notranslate nohighlight">
+\[
+P(X=i)=\frac{1}{2^i}, \, \mbox{ for } i \in 1,2,3,4,\ldots
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">i</span><span class="p">,[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">i</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Discrete Probability Distribution with infinite Value Range&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_16_0.png" src="_images/ProbabilityUnivariate_16_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="probability-density-function-and-cumulative-distribution-function-of-continuous-random-variables">
+<h2>Probability Density Function and Cumulative Distribution Function of Continuous Random Variables<a class="headerlink" href="#probability-density-function-and-cumulative-distribution-function-of-continuous-random-variables" title="Permalink to this headline">¶</a></h2>
+<p>For <strong>continuous</strong> random variables the <strong>probability density function (PDF)</strong> <span class="math notranslate nohighlight">\(p_X(x)\)</span> describes the distribution of the random variable <span class="math notranslate nohighlight">\(X\)</span> similar as the Probability Mass Function describes the distribution of a discrete random variable.</p>
+<p>The PDF is a function whose value at any given sample (or point) in the sample space can be interpreted as providing a <strong>relative likelihood</strong> that the value of the random variable would equal that sample. In other words, while the absolute likelihood for a continuous random variable to take on any particular value is 0 (since there is an infinite set of possible values to begin with), the value of the PDF at two different samples can be used to infer, in any particular draw of the random variable, how much more likely it is that the random variable would equal one sample compared to the other sample.</p>
+<p>In a more precise sense, the PDF is used to specify the probability of the random variable falling within a particular range of values, as opposed to taking on any one value. This probability is given by the integral of this variable’s PDF over that range—that is, it is given by the area under the density function but above the horizontal axis and between the lowest and greatest values of the range. The probability density function is nonnegative everywhere, and its integral over the entire space is equal to 1. But in contrast to the PMF, the value of the PDF can be larger than 1:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{-\infty}^{\infty} p_X(x) \cdot dx = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+p_X(x) &gt; 0 \quad \forall x \in \left] -\infty, +\infty \right[ 
+\]</div>
+<p><strong>Cumulative Distribution Function:</strong> As already mentioned above, the values on the y-axis of the PDF do not represent absolute probabilities for the corresponding values on the x-axis. However, the <strong>area under the PDF-curve</strong> between a pair of values <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=b\)</span>, with <span class="math notranslate nohighlight">\(a&lt;b\)</span>, represents the probability <strong><span class="math notranslate nohighlight">\(P(a&lt; x \leq b)\)</span></strong>.</p>
+<p>As in the case of discrete random variables, the <strong>cumulative distribution function (cdf) <span class="math notranslate nohighlight">\(F_X(x)\)</span></strong> of a real-valued random variable <span class="math notranslate nohighlight">\(X\)</span> measures the probability that <span class="math notranslate nohighlight">\(X\)</span> will take a value less than or equal to <span class="math notranslate nohighlight">\(x\)</span>. In the case of continuous variables this probability is the area under the PDF-curve in the range <span class="math notranslate nohighlight">\(\left] -\infty, +\infty \right[\)</span>. Hence, the CDF is the integral over the PDF in this range:</p>
+<div class="math notranslate nohighlight">
+\[
+F_X(x)= \int_{-\infty}^{x} p_X(t) \cdot dt
+\]</div>
+<p>Hence, the probability that the continuous random variable <span class="math notranslate nohighlight">\(X\)</span> takes a value in the range between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+P(a&lt; x \leq b) = F_X(b)-F_X(a)=\int_{a}^{b} p_X(t) \cdot dt.
+\]</div>
+<div class="section" id="gaussian-distributed-random-variable">
+<h3>Gaussian Distributed Random Variable<a class="headerlink" href="#gaussian-distributed-random-variable" title="Permalink to this headline">¶</a></h3>
+<p>The PDF of a <strong>Gaussian distribed random variable <span class="math notranslate nohighlight">\(X\)</span></strong> is:</p>
+<div class="math notranslate nohighlight">
+\[p_X(x)=\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}, 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation. This distribution is plotted below for two different standard deviations. As can be seen on the right hand side of the plot the value of the PDF can be <span class="math notranslate nohighlight">\(&gt;0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">s</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># Define the x-values at which the probability distribution shall be plotted</span>
+<span class="n">prob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="s2">&quot;Mean: </span><span class="si">%2.2f</span><span class="s2">  </span><span class="se">\n</span><span class="s2">Standard Deviation </span><span class="si">%2.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PDF of Gaussian distributed Variable $\sigma =1.0$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">s</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="n">prob</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">prob</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="s2">&quot;Mean: </span><span class="si">%2.2f</span><span class="s2">  </span><span class="se">\n</span><span class="s2">Standard Deviation </span><span class="si">%2.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PDF of Gaussian distributed Variable $\sigma =0.3$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_20_0.png" src="_images/ProbabilityUnivariate_20_0.png" />
+</div>
+</div>
+<p>The <strong>CDF of a Gaussian</strong> distributed random variable is:</p>
+<div class="math notranslate nohighlight">
+\[
+F_X(x)= \int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(t-\mu)^2}{2\sigma^2}} \cdot dt = \frac{1}{2} \left(  1+ erf \left( \frac{x-\mu}{\sigma \sqrt{2}}\right)  \right),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(erf(x)\)</span> denotes the <em>error function</em>, which is defined by</p>
+<div class="math notranslate nohighlight">
+\[
+erf(x) =\frac{2}{\sqrt{\pi}} \int_{-\infty}^{x} e^{- t^2} \cdot dt.
+\]</div>
+<p><strong>Example:</strong> For a Gaussian distributed random variable <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(\mu=3, \sigma =1\)</span>, we like to determine the probability <span class="math notranslate nohighlight">\(P(2&lt;x\leq5)\)</span>.</p>
+<p>For this we can apply the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy stats module</a>. This module provides pdfs and cdfs for a large bunch of different distributions. Here, we just require the Gaussian normal distribution, which can be imported as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">norm</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We calculate $<span class="math notranslate nohighlight">\(cdf(2)=0.159\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(cdf(5)=0.997.\)</span>$ The answer is then:</p>
+<div class="math notranslate nohighlight">
+\[P(2&lt;x\leq5)=0.997-0.159 = 0.819\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">s</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">u</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">v</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">px2</span><span class="o">=</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability that value is below </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{:2.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">px2</span><span class="p">))</span>
+<span class="n">px5</span><span class="o">=</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability that value is below </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{:2.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">px5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probability that value is between </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{:2.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">px5</span><span class="o">-</span><span class="n">px2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability that value is below 2 is 0.159
+Probability that value is below 5 is 0.977
+Probability that value is between 5 and 2 is 0.819
+</pre></div>
+</div>
+</div>
+</div>
+<p>This calculation is visualized below. The size of the red area under the pdf-curve is <span class="math notranslate nohighlight">\(P(2&lt;x\leq5) = 0.819\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">s</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">where</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="s2">&quot;Mean: </span><span class="si">%2.2f</span><span class="s2">  </span><span class="se">\n</span><span class="s2">Standard Deviation </span><span class="si">%2.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PDF of Gaussian Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;pdf(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="s2">&quot;Mean: </span><span class="si">%2.2f</span><span class="s2">  </span><span class="se">\n</span><span class="s2">Standard Deviation </span><span class="si">%2.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;CDF of Gaussian Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;cdf(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">px2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">px5</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">px2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">px5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+           
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ProbabilityUnivariate_27_0.png" src="_images/ProbabilityUnivariate_27_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Welcome to your Jupyter Book</a>
+    <a class='right-next' id="next-link" href="ProbabilityMultivariate.html" title="next page">Multiple Random Variables</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

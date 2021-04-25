@@ -1,0 +1,1375 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predictive Modeling and Analysis using Bayesian Networks &#8212; Modelling of Uncertainty</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Correlation is not Causality" href="Thrombosis.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modelling of Uncertainty</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability Theory
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityUnivariate.html">
+   Discrete and Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityMultivariate.html">
+   Multiple Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimateProbability.html">
+   Estimating Probabilities
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises and Applications
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exampleProbEst.html">
+   Estimation of Probabilities from Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parametricClassification1D.html">
+   Bayes- and Naive Bayes Classifier
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Thrombosis.html">
+   Correlation is not Causality
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Predictive Modeling and Analysis using Bayesian Networks
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/BayesNetCovid.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/BayesNetCovid.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-bayesian-networks">
+   Introduction to Bayesian Networks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pyagrum">
+     pyAgrum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standard-imports-and-functions">
+     Standard imports and functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wrapper-class">
+     Wrapper class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-to-the-covid-19-dataset">
+   Application to the COVID-19 dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-construction">
+     Network construction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prior-knowledge">
+     Prior knowledge
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#memory-gains">
+     Memory gains
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="predictive-modeling-and-analysis-using-bayesian-networks">
+<h1>Predictive Modeling and Analysis using Bayesian Networks<a class="headerlink" href="#predictive-modeling-and-analysis-using-bayesian-networks" title="Permalink to this headline">¶</a></h1>
+<p>This code uses the dataset from the Kaggle competition <a class="reference external" href="https://www.kaggle.com/einsteindata4u/covid19/data">Diagnosis of COVID-19 and its clinical spectrum</a>. Its purpose is to serve as an introduction to Bayesian Networks and how they can be used for probabilistic decision making.</p>
+<p><strong>Table of contents</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#intro">Introduction to Bayesian Networks</a></p></li>
+<li><p><a class="reference external" href="#preliminaries">Preliminaries</a></p>
+<ul>
+<li><p><a class="reference external" href="#pyagrum">pyAgrum</a></p></li>
+<li><p><a class="reference external" href="#standard">Standard imports and functions</a></p></li>
+<li><p><a class="reference external" href="#wrapper">Wrapper class</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#appli">Application to COVID-19 dataset</a></p>
+<ul>
+<li><p><a class="reference external" href="#constr">Network construction</a></p></li>
+<li><p><a class="reference external" href="#prior">Prior knowledge</a></p></li>
+<li><p><a class="reference external" href="#memory">Memory gains</a></p></li>
+</ul>
+</li>
+</ul>
+<p><a id='intro'></a></p>
+<div class="section" id="introduction-to-bayesian-networks">
+<h2>Introduction to Bayesian Networks<a class="headerlink" href="#introduction-to-bayesian-networks" title="Permalink to this headline">¶</a></h2>
+<p>Bayesian Networks (BNs) are class of Probabilistic Graphical Models that are popular in the AI community for their capabilities to reason under uncertainty.
+They can be seen as a probabilistic expert system: the domain knowledge (business knowledge) is modeled as direct acyclic graph (DAG). The DAG links (arcs) represent the probabilistic dependencies (correlation, causation or influence) between nodes/variables in the domain.</p>
+<p>More formally, A BN is a Joint Probability Distribution (JPD) over a set of random variables. It is represented by a DAG, where the nodes are identifed with random variables and arcs express the probabilistic dependence between them.</p>
+<p>To put BN in perspective, let’s consider the following thought experiment. Consider an Intensive Care Unit of a hospital in the current pandemic. Healthcare professionals need to have an idea of whether or not a person will require intensive care in the immediate future to better allocate their resources more in moments of great strain. The admission to ICU can due to Covid-19 or not. Some bioindicators are currently associated with a higher probability of having Covid-19, and can be relatively easily identified through a blood test (as shown in this <a class="reference external" href="https://www.researchgate.net/publication/339627510_Laboratory_abnormalities_in_patients_with_COVID-2019_infection">paper</a> by Lippi and Plebani [2020]). Similarly, other indicators not necessarily linked to Covid-19 can also be related to other commorbidities that increase the probability of being admitted to ICU.</p>
+<p>The BN factorizes the JPD <strong><span class="math notranslate nohighlight">\(P\)</span></strong> as the product of these CPTs, in other words:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(Bordetella pertussis, Adenovirus, CoronavirusNL63, Coronavirus HKU1, ... , Parainfluenza 1, Chlamydophilia pneumoniae) = \\
+P(Bordetella pertussis)\\
+\times P (Adenovirus | Bordetella pertussis)\\
+\times P(CoronavirusNL63 | Adenovirus, Bordetella pertussis)\\
+\times P(Coronavirus HKU1 | CoronavirusNL63, Bordetella pertussis)\\
+\times ... \times \\
+\times P (Parainfluenza 1 | Bordetella pertussis, Rhinovirus/Entenovirus)\\
+\times P(Chlamydophilia pneumoniae | Parainfluenza 1, Bordetella pertussis)
+\end{split}\]</div>
+<p>We can obtain these CPT, using a frequentist approach by learning them from a historical dataset or elicitation an expert knowledge or both.</p>
+<p>The graphical structure encodes very interesting information that can be used to derive insight about the data.
+For example every node is conditionally independent of its non-descendants given its parents in the DAG. This is <strong>Markovien property</strong> in the BN.</p>
+<p>BNs have been successfully implemented in the industry and we found many applications in :</p>
+<ul class="simple">
+<li><p>Risk assessment (cancer, water, nuclear safety …)</p></li>
+<li><p>Industrial process simulation/ bourse prediction</p></li>
+<li><p>Monitoring the health of machines (troubleshouting, defect, failure etc ..)</p></li>
+<li><p>Predictive maintenance</p></li>
+</ul>
+<p>In general applications we use BN for diagnosis, prediction and probable explanation of an observation. Once we have the BN, i.e, the graphical structure and the quantitative parameter (CPTs), we can start reasoning under uncertainty, aka the probabilistic inference.
+The latter consist of computing posterior such as <code class="docutils literal notranslate"><span class="pre">P(covid_19</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">|</span> <span class="pre">Platelets</span> <span class="pre">=</span> <span class="pre">3,</span> <span class="pre">Influenza</span> <span class="pre">B</span> <span class="pre">=</span> <span class="pre">not_detected)</span></code></p>
+<p>In general, the most important advantages of using BNs are:</p>
+<ul class="simple">
+<li><p>Efficient probabilistic reasoning and predictive modelling</p></li>
+<li><p>BNs are a transparent tool vs challenges in explaining other ML models</p></li>
+<li><p>Holistic representation of the system : learn a single model for all features of the domain (dataset)</p></li>
+<li><p>Useful in data driven decisions that might be blind w.r.t causation (e.g., Simpson’s paradox )</p></li>
+<li><p>Not data hungry</p></li>
+<li><p>Can be used to discoval causal and association in the data</p></li>
+<li><p>Classification (with moderation)</p></li>
+</ul>
+<p>The power of BNs relies on their modeling of probabilistic interaction in complex systems, where human reasoning is weak.
+BNs mathematically sound and are grounded in theory to have a normative approach to deal with uncertainty.
+However, they are not really a power tools for classfication tasks in general, although they can used as classifier. This is due to the loss of information we impose by discretizing variable.
+This is an ongoing reserach in the community to optimize the discretiztion of continous variables.
+Based the probabilistic dependencies encoded in the DAG, they used only subset of nodes (the Markov blanket) to make the classification actually.</p>
+<p><a id='preliminaries'></a></p>
+</div>
+<div class="section" id="preliminaries">
+<h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h2>
+<p><a id='pyagrum'></a></p>
+<div class="section" id="pyagrum">
+<h3>pyAgrum<a class="headerlink" href="#pyagrum" title="Permalink to this headline">¶</a></h3>
+<p>We base our analysis in this notebook on the open source pyAgrum https://pyagrum.readthedocs.io/en/0.17.2/</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pyagrum pydotplus</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='standard'></a></p>
+</div>
+<div class="section" id="standard-imports-and-functions">
+<h3>Standard imports and functions<a class="headerlink" href="#standard-imports-and-functions" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">ClassifierMixin</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pyAgrum</span> <span class="k">as</span> <span class="nn">gum</span>
+<span class="kn">import</span> <span class="nn">pyAgrum.lib.notebook</span> <span class="k">as</span> <span class="nn">gnb</span>
+<span class="kn">from</span> <span class="nn">pyAgrum.lib.bn2roc</span> <span class="k">import</span> <span class="n">showROC</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># Some formatting</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1">#Limiting floats output to 4 decimal points</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Path</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div></div>
+</div>
+<p><a id='wrapper'></a></p>
+</div>
+<div class="section" id="wrapper-class">
+<h3>Wrapper class<a class="headerlink" href="#wrapper-class" title="Permalink to this headline">¶</a></h3>
+<p>We use a wrapper class to collect all the functions we need for our analysis (and a bit more :) )</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wrapper class</span>
+<span class="k">class</span> <span class="nc">BNEstimator</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">ClassifierMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    csv_template is used to create the modalities for the BN&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">csv_template</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">bn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">mandatory_arcs</span><span class="o">=</span><span class="p">[],</span>
+               <span class="n">tabu_arcs</span><span class="o">=</span><span class="p">[],</span>
+               <span class="n">class_name</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="n">learning_method</span><span class="o">=</span><span class="s1">&#39;greedy&#39;</span><span class="p">,</span>
+               <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;likelihood&#39;</span><span class="p">,</span> 
+               <span class="n">prior_weight</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> 
+               <span class="n">positif_label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="n">threshold</span> <span class="o">=</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span>
+               <span class="n">nb_classes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>               
+               <span class="n">cut_points_percentiles</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span>
+               <span class="n">bins</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+        
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">csv_template</span> <span class="o">=</span> <span class="n">csv_template</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mandatory_arcs</span> <span class="o">=</span> <span class="n">mandatory_arcs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tabu_arcs</span> <span class="o">=</span> <span class="n">tabu_arcs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">class_name</span> <span class="o">=</span> <span class="n">class_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_method</span> <span class="o">=</span> <span class="n">learning_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prior</span> <span class="o">=</span> <span class="n">prior</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prior_weight</span> <span class="o">=</span> <span class="n">prior_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">positif_label</span> <span class="o">=</span> <span class="n">positif_label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_classes</span> <span class="o">=</span> <span class="n">nb_classes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cut_points_percentiles</span> <span class="o">=</span> <span class="n">cut_points_percentiles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn</span> <span class="o">=</span> <span class="n">bn</span>
+    
+    
+    <span class="k">def</span> <span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;csv_template&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_template</span><span class="p">,</span><span class="c1"># template for modalities</span>
+            <span class="s2">&quot;class_name&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">,</span>
+            <span class="s2">&quot;mandatory_arcs&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mandatory_arcs</span><span class="p">,</span>
+                <span class="s2">&quot;tabu_arcs&quot;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">tabu_arcs</span><span class="p">,</span>
+                <span class="s2">&quot;learning_method&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_method</span><span class="p">,</span> 
+               <span class="s2">&quot;prior&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prior</span><span class="p">,</span>
+               <span class="s2">&quot;prior_weight&quot;</span><span class="p">:</span>  <span class="bp">self</span><span class="o">.</span><span class="n">prior_weight</span><span class="p">,</span>
+              <span class="s2">&quot;class_name&quot;</span>  <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span> <span class="p">,</span>
+              <span class="s2">&quot;positif_label&quot;</span>  <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">positif_label</span> <span class="p">,</span>
+              <span class="s2">&quot;threshold&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="p">,</span>
+              <span class="s2">&quot;nb_classes&quot;</span>  <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_classes</span> <span class="p">,</span>
+              <span class="s2">&quot;cut_points_percentiles&quot;</span>  <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">cut_points_percentiles</span><span class="p">,</span>
+            <span class="s2">&quot;bins&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">}</span>
+
+    
+    <span class="k">def</span> <span class="nf">set_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">parameters</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">parameters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+     
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Transfrom the whole dataset before training</span>
+<span class="sd">        param d : dataframe </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="n">gum</span><span class="o">.</span><span class="n">BayesNet</span><span class="p">()</span>
+        <span class="n">numeric_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">categorical_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+        
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numeric_cols</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+                <span class="n">cut_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cut_points_percentiles</span><span class="p">)</span>
+                <span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">col</span><span class="p">]</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cut_points</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   
+                <span class="k">del</span> <span class="n">x</span>
+            <span class="n">template</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">))))</span> 
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categorical_cols</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">:</span>
+                <span class="n">top</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">])</span>
+                <span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">top</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;else_top_&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">)</span>
+
+                <span class="k">del</span> <span class="n">top</span>
+            <span class="n">template</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">d</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">))))</span>
+        <span class="k">return</span> <span class="n">template</span><span class="p">,</span><span class="n">d</span>
+        
+        
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create the template and Fit the training dataset: data_file&quot;&quot;&quot;</span>
+        
+        <span class="c1"># create the template   </span>
+        <span class="n">template</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv_template</span><span class="p">))</span>
+        <span class="n">_</span><span class="p">,</span><span class="n">train</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                
+            
+        <span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;train_bn.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">learner</span> <span class="o">=</span> <span class="n">gum</span><span class="o">.</span><span class="n">BNLearner</span><span class="p">(</span><span class="s1">&#39;train_bn.csv&#39;</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
+
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tabu_arcs</span><span class="p">:</span> <span class="n">learner</span><span class="o">.</span><span class="n">addForbiddenArc</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mandatory_arcs</span> <span class="p">:</span>  <span class="n">learner</span><span class="o">.</span><span class="n">addMandatoryArc</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_method</span> <span class="o">==</span> <span class="s1">&#39;greedy&#39;</span><span class="p">:</span><span class="n">learner</span><span class="o">.</span><span class="n">useGreedyHillClimbing</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span> <span class="n">learner</span><span class="o">.</span><span class="n">useMIIC</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prior</span> <span class="o">==</span> <span class="s2">&quot;laplace&quot;</span><span class="p">:</span><span class="n">learner</span><span class="o">.</span><span class="n">useAprioriSmoothing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prior_weight</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span><span class="n">learner</span><span class="o">.</span><span class="n">useNoApriori</span><span class="p">()</span>
+            
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">learnBN</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">learnParameters</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">dag</span><span class="p">())</span>        
+        <span class="k">del</span> <span class="n">template</span><span class="p">,</span><span class="n">train</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+   
+    <span class="k">def</span> <span class="nf">predict_one_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">row</span><span class="p">):</span>
+        <span class="n">ie</span> <span class="o">=</span> <span class="n">gum</span><span class="o">.</span><span class="n">LazyPropagation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+        <span class="n">ie</span><span class="o">.</span><span class="n">addTarget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span> 
+        
+        <span class="n">evs</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">evs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">]</span>      
+        <span class="n">ie</span><span class="o">.</span><span class="n">setEvidence</span><span class="p">(</span><span class="n">evs</span><span class="p">)</span>
+        <span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        
+       
+    <span class="k">def</span> <span class="nf">predict_proba1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">test</span><span class="p">):</span><span class="c1">#,mb=True):</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_classes</span><span class="p">])</span>
+        <span class="n">scores</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">ie</span> <span class="o">=</span> <span class="n">gum</span><span class="o">.</span><span class="n">LazyPropagation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+        <span class="n">ie</span><span class="o">.</span><span class="n">addTarget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span> 
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>    
+            <span class="n">evs</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="k">del</span> <span class="n">evs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">]</span>               
+            <span class="n">ie</span><span class="o">.</span><span class="n">setEvidence</span><span class="p">(</span><span class="n">evs</span><span class="p">)</span>
+            <span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">scores</span>
+
+   
+    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">Xtest</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Xtest</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;X</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Xtest</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+
+        <span class="n">Yscores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">Xtest</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_classes</span><span class="p">])</span>
+        <span class="n">Yscores</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="n">mbnames</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">gum</span><span class="o">.</span><span class="n">MarkovBlanket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span>
+                   <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">]</span>
+        <span class="n">ie</span> <span class="o">=</span> <span class="n">gum</span><span class="o">.</span><span class="n">LazyPropagation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ie</span><span class="o">.</span><span class="n">BN</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">():</span>  
+            <span class="k">if</span> <span class="n">var</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">:</span>
+                <span class="n">ie</span><span class="o">.</span><span class="n">addEvidence</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ie</span><span class="o">.</span><span class="n">addTarget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span>
+
+        <span class="n">Xtest</span> <span class="o">=</span> <span class="n">Xtest</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">Xtest</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">mbnames</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">var</span><span class="p">)))</span>
+                    <span class="n">ie</span><span class="o">.</span><span class="n">chgEvidence</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">gum</span><span class="o">.</span><span class="n">GumException</span><span class="p">:</span>
+                <span class="c1"># this can happen when value is missing is the test base.</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[pyAgrum] ** pyAgrum.lib.classifier : The value {getattr(line, var)} for the variable </span><span class="si">{var}</span><span class="s2"> is missing in the training set.&quot;</span><span class="p">)</span>
+                    <span class="k">pass</span>
+
+            <span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+
+            <span class="n">marginal</span> <span class="o">=</span> <span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">)</span>
+            <span class="n">Yscores</span><span class="p">[</span><span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">marginal</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">Yscores</span>
+    
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">test</span><span class="p">):</span>
+        <span class="n">y_scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">y_true</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">class_name</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_scores</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    
+ 
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">test</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span>
+        <span class="n">y_true</span><span class="p">,</span><span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;recall_score&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id='appli'></a></p>
+</div>
+</div>
+<div class="section" id="application-to-the-covid-19-dataset">
+<h2>Application to the COVID-19 dataset<a class="headerlink" href="#application-to-the-covid-19-dataset" title="Permalink to this headline">¶</a></h2>
+<p><a id='constr'></a></p>
+<div class="section" id="network-construction">
+<h3>Network construction<a class="headerlink" href="#network-construction" title="Permalink to this headline">¶</a></h3>
+<p>Both the structure and the parameters (CPTs) of a BN can be learnt from dataset. In this application, we use the dataset from the Kaggle competition <a class="reference external" href="https://www.kaggle.com/einsteindata4u/covid19/data">Diagnosis of COVID-19 and its clinical spectrum</a> as a set of random variables with probabilistic interactions. This competition was promoted by the Hospital Israelita Albert Einstein in Sao Paulo, Brazil. Its aim is to shed some light on how to diagnose Covid-19 cases from a range of bioindicators taken from patients upon admission to the hospital.
+Let’s first read the dataset</p>
+<p>By running our function <code class="docutils literal notranslate"><span class="pre">missing</span></code> on the whole dataframe, we can see that almost all columns have some missing values. In some cases, up to 99% of the values are missing, so we can safely drop these columns. We can also drop all those columns that have only one value (other than <code class="docutils literal notranslate"><span class="pre">NaN</span></code>). These columns do not present any variation and hence can’t be use for prediction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df.drop(columns = list(missing(df, perc = 95).column.values), inplace = True)</span>
+<span class="c1">#df.drop(columns = list(show_unique(df).index), inplace = True)</span>
+<span class="c1">#df.shape  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will make a further simplification assumption and keep only those columns with less than 4 different values (states). To illustrate the discretisation of continuous variables, we will also keep four extra continous variable, which will be discretised by our wrapper class. When we initiate the class, we will take four asymmetrically bounded buckets. Given our amount of missings is substantial and that we filled values with the median, we are interested mostly in the variations in the extremes of the distribution. Therefore, our first bucket is bounded by percentiles 0 and 5, whereas our last bucket is bounded by percentiles 95 and 100. Everything in between split by percentile 50, forming our two middle buckets.</p>
+<p>We do this merely because of the educational purpose of this notebook. In reality, whether or not to keep a column or how to keep it is entirely up to the criterion of the practitioner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#kept_cols = [i for i in df if df[i].nunique()&lt;=4]</span>
+<span class="c1">#kept_cols.extend([&#39;Platelets&#39;,&#39;Red blood Cells&#39;,&#39;Lymphocytes&#39;,&#39;Leukocytes&#39;])</span>
+<span class="c1">#kept_cols,len(kept_cols)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#missing(df_orig)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df = df[kept_cols]</span>
+<span class="c1">#missing(df)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pyAgrum</span></code> cannot deal with missing values by itself, so we need to fill them before constructing the Bayesian Network. We will fill them differently, depending on whether the column is discrete (dummy varibles and objects) or continous. Discrete variables will be filled with the value <code class="docutils literal notranslate"><span class="pre">-999</span></code>, while continuous variables will be filled with the median of the median.</p>
+<p>Filling discrete variables with <code class="docutils literal notranslate"><span class="pre">-999</span></code> effectively creates another category. Filling continous variables with the median ensures that we are still able to capture the variation in the non-filled values when we discretise them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#continuous_cols = [x for x in df.columns if df[x].dtypes == &#39;float64&#39;]</span>
+<span class="c1">#discrete_cols = [x for x in df.columns if (df[x].dtypes == &#39;O&#39;) | (df[x].dtypes == &#39;int64&#39;)]</span>
+<span class="c1">#for i in [&#39;covid_19&#39;, &#39;regular_ward&#39;, &#39;semi_intensive_care&#39;,&#39;intensive_care&#39;]:</span>
+<span class="c1">#    discrete_cols.remove(i)  # Drop targets</span>
+
+<span class="c1">#df = fill_null(df, continuous_cols, stat = &#39;median&#39;)</span>
+<span class="c1">#df = fill_null(df, discrete_cols, stat = &#39;integer&#39;, integer = &#39;-999&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we are ready to initialise our first BN, so let’s have a look!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;reducedCovidDataset.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>covid_19</th>
+      <th>regular_ward</th>
+      <th>semi_intensive_care</th>
+      <th>intensive_care</th>
+      <th>Respiratory Syncytial Virus</th>
+      <th>Influenza A</th>
+      <th>Influenza B</th>
+      <th>Parainfluenza 1</th>
+      <th>CoronavirusNL63</th>
+      <th>Rhinovirus/Enterovirus</th>
+      <th>Coronavirus HKU1</th>
+      <th>Parainfluenza 3</th>
+      <th>Chlamydophila pneumoniae</th>
+      <th>Adenovirus</th>
+      <th>Parainfluenza 4</th>
+      <th>Coronavirus229E</th>
+      <th>CoronavirusOC43</th>
+      <th>Inf A H1N1 2009</th>
+      <th>Bordetella pertussis</th>
+      <th>Metapneumovirus</th>
+      <th>Influenza B rapid test</th>
+      <th>Influenza A rapid test</th>
+      <th>Strepto A</th>
+      <th>Platelets</th>
+      <th>Red blood Cells</th>
+      <th>Lymphocytes</th>
+      <th>Leukocytes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-0.122</td>
+      <td>0.014</td>
+      <td>-0.014</td>
+      <td>-0.213</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>negative</td>
+      <td>negative</td>
+      <td>-999</td>
+      <td>-0.517</td>
+      <td>0.102</td>
+      <td>0.318</td>
+      <td>-0.095</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-0.122</td>
+      <td>0.014</td>
+      <td>-0.014</td>
+      <td>-0.213</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-0.122</td>
+      <td>0.014</td>
+      <td>-0.014</td>
+      <td>-0.213</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>not_detected</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-999</td>
+      <td>-0.122</td>
+      <td>0.014</td>
+      <td>-0.014</td>
+      <td>-0.213</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df.to_csv(path + &#39;template.csv&#39;, index = False)</span>
+<span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">BNEstimator</span><span class="p">(</span><span class="n">csv_template</span><span class="o">=</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;template.csv&#39;</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="s1">&#39;covid_19&#39;</span><span class="p">,</span>
+                  <span class="n">cut_points_percentiles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">95</span><span class="p">])</span>
+<span class="n">_</span><span class="p">,</span><span class="n">data</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">train</span><span class="p">,</span><span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span> <span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span><span class="s1">&#39;train.csv&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BNEstimator(class_name=&#39;covid_19&#39;, csv_template=&#39;template.csv&#39;,
+            cut_points_percentiles=[5, 50, 95])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showBN</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">nodeColor</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="mf">0.66</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">names</span><span class="p">()},</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Greens&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_28_0.svg" src="_images/BayesNetCovid_28_0.svg" /></div>
+</div>
+<p>The learned structure may contain some relation that doesn’t make sense from a practical point of view. Here is another important feature of BN, where domain expert can intervene to encode the business knwoledge in the learning process. Our framework allows us to add those constrains to the learning algorithms. Additionally, thinking in terms of prediction, we may want to enforce certain arcs from some predictive variables to our target variable(s).</p>
+<p>Let’s enforce some tabu and mandatory arcs to see how our network changes.</p>
+<p>Now we are ready to take a look at the learnt features of our BN. Let’s first see the CPT for the variable <code class="docutils literal notranslate"><span class="pre">regular_ward</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">idFromName</span><span class="p">(</span><span class="s1">&#39;regular_ward&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>regular_ward</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>covid_19</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>Influenza B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '3'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>-999</center></th><td style='color:black;background-color:#7ffe64;text-align:right;'>0.9975</td><td style='color:black;background-color:#fe7f64;text-align:right;'>0.0025</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>not_detected</center></th><td style='color:black;background-color:#82fb64;text-align:right;'>0.9705</td><td style='color:black;background-color:#fb8264;text-align:right;'>0.0295</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>detected</center></th><td style='color:black;background-color:#7ffe64;text-align:right;'>0.9983</td><td style='color:black;background-color:#fe7f64;text-align:right;'>0.0017</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '3'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>-999</center></th><td style='color:black;background-color:#81fc64;text-align:right;'>0.9795</td><td style='color:black;background-color:#fc8164;text-align:right;'>0.0205</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>not_detected</center></th><td style='color:black;background-color:#9fde64;text-align:right;'>0.7495</td><td style='color:black;background-color:#de9f64;text-align:right;'>0.2505</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>detected</center></th><td style='color:black;background-color:#88f564;text-align:right;'>0.9286</td><td style='color:black;background-color:#f58864;text-align:right;'>0.0714</td></tr>
+</table></div></div>
+</div>
+<p>We can also have a look at the corresponding Markov Blanket our variables. Let’s have a look at the variable <code class="docutils literal notranslate"><span class="pre">covid_19</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gum</span><span class="o">.</span><span class="n">MarkovBlanket</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span><span class="s1">&#39;covid_19&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="121pt" viewBox="0.00 0.00 360.00 120.79">
+<g id="graph0" class="graph" transform="scale(1.56 1.56) rotate(0) translate(4 184)">
+<title>no_name</title>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="red" cx="308.16" cy="-90" rx="43.04" ry="18"/>
+<text text-anchor="middle" x="308.16" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">covid_19</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="291.16" cy="-18" rx="57.5" ry="18"/>
+<text text-anchor="middle" x="291.16" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">regular_ward</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="#4a4a4a" d="M304.05,-72.05C302.15,-64.26 299.86,-54.82 297.74,-46.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="301.12,-45.17 295.36,-36.28 294.32,-46.82 301.12,-45.17"/>
+</g>
+<!-- 8 -->
+<g id="node4" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="108.16" cy="-18" rx="108.32" ry="18"/>
+<text text-anchor="middle" x="108.16" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Respiratory Syncytial Virus</text>
+</g>
+<!-- 0&#45;&gt;8 -->
+<g id="edge1" class="edge">
+<title>0-&gt;8</title>
+<path fill="none" stroke="#4a4a4a" d="M276.03,-77.75C245.32,-67 198.43,-50.59 162.01,-37.85"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="163.11,-34.52 152.52,-34.52 160.8,-41.13 163.11,-34.52"/>
+</g>
+<!-- 13 -->
+<g id="node6" class="node">
+<title>13</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="459.16" cy="-18" rx="93.26" ry="18"/>
+<text text-anchor="middle" x="459.16" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Rhinovirus/Enterovirus</text>
+</g>
+<!-- 0&#45;&gt;13 -->
+<g id="edge3" class="edge">
+<title>0-&gt;13</title>
+<path fill="none" stroke="#4a4a4a" d="M335.86,-76.16C358.23,-65.79 390.11,-51.01 415.85,-39.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="417.42,-42.21 425.02,-34.83 414.48,-35.86 417.42,-42.21"/>
+</g>
+<!-- 4 -->
+<g id="node3" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="312.16" cy="-162" rx="40.14" ry="18"/>
+<text text-anchor="middle" x="312.16" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Platelets</text>
+</g>
+<!-- 4&#45;&gt;0 -->
+<g id="edge4" class="edge">
+<title>4-&gt;0</title>
+<path fill="none" stroke="#4a4a4a" d="M311.17,-143.7C310.73,-135.98 310.2,-126.71 309.71,-118.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="313.2,-117.89 309.14,-108.1 306.22,-118.29 313.2,-117.89"/>
+</g>
+<!-- 10 -->
+<g id="node5" class="node">
+<title>10</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="187.16" cy="-90" rx="51.24" ry="18"/>
+<text text-anchor="middle" x="187.16" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Influenza B</text>
+</g>
+<!-- 10&#45;&gt;1 -->
+<g id="edge6" class="edge">
+<title>10-&gt;1</title>
+<path fill="none" stroke="#4a4a4a" d="M209.73,-73.81C224.25,-64.04 243.33,-51.2 259.37,-40.4"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="261.58,-43.13 267.92,-34.64 257.67,-37.32 261.58,-43.13"/>
+</g>
+<!-- 10&#45;&gt;8 -->
+<g id="edge5" class="edge">
+<title>10-&gt;8</title>
+<path fill="none" stroke="#4a4a4a" d="M169.24,-73.12C159.03,-64.07 146.04,-52.57 134.68,-42.49"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="136.92,-39.81 127.12,-35.8 132.28,-45.05 136.92,-39.81"/>
+</g>
+<!-- 21 -->
+<g id="node7" class="node">
+<title>21</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="182.16" cy="-162" rx="71.55" ry="18"/>
+<text text-anchor="middle" x="182.16" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Inf A H1N1 2009</text>
+</g>
+<!-- 21&#45;&gt;8 -->
+<g id="edge7" class="edge">
+<title>21-&gt;8</title>
+<path fill="none" stroke="#4a4a4a" d="M159.74,-144.72C148.3,-135.26 135.15,-122.37 127.16,-108 116.58,-88.95 111.88,-64.59 109.8,-46.18"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="113.28,-45.73 108.86,-36.1 106.31,-46.39 113.28,-45.73"/>
+</g>
+<!-- 21&#45;&gt;10 -->
+<g id="edge9" class="edge">
+<title>21-&gt;10</title>
+<path fill="none" stroke="grey" d="M183.4,-143.7C183.95,-135.98 184.61,-126.71 185.23,-118.11"/>
+<polygon fill="grey" stroke="grey" points="188.72,-118.33 185.94,-108.1 181.74,-117.83 188.72,-118.33"/>
+</g>
+<!-- 21&#45;&gt;13 -->
+<g id="edge8" class="edge">
+<title>21-&gt;13</title>
+<path fill="none" stroke="#4a4a4a" d="M231.53,-148.9C276.14,-137.5 338.08,-120.37 360.16,-108 390.42,-91.04 419.23,-63.38 437.88,-43.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="440.59,-45.62 444.76,-35.88 435.42,-40.9 440.59,-45.62"/>
+</g>
+</g>
+</svg></div></div>
+</div>
+<p><a id='prior'></a></p>
+</div>
+<div class="section" id="prior-knowledge">
+<h3>Prior knowledge<a class="headerlink" href="#prior-knowledge" title="Permalink to this headline">¶</a></h3>
+<p>Our Bayesian Network allows us to ask questions of the type <em>What’s the probability that a patient tests positive for COVID-19 given that she presents this clinic picture?</em> The overall probabilities for the whole network looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_35_0.svg" src="_images/BayesNetCovid_35_0.svg" /></div>
+</div>
+<p>If we are interested in (or just know) some particular variables, we can also show the posterior of our target variable conditional on these variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showPosterior</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span> <span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Platelets&#39;</span><span class="p">:</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;Influenza B&#39;</span><span class="p">:</span><span class="s1">&#39;detected&#39;</span><span class="p">,</span> <span class="s1">&#39;Coronavirus HKU1&#39;</span><span class="p">:</span><span class="s1">&#39;not_detected&#39;</span><span class="p">},</span>
+                 <span class="n">target</span><span class="o">=</span><span class="s1">&#39;covid_19&#39;</span><span class="p">)</span><span class="c1"># we specify the target we want to analyse</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_37_0.svg" src="_images/BayesNetCovid_37_0.svg" /></div>
+</div>
+<p>It is worth noting that the probabilistic engine used only nodes from the Markov Blanket to derive such information. To verify this, let’s first observe the so called Markov Blanket and add a new observation from a node outside of it. Then let’s see the effect on the prediction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gum</span><span class="o">.</span><span class="n">MarkovBlanket</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span><span class="s1">&#39;covid_19&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360pt" height="121pt" viewBox="0.00 0.00 360.00 120.79">
+<g id="graph0" class="graph" transform="scale(1.56 1.56) rotate(0) translate(4 184)">
+<title>no_name</title>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<ellipse fill="none" stroke="red" cx="308.16" cy="-90" rx="43.04" ry="18"/>
+<text text-anchor="middle" x="308.16" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">covid_19</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="291.16" cy="-18" rx="57.5" ry="18"/>
+<text text-anchor="middle" x="291.16" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">regular_ward</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge">
+<title>0-&gt;1</title>
+<path fill="none" stroke="#4a4a4a" d="M304.05,-72.05C302.15,-64.26 299.86,-54.82 297.74,-46.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="301.12,-45.17 295.36,-36.28 294.32,-46.82 301.12,-45.17"/>
+</g>
+<!-- 8 -->
+<g id="node4" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="108.16" cy="-18" rx="108.32" ry="18"/>
+<text text-anchor="middle" x="108.16" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Respiratory Syncytial Virus</text>
+</g>
+<!-- 0&#45;&gt;8 -->
+<g id="edge1" class="edge">
+<title>0-&gt;8</title>
+<path fill="none" stroke="#4a4a4a" d="M276.03,-77.75C245.32,-67 198.43,-50.59 162.01,-37.85"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="163.11,-34.52 152.52,-34.52 160.8,-41.13 163.11,-34.52"/>
+</g>
+<!-- 13 -->
+<g id="node6" class="node">
+<title>13</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="459.16" cy="-18" rx="93.26" ry="18"/>
+<text text-anchor="middle" x="459.16" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Rhinovirus/Enterovirus</text>
+</g>
+<!-- 0&#45;&gt;13 -->
+<g id="edge3" class="edge">
+<title>0-&gt;13</title>
+<path fill="none" stroke="#4a4a4a" d="M335.86,-76.16C358.23,-65.79 390.11,-51.01 415.85,-39.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="417.42,-42.21 425.02,-34.83 414.48,-35.86 417.42,-42.21"/>
+</g>
+<!-- 4 -->
+<g id="node3" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="312.16" cy="-162" rx="40.14" ry="18"/>
+<text text-anchor="middle" x="312.16" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Platelets</text>
+</g>
+<!-- 4&#45;&gt;0 -->
+<g id="edge4" class="edge">
+<title>4-&gt;0</title>
+<path fill="none" stroke="#4a4a4a" d="M311.17,-143.7C310.73,-135.98 310.2,-126.71 309.71,-118.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="313.2,-117.89 309.14,-108.1 306.22,-118.29 313.2,-117.89"/>
+</g>
+<!-- 10 -->
+<g id="node5" class="node">
+<title>10</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="187.16" cy="-90" rx="51.24" ry="18"/>
+<text text-anchor="middle" x="187.16" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Influenza B</text>
+</g>
+<!-- 10&#45;&gt;1 -->
+<g id="edge6" class="edge">
+<title>10-&gt;1</title>
+<path fill="none" stroke="#4a4a4a" d="M209.73,-73.81C224.25,-64.04 243.33,-51.2 259.37,-40.4"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="261.58,-43.13 267.92,-34.64 257.67,-37.32 261.58,-43.13"/>
+</g>
+<!-- 10&#45;&gt;8 -->
+<g id="edge5" class="edge">
+<title>10-&gt;8</title>
+<path fill="none" stroke="#4a4a4a" d="M169.24,-73.12C159.03,-64.07 146.04,-52.57 134.68,-42.49"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="136.92,-39.81 127.12,-35.8 132.28,-45.05 136.92,-39.81"/>
+</g>
+<!-- 21 -->
+<g id="node7" class="node">
+<title>21</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="182.16" cy="-162" rx="71.55" ry="18"/>
+<text text-anchor="middle" x="182.16" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Inf A H1N1 2009</text>
+</g>
+<!-- 21&#45;&gt;8 -->
+<g id="edge7" class="edge">
+<title>21-&gt;8</title>
+<path fill="none" stroke="#4a4a4a" d="M159.74,-144.72C148.3,-135.26 135.15,-122.37 127.16,-108 116.58,-88.95 111.88,-64.59 109.8,-46.18"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="113.28,-45.73 108.86,-36.1 106.31,-46.39 113.28,-45.73"/>
+</g>
+<!-- 21&#45;&gt;10 -->
+<g id="edge9" class="edge">
+<title>21-&gt;10</title>
+<path fill="none" stroke="grey" d="M183.4,-143.7C183.95,-135.98 184.61,-126.71 185.23,-118.11"/>
+<polygon fill="grey" stroke="grey" points="188.72,-118.33 185.94,-108.1 181.74,-117.83 188.72,-118.33"/>
+</g>
+<!-- 21&#45;&gt;13 -->
+<g id="edge8" class="edge">
+<title>21-&gt;13</title>
+<path fill="none" stroke="#4a4a4a" d="M231.53,-148.9C276.14,-137.5 338.08,-120.37 360.16,-108 390.42,-91.04 419.23,-63.38 437.88,-43.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="440.59,-45.62 444.76,-35.88 435.42,-40.9 440.59,-45.62"/>
+</g>
+</g>
+</svg></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;test.csv&#39;</span><span class="p">)</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">d_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">evs</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<span class="n">evidence</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Platelets&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Inf A H1N1 2009&#39;</span><span class="p">:</span> <span class="s1">&#39;not_detected&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Influenza B&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Respiratory Syncytial Virus&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Coronavirus HKU1&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Rhinovirus/Enterovirus&#39;</span><span class="p">:</span> <span class="s1">&#39;not_detected&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;regular_ward&#39;</span><span class="p">:</span> <span class="mi">0</span>
+           <span class="p">}</span>
+
+<span class="n">gnb</span><span class="o">.</span><span class="n">showPosterior</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span>
+                 <span class="n">target</span><span class="o">=</span><span class="s1">&#39;covid_19&#39;</span><span class="p">,</span>
+                 <span class="n">evs</span><span class="o">=</span><span class="n">evidence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_40_0.svg" src="_images/BayesNetCovid_40_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MB</span> <span class="o">=</span> <span class="n">gum</span><span class="o">.</span><span class="n">MarkovBlanket</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span><span class="s1">&#39;covid_19&#39;</span><span class="p">)</span>
+
+<span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span> 
+                  <span class="n">nodeColor</span><span class="o">=</span><span class="p">{</span><span class="n">n</span><span class="p">:</span><span class="mf">0.9</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">names</span><span class="p">()},</span>
+                  <span class="n">evs</span><span class="o">=</span><span class="n">evidence</span><span class="p">,</span>
+                  <span class="n">targets</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;covid_19&#39;</span><span class="p">},</span>
+                  <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_41_0.svg" src="_images/BayesNetCovid_41_0.svg" /></div>
+</div>
+<p>Let’s now add an observation of a node outide of the MB and see the change</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span>  <span class="nn">random</span> <span class="k">import</span> <span class="n">choice</span>
+<span class="nb">id</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">MB</span><span class="o">.</span><span class="n">nodes</span><span class="p">())))</span>
+<span class="n">gnb</span><span class="o">.</span><span class="n">showPosterior</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span>                             
+                  <span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Platelets&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Inf A H1N1 2009&#39;</span><span class="p">:</span> <span class="s1">&#39;not_detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Influenza B&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Respiratory Syncytial Virus&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Coronavirus HKU1&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Rhinovirus/Enterovirus&#39;</span><span class="p">:</span> <span class="s1">&#39;not_detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;regular_ward&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                      <span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">():</span><span class="mi">1</span><span class="p">},</span> 
+                  <span class="n">target</span><span class="o">=</span> <span class="s1">&#39;covid_19&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_43_0.svg" src="_images/BayesNetCovid_43_0.svg" /></div>
+</div>
+<p>As we can see there is no effect on the prediction. We can play by adding another observation for the sake of a second example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span>  <span class="nn">random</span> <span class="k">import</span> <span class="n">choice</span>
+<span class="n">id1</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">MB</span><span class="o">.</span><span class="n">nodes</span><span class="p">())))</span>
+<span class="n">id2</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">nodes</span><span class="p">()</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">MB</span><span class="o">.</span><span class="n">nodes</span><span class="p">())))</span>
+
+<span class="n">gnb</span><span class="o">.</span><span class="n">showPosterior</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">,</span> <span class="c1"># we specify the BN to reason with</span>
+                  <span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Platelets&#39;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Inf A H1N1 2009&#39;</span><span class="p">:</span> <span class="s1">&#39;not_detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Influenza B&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Respiratory Syncytial Virus&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Coronavirus HKU1&#39;</span><span class="p">:</span> <span class="s1">&#39;detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Rhinovirus/Enterovirus&#39;</span><span class="p">:</span> <span class="s1">&#39;not_detected&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;regular_ward&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                      <span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="n">id1</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">():</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="o">.</span><span class="n">variable</span><span class="p">(</span><span class="n">id2</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">():</span><span class="mi">0</span><span class="p">},</span><span class="c1">## observe outside of MB</span>
+                  <span class="n">target</span><span class="o">=</span> <span class="s1">&#39;covid_19&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetCovid_45_0.svg" src="_images/BayesNetCovid_45_0.svg" /></div>
+</div>
+<p><a id='memory'></a></p>
+</div>
+<div class="section" id="memory-gains">
+<h3>Memory gains<a class="headerlink" href="#memory-gains" title="Permalink to this headline">¶</a></h3>
+<p>What about memory gains? To store the JPD we need to store <code class="docutils literal notranslate"><span class="pre">6347497291776</span></code> entries, which the product of all modality sizes in the JPD</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_jpd_size</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">3</span><span class="n">c8aff48ab16</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_jpd_size</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;get_jpd_size&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the BN, we can encode this compactly as we saw in the factorisation above and we need to store only :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_cpts_size</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>636
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which represent a memory gain of:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compression_ratio</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.99999998998031
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Thrombosis.html" title="previous page">Correlation is not Causality</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

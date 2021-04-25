@@ -1,0 +1,1040 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estimation of Probabilities from Datasets &#8212; Modelling of Uncertainty</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bayes- and Naive Bayes Classifier" href="parametricClassification1D.html" />
+    <link rel="prev" title="Estimating Probabilities" href="estimateProbability.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modelling of Uncertainty</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability Theory
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityUnivariate.html">
+   Discrete and Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityMultivariate.html">
+   Multiple Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimateProbability.html">
+   Estimating Probabilities
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises and Applications
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Estimation of Probabilities from Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parametricClassification1D.html">
+   Bayes- and Naive Bayes Classifier
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Thrombosis.html">
+   Correlation is not Causality
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bayesian Networks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="BayesNetAsia.html">
+   Bayesian Networks with pyAgrum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="BayesNetLearningWithPandas.html">
+   Learn CPTs of Bayesian Netork
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/exampleProbEst.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/exampleProbEst.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="estimation-of-probabilities-from-datasets">
+<h1>Estimation of Probabilities from Datasets<a class="headerlink" href="#estimation-of-probabilities-from-datasets" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook a small dataset of employess is given. Each employee is described by:</p>
+<ul class="simple">
+<li><p>sex: <em>m</em> for male and <em>f</em> for female</p></li>
+<li><p>number of years in the company: integer</p></li>
+<li><p>income: <em>h</em> (high), <em>m</em> (medium) or <em>l</em> (low)</p></li>
+<li><p>division: <em>s</em> (sales), <em>d</em> (design), <em>b</em> (backoffice) and <em>m</em> (marketing)</p></li>
+</ul>
+<p>The dataset is defined below and represented as a pandas dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataDict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sex&quot;</span><span class="p">:[</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">],</span>
+          <span class="s2">&quot;years&quot;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+          <span class="s2">&quot;income&quot;</span><span class="p">:[</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">],</span>
+          <span class="s2">&quot;division&quot;</span><span class="p">:[</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;m&quot;</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">]</span>
+         <span class="p">}</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataDict</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>years</th>
+      <th>income</th>
+      <th>division</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>m</td>
+      <td>10</td>
+      <td>h</td>
+      <td>s</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>m</td>
+      <td>2</td>
+      <td>m</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>f</td>
+      <td>4</td>
+      <td>m</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>m</td>
+      <td>4</td>
+      <td>l</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>f</td>
+      <td>5</td>
+      <td>m</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>f</td>
+      <td>1</td>
+      <td>l</td>
+      <td>m</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>f</td>
+      <td>7</td>
+      <td>m</td>
+      <td>s</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>m</td>
+      <td>2</td>
+      <td>m</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>m</td>
+      <td>4</td>
+      <td>h</td>
+      <td>d</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>m</td>
+      <td>1</td>
+      <td>m</td>
+      <td>d</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The following probabilities shall be estimated from the given dataset:</p>
+<ol class="simple">
+<li><p>propability for <em>male</em> and <em>high</em> income -&gt; <span class="math notranslate nohighlight">\(P(male,high)\)</span></p></li>
+<li><p>probability for <em>male</em>, <em>low</em> income and <em>backoffice</em> -&gt; <span class="math notranslate nohighlight">\(P(male,low,backoffice)\)</span></p></li>
+<li><p>probability that a <em>male</em> has <em>high</em> income -&gt; <span class="math notranslate nohighlight">\(P(high|male)\)</span></p></li>
+<li><p>probability that a <em>female</em> has <em>high</em> income -&gt; <span class="math notranslate nohighlight">\(P(high|female)\)</span></p></li>
+<li><p>probability that an employee with <em>high</em> income is <em>female</em> -&gt; <span class="math notranslate nohighlight">\(P(female|high)\)</span></p></li>
+<li><p>probability that a <em>male</em> with <em>medium</em> income works in division <em>design</em> -&gt; <span class="math notranslate nohighlight">\(P(design|male,medium)\)</span></p></li>
+<li><p>probability that an employee in division <em>design</em> is a <em>male</em> with <em>high</em> income -&gt; <span class="math notranslate nohighlight">\(P(male,medium|design)\)</span></p></li>
+<li><p>probability that a <em>male</em> which is at least 4 years in the company has <em>medium</em> income -&gt; <span class="math notranslate nohighlight">\(P(medium|male,\geq4)\)</span></p></li>
+</ol>
+<p>For calculating joint probabilities and conditional probabilities the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.23/generated/pandas.crosstab.html">pandas method crosstab()</a> can be applied. <strong>This method creates a table in which the frequencies of all value-combinations of two or more random variables can be determined.</strong> Moreover, by applying the argument <em>normalize</em> of the <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>-method it is possible to calculate instead of the frequencies the joint probabilities or conditional probabilities of all value-combinations. This is demonstrated below:</p>
+<p>First we calculate the frequencies of all value-combinations of the variables <em>sex</em> and <em>income</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>h</th>
+      <th>l</th>
+      <th>m</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Next we, set the argument <code class="docutils literal notranslate"><span class="pre">normalize=&quot;all&quot;</span></code> in the same method call. The result is the complete joint probability distribution of these two variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>h</th>
+      <th>l</th>
+      <th>m</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.3</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>0.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From the table calculated above, we can derive the answer for question 1:</p>
+<div class="math notranslate nohighlight">
+\[
+P(male,high)=0.2
+\]</div>
+<p>Next, we set the argument <code class="docutils literal notranslate"><span class="pre">normalize=&quot;index&quot;</span></code>. The calculated values are the conditional probabilities <span class="math notranslate nohighlight">\(P(income|sex)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>h</th>
+      <th>l</th>
+      <th>m</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>0.000000</td>
+      <td>0.250000</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.333333</td>
+      <td>0.166667</td>
+      <td>0.50</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The table calculated above contains the solutions for question 2 and 3:</p>
+<div class="math notranslate nohighlight">
+\[
+P(high|male)=0.333
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+P(high|female)=0
+\]</div>
+<p>In order to calculate the conditional probabilities of type <span class="math notranslate nohighlight">\(P(sex|income)\)</span> we can apply the same <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>, but now with <code class="docutils literal notranslate"><span class="pre">normalize=&quot;columns&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>h</th>
+      <th>l</th>
+      <th>m</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>1.0</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This table contains the answer to question 5:</p>
+<div class="math notranslate nohighlight">
+\[
+P(female|high)=0
+\]</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>-method can also be applied for more than two variables, as demonstrated below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;division&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>division</th>
+      <th>b</th>
+      <th>d</th>
+      <th>m</th>
+      <th>s</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>income</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">f</th>
+      <th>l</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">m</th>
+      <th>h</th>
+      <td>0.0</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.0</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From the table calculated above, we can derive the answer for question 2:</p>
+<div class="math notranslate nohighlight">
+\[
+P(male,low,backoffice)=0.1
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;division&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>division</th>
+      <th>b</th>
+      <th>d</th>
+      <th>m</th>
+      <th>s</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>income</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">f</th>
+      <th>l</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">m</th>
+      <th>h</th>
+      <td>0.000000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.500000</td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The table calculated above, contains the answer of question 6:</p>
+<div class="math notranslate nohighlight">
+\[
+P(design|male,medium)=1.0
+\]</div>
+<p>In order to calculate the answer for question 7, we set <code class="docutils literal notranslate"><span class="pre">normalize=&quot;columns&quot;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;division&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>division</th>
+      <th>b</th>
+      <th>d</th>
+      <th>m</th>
+      <th>s</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>income</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">f</th>
+      <th>l</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.5</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">m</th>
+      <th>h</th>
+      <td>0.0</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>l</th>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>m</th>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From this table we derive the answer for question 7:</p>
+<div class="math notranslate nohighlight">
+\[
+P(male,medium|design)=0.6
+\]</div>
+<p>For calculating the answer of question 9, we apply the <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>-method as described below and add the two values in column <code class="docutils literal notranslate"><span class="pre">m</span></code> which belong to rows that belong to <em>male</em> and at least 4 years:</p>
+<div class="math notranslate nohighlight">
+\[
+P(medium|male,\geq 4)= P(medium|male,4) + P(medium|male,10) =0 + 0 = 0 
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;years&quot;</span><span class="p">]],</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">],</span><span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>income</th>
+      <th>h</th>
+      <th>l</th>
+      <th>m</th>
+    </tr>
+    <tr>
+      <th>sex</th>
+      <th>years</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">f</th>
+      <th>1</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">m</th>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="estimateProbability.html" title="previous page">Estimating Probabilities</a>
+    <a class='right-next' id="next-link" href="parametricClassification1D.html" title="next page">Bayes- and Naive Bayes Classifier</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

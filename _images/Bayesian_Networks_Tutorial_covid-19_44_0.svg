@@ -1,0 +1,753 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="308pt" viewBox="0.00 0.00 576.00 308.30">
+<g id="graph0" class="graph" transform="scale(2.57 2.57) rotate(0) translate(4 787)">
+<title>structs</title>
+<text text-anchor="middle" x="734.92" y="-6.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">Inference in   3.58ms</text>
+<!-- covid_19 -->
+<g id="node1" class="node">
+<title>covid_19</title>
+<polygon fill="#f2f2f2" stroke="#000000" points="1006.5,-207 905.5,-207 905.5,-166 1006.5,-166 1006.5,-207"/>
+<svg viewBox="0 0 132.1625 52.998125" width="101px" height="41px" preserveAspectRatio="xMinYMin meet" x="905.5" y="-207"> <metadata>
+  <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2021-04-21T15:42:06.525470</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.3.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linecap:butt;stroke-linejoin:round;}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 52.998125  L 132.1625 52.998125  L 132.1625 0  L 0 0  z " style="fill:#f2f2f2;"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 16.9625 45.898125  L 128.5625 45.898125  L 128.5625 18.718125  L 16.9625 18.718125  z " style="fill:#ffffff;"/>
+   </g>
+   <g id="patch_3">
+    <path clip-path="url(#p7e1b930d64)" d="M 16.9625 45.898125  L 79.690008 45.898125  L 79.690008 33.818125  L 16.9625 33.818125  z " style="fill:#8fbc8f;"/>
+   </g>
+   <g id="patch_4">
+    <path clip-path="url(#p7e1b930d64)" d="M 16.9625 30.798125  L 65.834992 30.798125  L 65.834992 18.718125  L 16.9625 18.718125  z " style="fill:#8fbc8f;"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path clip-path="url(#p7e1b930d64)" d="M 16.9625 45.898125  L 16.9625 18.718125  " style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path d="M 0 0  L 0 3.5  " id="m02a668f6cc" style="stroke:#000000;stroke-width:0.8;"/>
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="16.9625" xlink:href="#m02a668f6cc" y="45.898125"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path clip-path="url(#p7e1b930d64)" d="M 72.7625 45.898125  L 72.7625 18.718125  " style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="72.7625" xlink:href="#m02a668f6cc" y="45.898125"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path clip-path="url(#p7e1b930d64)" d="M 128.5625 45.898125  L 128.5625 18.718125  " style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="128.5625" xlink:href="#m02a668f6cc" y="45.898125"/>
+      </g>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7">
+      <defs>
+       <path d="M 0 0  L -3.5 0  " id="m01b4009f9e" style="stroke:#000000;stroke-width:0.8;"/>
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="16.9625" xlink:href="#m01b4009f9e" y="39.858125"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <!-- 1 -->
+      <g transform="translate(3.6 43.657344)scale(0.1 -0.1)">
+       <defs>
+        <path d="M 12.40625 8.296875  L 28.515625 8.296875  L 28.515625 63.921875  L 10.984375 60.40625  L 10.984375 69.390625  L 28.421875 72.90625  L 38.28125 72.90625  L 38.28125 8.296875  L 54.390625 8.296875  L 54.390625 0  L 12.40625 0  z " id="DejaVuSans-49"/>
+       </defs>
+       <use xlink:href="#DejaVuSans-49"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_8">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.8;" x="16.9625" xlink:href="#m01b4009f9e" y="24.758125"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <!-- 0 -->
+      <g transform="translate(3.6 28.557344)scale(0.1 -0.1)">
+       <defs>
+        <path d="M 31.78125 66.40625  Q 24.171875 66.40625 20.328125 58.90625  Q 16.5 51.421875 16.5 36.375  Q 16.5 21.390625 20.328125 13.890625  Q 24.171875 6.390625 31.78125 6.390625  Q 39.453125 6.390625 43.28125 13.890625  Q 47.125 21.390625 47.125 36.375  Q 47.125 51.421875 43.28125 58.90625  Q 39.453125 66.40625 31.78125 66.40625  z M 31.78125 74.21875  Q 44.046875 74.21875 50.515625 64.515625  Q 56.984375 54.828125 56.984375 36.375  Q 56.984375 17.96875 50.515625 8.265625  Q 44.046875 -1.421875 31.78125 -1.421875  Q 19.53125 -1.421875 13.0625 8.265625  Q 6.59375 17.96875 6.59375 36.375  Q 6.59375 54.828125 13.0625 64.515625  Q 19.53125 74.21875 31.78125 74.21875  z " id="DejaVuSans-48"/>
+       </defs>
+       <use xlink:href="#DejaVuSans-48"/>
+      </g>
+     </g>
+    </g>
+   </g>
+   <g id="patch_5">
+    <path d="M 16.9625 45.898125  L 16.9625 18.718125  " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 128.5625 45.898125  L 128.5625 18.718125  " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 16.9625 45.898125  L 128.5625 45.898125  " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 16.9625 18.718125  L 128.5625 18.718125  " style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"/>
+   </g>
+   <g id="text_3">
+    <!-- 0.56 -->
+    <g transform="translate(106.296875 43.818437)scale(0.1 -0.1)">
+     <defs>
+      <path d="M 10.6875 12.40625  L 21 12.40625  L 21 0  L 10.6875 0  z " id="DejaVuSans-46"/>
+      <path d="M 10.796875 72.90625  L 49.515625 72.90625  L 49.515625 64.59375  L 19.828125 64.59375  L 19.828125 46.734375  Q 21.96875 47.46875 24.109375 47.828125  Q 26.265625 48.1875 28.421875 48.1875  Q 40.625 48.1875 47.75 41.5  Q 54.890625 34.8125 54.890625 23.390625  Q 54.890625 11.625 47.5625 5.09375  Q 40.234375 -1.421875 26.90625 -1.421875  Q 22.3125 -1.421875 17.546875 -0.640625  Q 12.796875 0.140625 7.71875 1.703125  L 7.71875 11.625  Q 12.109375 9.234375 16.796875 8.0625  Q 21.484375 6.890625 26.703125 6.890625  Q 35.15625 6.890625 40.078125 11.328125  Q 45.015625 15.765625 45.015625 23.390625  Q 45.015625 31 40.078125 35.4375  Q 35.15625 39.890625 26.703125 39.890625  Q 22.75 39.890625 18.8125 39.015625  Q 14.890625 38.140625 10.796875 36.28125  z " id="DejaVuSans-53"/>
+      <path d="M 33.015625 40.375  Q 26.375 40.375 22.484375 35.828125  Q 18.609375 31.296875 18.609375 23.390625  Q 18.609375 15.53125 22.484375 10.953125  Q 26.375 6.390625 33.015625 6.390625  Q 39.65625 6.390625 43.53125 10.953125  Q 47.40625 15.53125 47.40625 23.390625  Q 47.40625 31.296875 43.53125 35.828125  Q 39.65625 40.375 33.015625 40.375  z M 52.59375 71.296875  L 52.59375 62.3125  Q 48.875 64.0625 45.09375 64.984375  Q 41.3125 65.921875 37.59375 65.921875  Q 27.828125 65.921875 22.671875 59.328125  Q 17.53125 52.734375 16.796875 39.40625  Q 19.671875 43.65625 24.015625 45.921875  Q 28.375 48.1875 33.59375 48.1875  Q 44.578125 48.1875 50.953125 41.515625  Q 57.328125 34.859375 57.328125 23.390625  Q 57.328125 12.15625 50.6875 5.359375  Q 44.046875 -1.421875 33.015625 -1.421875  Q 20.359375 -1.421875 13.671875 8.265625  Q 6.984375 17.96875 6.984375 36.375  Q 6.984375 53.65625 15.1875 63.9375  Q 23.390625 74.21875 37.203125 74.21875  Q 40.921875 74.21875 44.703125 73.484375  Q 48.484375 72.75 52.59375 71.296875  z " id="DejaVuSans-54"/>
+     </defs>
+     <use xlink:href="#DejaVuSans-48"/>
+     <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+     <use x="95.410156" xlink:href="#DejaVuSans-53"/>
+     <use x="159.033203" xlink:href="#DejaVuSans-54"/>
+    </g>
+   </g>
+   <g id="text_4">
+    <!-- 0.44 -->
+    <g transform="translate(106.296875 28.718437)scale(0.1 -0.1)">
+     <defs>
+      <path d="M 37.796875 64.3125  L 12.890625 25.390625  L 37.796875 25.390625  z M 35.203125 72.90625  L 47.609375 72.90625  L 47.609375 25.390625  L 58.015625 25.390625  L 58.015625 17.1875  L 47.609375 17.1875  L 47.609375 0  L 37.796875 0  L 37.796875 17.1875  L 4.890625 17.1875  L 4.890625 26.703125  z " id="DejaVuSans-52"/>
+     </defs>
+     <use xlink:href="#DejaVuSans-48"/>
+     <use x="63.623047" xlink:href="#DejaVuSans-46"/>
+     <use x="95.410156" xlink:href="#DejaVuSans-52"/>
+     <use x="159.033203" xlink:href="#DejaVuSans-52"/>
+    </g>
+   </g>
+   <g id="text_5">
+    <!-- covid_19 -->
+    <g transform="translate(46.13 12.718125)scale(0.12 -0.12)">
+     <defs>
+      <path d="M 48.78125 52.59375  L 48.78125 44.1875  Q 44.96875 46.296875 41.140625 47.34375  Q 37.3125 48.390625 33.40625 48.390625  Q 24.65625 48.390625 19.8125 42.84375  Q 14.984375 37.3125 14.984375 27.296875  Q 14.984375 17.28125 19.8125 11.734375  Q 24.65625 6.203125 33.40625 6.203125  Q 37.3125 6.203125 41.140625 7.25  Q 44.96875 8.296875 48.78125 10.40625  L 48.78125 2.09375  Q 45.015625 0.34375 40.984375 -0.53125  Q 36.96875 -1.421875 32.421875 -1.421875  Q 20.0625 -1.421875 12.78125 6.34375  Q 5.515625 14.109375 5.515625 27.296875  Q 5.515625 40.671875 12.859375 48.328125  Q 20.21875 56 33.015625 56  Q 37.15625 56 41.109375 55.140625  Q 45.0625 54.296875 48.78125 52.59375  z " id="DejaVuSans-99"/>
+      <path d="M 30.609375 48.390625  Q 23.390625 48.390625 19.1875 42.75  Q 14.984375 37.109375 14.984375 27.296875  Q 14.984375 17.484375 19.15625 11.84375  Q 23.34375 6.203125 30.609375 6.203125  Q 37.796875 6.203125 41.984375 11.859375  Q 46.1875 17.53125 46.1875 27.296875  Q 46.1875 37.015625 41.984375 42.703125  Q 37.796875 48.390625 30.609375 48.390625  z M 30.609375 56  Q 42.328125 56 49.015625 48.375  Q 55.71875 40.765625 55.71875 27.296875  Q 55.71875 13.875 49.015625 6.21875  Q 42.328125 -1.421875 30.609375 -1.421875  Q 18.84375 -1.421875 12.171875 6.21875  Q 5.515625 13.875 5.515625 27.296875  Q 5.515625 40.765625 12.171875 48.375  Q 18.84375 56 30.609375 56  z " id="DejaVuSans-111"/>
+      <path d="M 2.984375 54.6875  L 12.5 54.6875  L 29.59375 8.796875  L 46.6875 54.6875  L 56.203125 54.6875  L 35.6875 0  L 23.484375 0  z " id="DejaVuSans-118"/>
+      <path d="M 9.421875 54.6875  L 18.40625 54.6875  L 18.40625 0  L 9.421875 0  z M 9.421875 75.984375  L 18.40625 75.984375  L 18.40625 64.59375  L 9.421875 64.59375  z " id="DejaVuSans-105"/>
+      <path d="M 45.40625 46.390625  L 45.40625 75.984375  L 54.390625 75.984375  L 54.390625 0  L 45.40625 0  L 45.40625 8.203125  Q 42.578125 3.328125 38.25 0.953125  Q 33.9375 -1.421875 27.875 -1.421875  Q 17.96875 -1.421875 11.734375 6.484375  Q 5.515625 14.40625 5.515625 27.296875  Q 5.515625 40.1875 11.734375 48.09375  Q 17.96875 56 27.875 56  Q 33.9375 56 38.25 53.625  Q 42.578125 51.265625 45.40625 46.390625  z M 14.796875 27.296875  Q 14.796875 17.390625 18.875 11.75  Q 22.953125 6.109375 30.078125 6.109375  Q 37.203125 6.109375 41.296875 11.75  Q 45.40625 17.390625 45.40625 27.296875  Q 45.40625 37.203125 41.296875 42.84375  Q 37.203125 48.484375 30.078125 48.484375  Q 22.953125 48.484375 18.875 42.84375  Q 14.796875 37.203125 14.796875 27.296875  z " id="DejaVuSans-100"/>
+      <path d="M 50.984375 -16.609375  L 50.984375 -23.578125  L -0.984375 -23.578125  L -0.984375 -16.609375  z " id="DejaVuSans-95"/>
+      <path d="M 10.984375 1.515625  L 10.984375 10.5  Q 14.703125 8.734375 18.5 7.8125  Q 22.3125 6.890625 25.984375 6.890625  Q 35.75 6.890625 40.890625 13.453125  Q 46.046875 20.015625 46.78125 33.40625  Q 43.953125 29.203125 39.59375 26.953125  Q 35.25 24.703125 29.984375 24.703125  Q 19.046875 24.703125 12.671875 31.3125  Q 6.296875 37.9375 6.296875 49.421875  Q 6.296875 60.640625 12.9375 67.421875  Q 19.578125 74.21875 30.609375 74.21875  Q 43.265625 74.21875 49.921875 64.515625  Q 56.59375 54.828125 56.59375 36.375  Q 56.59375 19.140625 48.40625 8.859375  Q 40.234375 -1.421875 26.421875 -1.421875  Q 22.703125 -1.421875 18.890625 -0.6875  Q 15.09375 0.046875 10.984375 1.515625  z M 30.609375 32.421875  Q 37.25 32.421875 41.125 36.953125  Q 45.015625 41.5 45.015625 49.421875  Q 45.015625 57.28125 41.125 61.84375  Q 37.25 66.40625 30.609375 66.40625  Q 23.96875 66.40625 20.09375 61.84375  Q 16.21875 57.28125 16.21875 49.421875  Q 16.21875 41.5 20.09375 36.953125  Q 23.96875 32.421875 30.609375 32.421875  z " id="DejaVuSans-57"/>
+     </defs>
+     <use xlink:href="#DejaVuSans-99"/>
+     <use x="54.980469" xlink:href="#DejaVuSans-111"/>
+     <use x="116.162109" xlink:href="#DejaVuSans-118"/>
+     <use x="175.341797" xlink:href="#DejaVuSans-105"/>
+     <use x="203.125" xlink:href="#DejaVuSans-100"/>
+     <use x="266.601562" xlink:href="#DejaVuSans-95"/>
+     <use x="316.601562" xlink:href="#DejaVuSans-49"/>
+     <use x="380.224609" xlink:href="#DejaVuSans-57"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7e1b930d64">
+   <rect height="27.18" width="111.6" x="16.9625" y="18.718125"/>
+  </clipPath>
+ </defs>
+</svg>
+
+</g>
+<!-- regular_ward -->
+<g id="node2" class="node">
+<title>regular_ward</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="1270" cy="-112" rx="57.5" ry="18"/>
+<text text-anchor="middle" x="1270" y="-107.8" font-family="Times,serif" font-size="14.00">regular_ward</text>
+</g>
+<!-- covid_19&#45;&gt;regular_ward -->
+<g id="edge27" class="edge">
+<title>covid_19-&gt;regular_ward</title>
+<g id="a_edge27"><a xlink:title="(0, 1):">
+<path fill="none" stroke="#4a4a4a" d="M1006.74,-168.32C1009.52,-167.51 1012.29,-166.73 1015,-166 1081.53,-148.15 1159.18,-132.78 1211.16,-123.25"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1211.99,-126.66 1221.2,-121.43 1210.74,-119.77 1211.99,-126.66"/>
+</a>
+</g>
+</g>
+<!-- Rhinovirus/Enterovirus -->
+<g id="node14" class="node">
+<title>Rhinovirus/Enterovirus</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="917" cy="-112" rx="93.26" ry="18"/>
+<text text-anchor="middle" x="917" y="-107.8" font-family="Times,serif" font-size="14.00">Rhinovirus/Enterovirus</text>
+</g>
+<!-- covid_19&#45;&gt;Rhinovirus/Enterovirus -->
+<g id="edge30" class="edge">
+<title>covid_19-&gt;Rhinovirus/Enterovirus</title>
+<g id="a_edge30"><a xlink:title="(0, 13):">
+<path fill="none" stroke="#4a4a4a" d="M945.34,-165.69C940.97,-157.56 935.85,-148.03 931.16,-139.33"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="934.14,-137.47 926.32,-130.32 927.97,-140.78 934.14,-137.47"/>
+</a>
+</g>
+</g>
+<!-- semi_intensive_care -->
+<g id="node3" class="node">
+<title>semi_intensive_care</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="1212" cy="-186.5" rx="82.1" ry="18"/>
+<text text-anchor="middle" x="1212" y="-182.3" font-family="Times,serif" font-size="14.00" fill="#000000">semi_intensive_care</text>
+</g>
+<!-- intensive_care -->
+<g id="node4" class="node">
+<title>intensive_care</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="1373" cy="-186.5" rx="61.35" ry="18"/>
+<text text-anchor="middle" x="1373" y="-182.3" font-family="Times,serif" font-size="14.00" fill="#000000">intensive_care</text>
+</g>
+<!-- Platelets -->
+<g id="node5" class="node">
+<title>Platelets</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="390" cy="-693" rx="40.14" ry="18"/>
+<text text-anchor="middle" x="390" y="-688.8" font-family="Times,serif" font-size="14.00">Platelets</text>
+</g>
+<!-- Platelets&#45;&gt;covid_19 -->
+<g id="edge2" class="edge">
+<title>Platelets-&gt;covid_19</title>
+<g id="a_edge2"><a xlink:title="(4, 0):">
+<path fill="none" stroke="#4a4a4a" d="M352.25,-686.53C254.38,-671.28 0,-624.49 0,-550 0,-550 0,-550 0,-332 0,-276.06 38.03,-266.05 89,-243 161.96,-210.01 710.48,-193.56 895.37,-188.91"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="895.55,-192.41 905.46,-188.66 895.37,-185.41 895.55,-192.41"/>
+</a>
+</g>
+</g>
+<!-- Red blood Cells -->
+<g id="node6" class="node">
+<title>Red blood Cells</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="427" cy="-621" rx="67.19" ry="18"/>
+<text text-anchor="middle" x="427" y="-616.8" font-family="Times,serif" font-size="14.00" fill="#000000">Red blood Cells</text>
+</g>
+<!-- Platelets&#45;&gt;Red blood Cells -->
+<g id="edge20" class="edge">
+<title>Platelets-&gt;Red blood Cells</title>
+<g id="a_edge20"><a xlink:title="(4, 5):">
+<path fill="none" stroke="#4a4a4a" d="M398.77,-675.41C403.08,-667.25 408.38,-657.22 413.22,-648.07"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="416.46,-649.43 418.04,-638.96 410.27,-646.16 416.46,-649.43"/>
+</a>
+</g>
+</g>
+<!-- Lymphocytes -->
+<g id="node7" class="node">
+<title>Lymphocytes</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="570" cy="-549" rx="57.52" ry="18"/>
+<text text-anchor="middle" x="570" y="-544.8" font-family="Times,serif" font-size="14.00" fill="#000000">Lymphocytes</text>
+</g>
+<!-- Red blood Cells&#45;&gt;Lymphocytes -->
+<g id="edge22" class="edge">
+<title>Red blood Cells-&gt;Lymphocytes</title>
+<g id="a_edge22"><a xlink:title="(5, 6):">
+<path fill="none" stroke="#4a4a4a" d="M457.68,-604.98C479.17,-594.46 508.07,-580.32 531.17,-569.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="532.91,-572.05 540.35,-564.51 529.83,-565.77 532.91,-572.05"/>
+</a>
+</g>
+</g>
+<!-- Chlamydophila pneumoniae -->
+<g id="node17" class="node">
+<title>Chlamydophila pneumoniae</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="384" cy="-549" rx="110.13" ry="18"/>
+<text text-anchor="middle" x="384" y="-544.8" font-family="Times,serif" font-size="14.00" fill="#000000">Chlamydophila pneumoniae</text>
+</g>
+<!-- Red blood Cells&#45;&gt;Chlamydophila pneumoniae -->
+<g id="edge11" class="edge">
+<title>Red blood Cells-&gt;Chlamydophila pneumoniae</title>
+<g id="a_edge11"><a xlink:title="(5, 16):">
+<path fill="none" stroke="#4a4a4a" d="M416.59,-603.05C411.59,-594.92 405.5,-585 399.94,-575.94"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="402.83,-573.96 394.61,-567.28 396.86,-577.63 402.83,-573.96"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test -->
+<g id="node26" class="node">
+<title>Influenza A rapid test</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="993" cy="-477" rx="85.53" ry="18"/>
+<text text-anchor="middle" x="993" y="-472.8" font-family="Times,serif" font-size="14.00" fill="#000000">Influenza A rapid test</text>
+</g>
+<!-- Lymphocytes&#45;&gt;Influenza A rapid test -->
+<g id="edge37" class="edge">
+<title>Lymphocytes-&gt;Influenza A rapid test</title>
+<g id="a_edge37"><a xlink:title="(6, 25):">
+<path fill="none" stroke="#4a4a4a" d="M619.77,-539.76C693.4,-527.58 831.9,-504.66 917.91,-490.43"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="918.58,-493.86 927.87,-488.78 917.43,-486.96 918.58,-493.86"/>
+</a>
+</g>
+</g>
+<!-- Leukocytes -->
+<g id="node8" class="node">
+<title>Leukocytes</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="458" cy="-765" rx="50.74" ry="18"/>
+<text text-anchor="middle" x="458" y="-760.8" font-family="Times,serif" font-size="14.00" fill="#000000">Leukocytes</text>
+</g>
+<!-- Leukocytes&#45;&gt;Platelets -->
+<g id="edge16" class="edge">
+<title>Leukocytes-&gt;Platelets</title>
+<g id="a_edge16"><a xlink:title="(7, 4):">
+<path fill="none" stroke="#4a4a4a" d="M442.23,-747.76C433.35,-738.62 422.12,-727.06 412.34,-717"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="414.7,-714.4 405.22,-709.67 409.68,-719.28 414.7,-714.4"/>
+</a>
+</g>
+</g>
+<!-- Leukocytes&#45;&gt;Red blood Cells -->
+<g id="edge45" class="edge">
+<title>Leukocytes-&gt;Red blood Cells</title>
+<g id="a_edge45"><a xlink:title="(7, 5):">
+<path fill="none" stroke="#4a4a4a" d="M454.42,-746.92C450.65,-729 444.5,-700 439,-675 437.15,-666.58 435.09,-657.41 433.21,-649.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="436.58,-648.15 430.94,-639.17 429.75,-649.7 436.58,-648.15"/>
+</a>
+</g>
+</g>
+<!-- Leukocytes&#45;&gt;Lymphocytes -->
+<g id="edge35" class="edge">
+<title>Leukocytes-&gt;Lymphocytes</title>
+<g id="a_edge35"><a xlink:title="(7, 6):">
+<path fill="none" stroke="#4a4a4a" d="M466.79,-747.21C486.25,-710.03 533.08,-620.55 556.37,-576.04"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="559.56,-577.49 561.1,-567.01 553.36,-574.25 559.56,-577.49"/>
+</a>
+</g>
+</g>
+<!-- Respiratory Syncytial Virus -->
+<g id="node9" class="node">
+<title>Respiratory Syncytial Virus</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="1212" cy="-261" rx="108.32" ry="18"/>
+<text text-anchor="middle" x="1212" y="-256.8" font-family="Times,serif" font-size="14.00">Respiratory Syncytial Virus</text>
+</g>
+<!-- Respiratory Syncytial Virus&#45;&gt;covid_19 -->
+<g id="edge9" class="edge">
+<title>Respiratory Syncytial Virus-&gt;covid_19</title>
+<g id="a_edge9"><a xlink:title="(8, 0):">
+<path fill="none" stroke="#4a4a4a" d="M1155.29,-245.65C1118.11,-236.03 1068.25,-222.74 1016.48,-207.38"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1017.37,-204 1006.79,-204.49 1015.37,-210.7 1017.37,-204"/>
+</a>
+</g>
+</g>
+<!-- Respiratory Syncytial Virus&#45;&gt;semi_intensive_care -->
+<g id="edge24" class="edge">
+<title>Respiratory Syncytial Virus-&gt;semi_intensive_care</title>
+<g id="a_edge24"><a xlink:title="(8, 2):">
+<path fill="none" stroke="#4a4a4a" d="M1212,-242.82C1212,-234.42 1212,-224.12 1212,-214.69"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1215.5,-214.56 1212,-204.56 1208.5,-214.56 1215.5,-214.56"/>
+</a>
+</g>
+</g>
+<!-- Respiratory Syncytial Virus&#45;&gt;intensive_care -->
+<g id="edge10" class="edge">
+<title>Respiratory Syncytial Virus-&gt;intensive_care</title>
+<g id="a_edge10"><a xlink:title="(8, 3):">
+<path fill="none" stroke="#4a4a4a" d="M1247.73,-243.91C1272.57,-232.73 1305.74,-217.79 1331.7,-206.1"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1333.24,-209.24 1340.92,-201.95 1330.36,-202.86 1333.24,-209.24"/>
+</a>
+</g>
+</g>
+<!-- Influenza A -->
+<g id="node10" class="node">
+<title>Influenza A</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="1129" cy="-40" rx="51.25" ry="18"/>
+<text text-anchor="middle" x="1129" y="-35.8" font-family="Times,serif" font-size="14.00" fill="#000000">Influenza A</text>
+</g>
+<!-- Influenza B -->
+<g id="node11" class="node">
+<title>Influenza B</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="1212" cy="-333" rx="51.24" ry="18"/>
+<text text-anchor="middle" x="1212" y="-328.8" font-family="Times,serif" font-size="14.00">Influenza B</text>
+</g>
+<!-- Influenza B&#45;&gt;regular_ward -->
+<g id="edge43" class="edge">
+<title>Influenza B-&gt;regular_ward</title>
+<g id="a_edge43"><a xlink:title="(10, 1):">
+<path fill="none" stroke="#4a4a4a" d="M1255.65,-323.25C1311.21,-309.45 1404.59,-276.69 1443,-207 1451.8,-191.04 1453.83,-180.65 1443,-166 1418.84,-133.33 1374.94,-120.15 1337.4,-115.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1337.34,-111.56 1327.01,-113.88 1336.53,-118.52 1337.34,-111.56"/>
+</a>
+</g>
+</g>
+<!-- Influenza B&#45;&gt;Respiratory Syncytial Virus -->
+<g id="edge28" class="edge">
+<title>Influenza B-&gt;Respiratory Syncytial Virus</title>
+<g id="a_edge28"><a xlink:title="(10, 8):">
+<path fill="none" stroke="#4a4a4a" d="M1212,-314.7C1212,-306.98 1212,-297.71 1212,-289.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1215.5,-289.1 1212,-279.1 1208.5,-289.1 1215.5,-289.1"/>
+</a>
+</g>
+</g>
+<!-- Influenza B&#45;&gt;Influenza A -->
+<g id="edge13" class="edge">
+<title>Influenza B-&gt;Influenza A</title>
+<g id="a_edge13"><a xlink:title="(10, 9):">
+<path fill="none" stroke="#4a4a4a" d="M1261.13,-327.52C1302.74,-321.75 1362.4,-308.64 1406,-279 1452.03,-247.71 1487.77,-214.24 1460,-166 1406.18,-72.51 1270.43,-48.46 1190.49,-42.58"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1190.28,-39.06 1180.07,-41.89 1189.82,-46.04 1190.28,-39.06"/>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 1 -->
+<g id="node12" class="node">
+<title>Parainfluenza 1</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="705" cy="-40" rx="64.74" ry="18"/>
+<text text-anchor="middle" x="705" y="-35.8" font-family="Times,serif" font-size="14.00" fill="#000000">Parainfluenza 1</text>
+</g>
+<!-- CoronavirusNL63 -->
+<g id="node13" class="node">
+<title>CoronavirusNL63</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="140" cy="-333" rx="74.42" ry="18"/>
+<text text-anchor="middle" x="140" y="-328.8" font-family="Times,serif" font-size="14.00" fill="#000000">CoronavirusNL63</text>
+</g>
+<!-- Adenovirus -->
+<g id="node18" class="node">
+<title>Adenovirus</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="321" cy="-261" rx="51.24" ry="18"/>
+<text text-anchor="middle" x="321" y="-256.8" font-family="Times,serif" font-size="14.00" fill="#000000">Adenovirus</text>
+</g>
+<!-- CoronavirusNL63&#45;&gt;Adenovirus -->
+<g id="edge41" class="edge">
+<title>CoronavirusNL63-&gt;Adenovirus</title>
+<g id="a_edge41"><a xlink:title="(12, 17):">
+<path fill="none" stroke="#4a4a4a" d="M177.94,-317.33C207.22,-306 247.73,-290.34 278.17,-278.56"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="279.61,-281.76 287.67,-274.89 277.08,-275.23 279.61,-281.76"/>
+</a>
+</g>
+</g>
+<!-- Rhinovirus/Enterovirus&#45;&gt;Influenza A -->
+<g id="edge44" class="edge">
+<title>Rhinovirus/Enterovirus-&gt;Influenza A</title>
+<g id="a_edge44"><a xlink:title="(13, 9):">
+<path fill="none" stroke="#4a4a4a" d="M961.96,-96.15C997.62,-84.38 1047.27,-67.99 1083.16,-56.14"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1084.5,-59.38 1092.89,-52.92 1082.3,-52.73 1084.5,-59.38"/>
+</a>
+</g>
+</g>
+<!-- Rhinovirus/Enterovirus&#45;&gt;Parainfluenza 1 -->
+<g id="edge15" class="edge">
+<title>Rhinovirus/Enterovirus-&gt;Parainfluenza 1</title>
+<g id="a_edge15"><a xlink:title="(13, 11):">
+<path fill="none" stroke="#4a4a4a" d="M872.04,-96.15C837.71,-84.82 790.42,-69.21 754.92,-57.48"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="755.83,-54.1 745.24,-54.29 753.64,-60.75 755.83,-54.1"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus HKU1 -->
+<g id="node15" class="node">
+<title>Coronavirus HKU1</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="221" cy="-477" rx="79.74" ry="18"/>
+<text text-anchor="middle" x="221" y="-472.8" font-family="Times,serif" font-size="14.00">Coronavirus HKU1</text>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;covid_19 -->
+<g id="edge19" class="edge">
+<title>Coronavirus HKU1-&gt;covid_19</title>
+<g id="a_edge19"><a xlink:title="(14, 0):">
+<path fill="none" stroke="#4a4a4a" d="M183.26,-460.92C122.43,-434.36 13.68,-376.23 57,-315 112.53,-236.51 166.95,-263 261,-243 491.38,-194.02 773.06,-187.43 894.96,-187.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="895.21,-190.59 905.21,-187.08 895.2,-183.59 895.21,-190.59"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;CoronavirusNL63 -->
+<g id="edge23" class="edge">
+<title>Coronavirus HKU1-&gt;CoronavirusNL63</title>
+<g id="a_edge23"><a xlink:title="(14, 12):">
+<path fill="none" stroke="#4a4a4a" d="M187.66,-460.56C172.6,-451.77 156.17,-439.24 147,-423 136.49,-404.38 135.27,-379.99 136.39,-361.45"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="139.89,-361.56 137.26,-351.3 132.92,-360.96 139.89,-361.56"/>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 4 -->
+<g id="node19" class="node">
+<title>Parainfluenza 4</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="221" cy="-405" rx="64.74" ry="18"/>
+<text text-anchor="middle" x="221" y="-400.8" font-family="Times,serif" font-size="14.00" fill="#000000">Parainfluenza 4</text>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;Parainfluenza 4 -->
+<g id="edge26" class="edge">
+<title>Coronavirus HKU1-&gt;Parainfluenza 4</title>
+<g id="a_edge26"><a xlink:title="(14, 18):">
+<path fill="none" stroke="#4a4a4a" d="M221,-458.7C221,-450.98 221,-441.71 221,-433.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="224.5,-433.1 221,-423.1 217.5,-433.1 224.5,-433.1"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis -->
+<g id="node23" class="node">
+<title>Bordetella pertussis</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="384" cy="-405" rx="80.21" ry="18"/>
+<text text-anchor="middle" x="384" y="-400.8" font-family="Times,serif" font-size="14.00" fill="#000000">Bordetella pertussis</text>
+</g>
+<!-- Coronavirus HKU1&#45;&gt;Bordetella pertussis -->
+<g id="edge12" class="edge">
+<title>Coronavirus HKU1-&gt;Bordetella pertussis</title>
+<g id="a_edge12"><a xlink:title="(14, 22):">
+<path fill="none" stroke="#4a4a4a" d="M256.37,-460.81C280.72,-450.35 313.26,-436.38 339.39,-425.16"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="340.89,-428.32 348.7,-421.16 338.13,-421.89 340.89,-428.32"/>
+</a>
+</g>
+</g>
+<!-- Parainfluenza 3 -->
+<g id="node16" class="node">
+<title>Parainfluenza 3</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="373" cy="-333" rx="64.74" ry="18"/>
+<text text-anchor="middle" x="373" y="-328.8" font-family="Times,serif" font-size="14.00" fill="#000000">Parainfluenza 3</text>
+</g>
+<!-- Chlamydophila pneumoniae&#45;&gt;Coronavirus HKU1 -->
+<g id="edge14" class="edge">
+<title>Chlamydophila pneumoniae-&gt;Coronavirus HKU1</title>
+<g id="a_edge14"><a xlink:title="(16, 14):">
+<path fill="none" stroke="#4a4a4a" d="M346.6,-531.94C322.52,-521.6 291.08,-508.09 265.68,-497.19"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="266.84,-493.88 256.27,-493.15 264.07,-500.31 266.84,-493.88"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009 -->
+<g id="node22" class="node">
+<title>Inf A H1N1 2009</title>
+<ellipse fill="sandybrown" stroke="#000000" cx="911" cy="-405" rx="71.55" ry="18"/>
+<text text-anchor="middle" x="911" y="-400.8" font-family="Times,serif" font-size="14.00">Inf A H1N1 2009</text>
+</g>
+<!-- Chlamydophila pneumoniae&#45;&gt;Inf A H1N1 2009 -->
+<g id="edge34" class="edge">
+<title>Chlamydophila pneumoniae-&gt;Inf A H1N1 2009</title>
+<g id="a_edge34"><a xlink:title="(16, 21):">
+<path fill="none" stroke="#4a4a4a" d="M438.41,-533.34C538.69,-506.32 751.72,-448.92 853.94,-421.37"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="855.03,-424.71 863.78,-418.72 853.21,-417.95 855.03,-424.71"/>
+</a>
+</g>
+</g>
+<!-- Chlamydophila pneumoniae&#45;&gt;Bordetella pertussis -->
+<g id="edge18" class="edge">
+<title>Chlamydophila pneumoniae-&gt;Bordetella pertussis</title>
+<g id="a_edge18"><a xlink:title="(16, 22):">
+<path fill="none" stroke="#4a4a4a" d="M384,-530.87C384,-506.67 384,-462.21 384,-433.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="387.5,-433.19 384,-423.19 380.5,-433.19 387.5,-433.19"/>
+</a>
+</g>
+</g>
+<!-- Strepto A -->
+<g id="node27" class="node">
+<title>Strepto A</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="1068" cy="-186.5" rx="43.53" ry="18"/>
+<text text-anchor="middle" x="1068" y="-182.3" font-family="Times,serif" font-size="14.00" fill="#000000">Strepto A</text>
+</g>
+<!-- Adenovirus&#45;&gt;Strepto A -->
+<g id="edge29" class="edge">
+<title>Adenovirus-&gt;Strepto A</title>
+<g id="a_edge29"><a xlink:title="(17, 26):">
+<path fill="none" stroke="#4a4a4a" d="M371.68,-257.99C510.19,-252.21 892.97,-234.18 1016,-207 1020.41,-206.03 1024.94,-204.76 1029.41,-203.33"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1030.7,-206.59 1039.01,-200.02 1028.42,-199.97 1030.7,-206.59"/>
+</a>
+</g>
+</g>
+<!-- Coronavirus229E -->
+<g id="node20" class="node">
+<title>Coronavirus229E</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="528" cy="-333" rx="72.49" ry="18"/>
+<text text-anchor="middle" x="528" y="-328.8" font-family="Times,serif" font-size="14.00" fill="#000000">Coronavirus229E</text>
+</g>
+<!-- CoronavirusOC43 -->
+<g id="node21" class="node">
+<title>CoronavirusOC43</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="693" cy="-333" rx="74.91" ry="18"/>
+<text text-anchor="middle" x="693" y="-328.8" font-family="Times,serif" font-size="14.00" fill="#000000">CoronavirusOC43</text>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;covid_19 -->
+<g id="edge17" class="edge">
+<title>Inf A H1N1 2009-&gt;covid_19</title>
+<g id="a_edge17"><a xlink:title="(21, 0):">
+<path fill="none" stroke="#4a4a4a" d="M940.2,-388.38C953.75,-379.42 968.5,-366.78 976,-351 996.66,-307.5 981.49,-250.49 968.68,-216.56"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="971.93,-215.24 965,-207.23 965.41,-217.81 971.93,-215.24"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Respiratory Syncytial Virus -->
+<g id="edge36" class="edge">
+<title>Inf A H1N1 2009-&gt;Respiratory Syncytial Virus</title>
+<g id="a_edge36"><a xlink:title="(21, 8):">
+<path fill="none" stroke="#4a4a4a" d="M943.21,-388.8C997.48,-363.2 1107.2,-311.44 1168.34,-282.6"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1170.17,-285.6 1177.72,-278.17 1167.18,-279.27 1170.17,-285.6"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Influenza B -->
+<g id="edge1" class="edge">
+<title>Inf A H1N1 2009-&gt;Influenza B</title>
+<g id="a_edge1"><a xlink:title="(21, 10):">
+<path fill="none" stroke="#4a4a4a" d="M961.72,-392.2C1016.92,-379.37 1104.73,-358.95 1160.31,-346.02"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1161.35,-349.37 1170.3,-343.7 1159.77,-342.55 1161.35,-349.37"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Rhinovirus/Enterovirus -->
+<g id="edge4" class="edge">
+<title>Inf A H1N1 2009-&gt;Rhinovirus/Enterovirus</title>
+<g id="a_edge4"><a xlink:title="(21, 13):">
+<path fill="none" stroke="#4a4a4a" d="M924.56,-386.97C931.56,-377.09 939.37,-364.05 943,-351 961.02,-286.28 910.44,-272.83 897,-207 893.36,-189.15 893.73,-183.93 897,-166 898.61,-157.2 901.6,-147.95 904.79,-139.7"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="908.12,-140.79 908.69,-130.21 901.65,-138.12 908.12,-140.79"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Parainfluenza 3 -->
+<g id="edge21" class="edge">
+<title>Inf A H1N1 2009-&gt;Parainfluenza 3</title>
+<g id="a_edge21"><a xlink:title="(21, 15):">
+<path fill="none" stroke="#4a4a4a" d="M843.43,-398.67C752.8,-390.98 587.05,-375.01 447,-351 441.34,-350.03 435.46,-348.9 429.61,-347.69"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="430.33,-344.26 419.82,-345.59 428.86,-351.11 430.33,-344.26"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Coronavirus229E -->
+<g id="edge5" class="edge">
+<title>Inf A H1N1 2009-&gt;Coronavirus229E</title>
+<g id="a_edge5"><a xlink:title="(21, 19):">
+<path fill="none" stroke="#4a4a4a" d="M852.72,-394.36C791.82,-384.15 693.55,-367.29 609,-351 603.22,-349.89 597.21,-348.69 591.19,-347.47"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="591.6,-343.99 581.11,-345.41 590.2,-350.84 591.6,-343.99"/>
+</a>
+</g>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;CoronavirusOC43 -->
+<g id="edge40" class="edge">
+<title>Inf A H1N1 2009-&gt;CoronavirusOC43</title>
+<g id="a_edge40"><a xlink:title="(21, 20):">
+<path fill="none" stroke="#4a4a4a" d="M868.71,-390.42C833.59,-379.14 783.45,-363.04 745.72,-350.93"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="746.51,-347.51 735.92,-347.78 744.37,-354.17 746.51,-347.51"/>
+</a>
+</g>
+</g>
+<!-- Metapneumovirus -->
+<g id="node24" class="node">
+<title>Metapneumovirus</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="860" cy="-333" rx="74.41" ry="18"/>
+<text text-anchor="middle" x="860" y="-328.8" font-family="Times,serif" font-size="14.00" fill="#000000">Metapneumovirus</text>
+</g>
+<!-- Inf A H1N1 2009&#45;&gt;Metapneumovirus -->
+<g id="edge38" class="edge">
+<title>Inf A H1N1 2009-&gt;Metapneumovirus</title>
+<g id="a_edge38"><a xlink:title="(21, 23):">
+<path fill="none" stroke="#4a4a4a" d="M898.65,-387.05C892.52,-378.63 884.98,-368.28 878.19,-358.97"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="880.95,-356.81 872.23,-350.79 875.29,-360.93 880.95,-356.81"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Parainfluenza 1 -->
+<g id="edge3" class="edge">
+<title>Bordetella pertussis-&gt;Parainfluenza 1</title>
+<g id="a_edge3"><a xlink:title="(22, 11):">
+<path fill="none" stroke="#4a4a4a" d="M346.86,-389.05C328.11,-380.11 306.01,-367.31 290,-351 258.52,-318.92 242,-306.94 242,-262 242,-262 242,-262 242,-185.5 242,-104.23 505.22,-63.37 634.73,-48.18"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="635.41,-51.62 644.95,-47 634.61,-44.67 635.41,-51.62"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;CoronavirusNL63 -->
+<g id="edge39" class="edge">
+<title>Bordetella pertussis-&gt;CoronavirusNL63</title>
+<g id="a_edge39"><a xlink:title="(22, 12):">
+<path fill="none" stroke="#4a4a4a" d="M336.67,-390.42C296.29,-378.84 238.2,-362.17 195.62,-349.96"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="196.54,-346.58 185.96,-347.19 194.61,-353.31 196.54,-346.58"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Parainfluenza 3 -->
+<g id="edge42" class="edge">
+<title>Bordetella pertussis-&gt;Parainfluenza 3</title>
+<g id="a_edge42"><a xlink:title="(22, 15):">
+<path fill="none" stroke="#4a4a4a" d="M381.28,-386.7C380.07,-378.98 378.61,-369.71 377.26,-361.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="380.7,-360.44 375.69,-351.1 373.78,-361.53 380.7,-360.44"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Adenovirus -->
+<g id="edge7" class="edge">
+<title>Bordetella pertussis-&gt;Adenovirus</title>
+<g id="a_edge7"><a xlink:title="(22, 17):">
+<path fill="none" stroke="#4a4a4a" d="M343.88,-389.39C326.84,-380.96 308.7,-368.49 299,-351 288.08,-331.33 295.93,-306.24 305.15,-287.72"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="308.35,-289.16 310,-278.7 302.18,-285.85 308.35,-289.16"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Coronavirus229E -->
+<g id="edge25" class="edge">
+<title>Bordetella pertussis-&gt;Coronavirus229E</title>
+<g id="a_edge25"><a xlink:title="(22, 19):">
+<path fill="none" stroke="#4a4a4a" d="M415.96,-388.46C437.08,-378.2 464.94,-364.66 487.59,-353.64"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="489.16,-356.77 496.63,-349.25 486.1,-350.48 489.16,-356.77"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;CoronavirusOC43 -->
+<g id="edge6" class="edge">
+<title>Bordetella pertussis-&gt;CoronavirusOC43</title>
+<g id="a_edge6"><a xlink:title="(22, 20):">
+<path fill="none" stroke="#4a4a4a" d="M438.18,-391.73C491.9,-379.56 574.13,-360.93 630.56,-348.15"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="631.45,-351.53 640.43,-345.91 629.91,-344.7 631.45,-351.53"/>
+</a>
+</g>
+</g>
+<!-- Bordetella pertussis&#45;&gt;Metapneumovirus -->
+<g id="edge8" class="edge">
+<title>Bordetella pertussis-&gt;Metapneumovirus</title>
+<g id="a_edge8"><a xlink:title="(22, 23):">
+<path fill="none" stroke="#4a4a4a" d="M453.79,-396.04C532.53,-386.72 664.32,-370.11 777,-351 783.19,-349.95 789.61,-348.78 796.03,-347.55"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="796.93,-350.95 806.08,-345.6 795.59,-344.08 796.93,-350.95"/>
+</a>
+</g>
+</g>
+<!-- Influenza B rapid test -->
+<g id="node25" class="node">
+<title>Influenza B rapid test</title>
+<ellipse fill="#f2f2f2" stroke="#000000" cx="1201" cy="-405" rx="85.99" ry="18"/>
+<text text-anchor="middle" x="1201" y="-400.8" font-family="Times,serif" font-size="14.00" fill="#000000">Influenza B rapid test</text>
+</g>
+<!-- Influenza B rapid test&#45;&gt;Influenza B -->
+<g id="edge31" class="edge">
+<title>Influenza B rapid test-&gt;Influenza B</title>
+<g id="a_edge31"><a xlink:title="(24, 10):">
+<path fill="none" stroke="#4a4a4a" d="M1203.72,-386.7C1204.93,-378.98 1206.39,-369.71 1207.74,-361.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1211.22,-361.53 1209.31,-351.1 1204.3,-360.44 1211.22,-361.53"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test&#45;&gt;Inf A H1N1 2009 -->
+<g id="edge32" class="edge">
+<title>Influenza A rapid test-&gt;Inf A H1N1 2009</title>
+<g id="a_edge32"><a xlink:title="(25, 21):">
+<path fill="none" stroke="#4a4a4a" d="M973.57,-459.41C962.95,-450.34 949.63,-438.97 938.01,-429.06"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="940.17,-426.3 930.29,-422.47 935.63,-431.62 940.17,-426.3"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test&#45;&gt;Influenza B rapid test -->
+<g id="edge33" class="edge">
+<title>Influenza A rapid test-&gt;Influenza B rapid test</title>
+<g id="a_edge33"><a xlink:title="(25, 24):">
+<path fill="none" stroke="#4a4a4a" d="M1036.35,-461.41C1068.89,-450.46 1113.61,-435.41 1148.23,-423.76"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1149.34,-427.08 1157.71,-420.57 1147.11,-420.44 1149.34,-427.08"/>
+</a>
+</g>
+</g>
+<!-- Influenza A rapid test&#45;&gt;Strepto A -->
+<g id="edge46" class="edge">
+<title>Influenza A rapid test-&gt;Strepto A</title>
+<g id="a_edge46"><a xlink:title="(25, 26):">
+<path fill="none" stroke="#4a4a4a" d="M997.47,-458.82C1010.02,-410.51 1045.72,-273.22 1060.96,-214.59"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="1064.43,-215.15 1063.56,-204.59 1057.65,-213.39 1064.43,-215.15"/>
+</a>
+</g>
+</g>
+</g>
+</svg>

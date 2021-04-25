@@ -1,0 +1,1466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bayesian Networks with pyAgrum &#8212; Modelling of Uncertainty</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Learn CPTs of Bayesian Netork" href="BayesNetLearningWithPandas.html" />
+    <link rel="prev" title="Correlation is not Causality" href="Thrombosis.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modelling of Uncertainty</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Probability Theory
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityUnivariate.html">
+   Discrete and Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ProbabilityMultivariate.html">
+   Multiple Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="estimateProbability.html">
+   Estimating Probabilities
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises and Applications
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="exampleProbEst.html">
+   Estimation of Probabilities from Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parametricClassification1D.html">
+   Bayes- and Naive Bayes Classifier
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Thrombosis.html">
+   Correlation is not Causality
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bayesian Networks
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bayesian Networks with pyAgrum
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="BayesNetLearningWithPandas.html">
+   Learn CPTs of Bayesian Netork
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/BayesNetAsia.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/BayesNetAsia.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-network-topology">
+   Create the network topology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-variables">
+     Create the variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-arcs">
+     Create the arcs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-probability-tables">
+     Create the probability tables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-and-loading-bayes-nets">
+   Saving and Loading Bayes Nets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markov-blanket">
+   Markov Blanket
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inference-in-bayesian-networks">
+   Inference in Bayesian networks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-without-evidence">
+     Inference without evidence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-with-evidence">
+     Inference with evidence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inference-in-the-whole-bayes-net">
+   Inference in the whole Bayes net
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Inference with evidence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-with-soft-and-hard-evidence">
+     Inference with soft and hard evidence
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="bayesian-networks-with-pyagrum">
+<h1>Bayesian Networks with pyAgrum<a class="headerlink" href="#bayesian-networks-with-pyagrum" title="Permalink to this headline">¶</a></h1>
+<p>Bayesian Networks (BNs) are class of Probabilistic Graphical Models that are capable to reason under uncertainty. They can be seen as a probabilistic expert system: the domain knowledge (business knowledge) is modeled as direct acyclic graph (DAG). The nodes of this DAG represent the <strong>random variables</strong> and the arcs between the nodes represent the <strong>probabilistic dependencies</strong> (correlation, causation or influence) between the variables. Morevoer, a <strong>conditional probability table</strong> (CPT) is associated with each node. It contains the conditional probability distribution of the node given its parents in the DAG.</p>
+<p>In this section the famous <em>Visit Asia</em><a class="footnote-reference brackets" href="#id3" id="id1">2</a> Bayes Net shall be implemented in <a class="reference external" href="https://pyagrum.readthedocs.io/en/0.20.1/">pyAgrum</a>.</p>
+<p>The asia data set contains the following variables:</p>
+<ul class="simple">
+<li><p>D (dyspnoea), a two-level factor with levels yes and no.</p></li>
+<li><p>T (tuberculosis), a two-level factor with levels yes and no.</p></li>
+<li><p>L (lung cancer), a two-level factor with levels yes and no.</p></li>
+<li><p>B (bronchitis), a two-level factor with levels yes and no.</p></li>
+<li><p>A (visit to Asia), a two-level factor with levels yes and no.</p></li>
+<li><p>S (smoking), a two-level factor with levels yes and no.</p></li>
+<li><p>X (chest X-ray), a two-level factor with levels yes and no.</p></li>
+<li><p>E (tuberculosis versus lung cancer/bronchitis), a two-level factor with levels yes and no.</p></li>
+</ul>
+<p><strong>Motivation:</strong></p>
+<p>Shortness-of-breath (dyspnoea) may be due to tuberculosis, lung cancer or bronchitis, or none of them, or more than one of them. A recent visit to Asia increases the chances of tuberculosis, while smoking is known to be a risk factor for both lung cancer and bronchitis. The results of a single chest X-ray do not discriminate between lung cancer and tuberculosis, as neither does the presence or absence of dyspnoea.</p>
+<p>The structure of the Bayesian Network is depicted below:</p>
+<img alt="https://maucher.home.hdm-stuttgart.de/Pics/BayesNetVisitAsia.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/BayesNetVisitAsia.png" />
+<p>The <strong>Conditional Propability Tables (CPT)</strong> for each node are shown below:</p>
+<img alt="https://maucher.home.hdm-stuttgart.de/Pics/BayesNetVisitAsiaCPT.png" class="align-center" src="https://maucher.home.hdm-stuttgart.de/Pics/BayesNetVisitAsiaCPT.png" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pyAgrum</span> <span class="k">as</span> <span class="nn">gum</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-network-topology">
+<h2>Create the network topology<a class="headerlink" href="#create-the-network-topology" title="Permalink to this headline">¶</a></h2>
+<p>The next line creates an empty BN network with a ‘name’ property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">BayesNet</span><span class="p">(</span><span class="s1">&#39;Asia&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BN{nodes: 0, arcs: 0, domainSize: 1, dim: 0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-variables">
+<h3>Create the variables<a class="headerlink" href="#create-the-variables" title="Permalink to this headline">¶</a></h3>
+<p>pyAgrum provides 3 types of variables :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LabelizedVariable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RangeVariable</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DiscretizedVariable</span></code></p></li>
+</ul>
+<p>In this example <code class="docutils literal notranslate"><span class="pre">LabelizedVariable</span></code>, which is a variable whose domain is a finite set of labels.</p>
+<p>In the code cell below a variable named <code class="docutils literal notranslate"><span class="pre">A</span></code>, with 2 values and described as <em>visit to Asia?</em> is created and added to the BN. The value returned is the id of the node in the graphical structure (the DAG). pyAgrum actually distinguishes the random variable (here the <code class="docutils literal notranslate"><span class="pre">LabelizedVariable</span></code>) from its node in the DAG: the latter is identified through a numeric id.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;visit to Asia?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="s1">&#39;smoking?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">T</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;tuberculosis?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">L</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;lung cancer?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">B</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;bronchitis?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">E</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;either tuberculosis or lung cancer?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">D</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="s1">&#39;dyspnoea?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">X</span><span class="o">=</span><span class="n">bn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">LabelizedVariable</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;positive X-Ray?&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BN{nodes: 8, arcs: 0, domainSize: 256, dim: 16}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-arcs">
+<h3>Create the arcs<a class="headerlink" href="#create-the-arcs" title="Permalink to this headline">¶</a></h3>
+<p>Now we have to connect nodes, i.e., to add arcs linking the nodes. Remember that <tt>c</tt> and <tt>s</tt> are ids for nodes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">E</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">E</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">addArc</span><span class="p">(</span><span class="n">E</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BN{nodes: 8, arcs: 8, domainSize: 256, dim: 36}
+</pre></div>
+</div>
+</div>
+</div>
+<p>pyAgrum provides tools to display <tt>bn</tt> in more user-frendly fashions. <br/>Notably, <tt>pyAgrum.lib</tt> is a set of tools written in pyAgrum to help using aGrUM in python. <tt>pyAgrum.lib.notebook</tt> adds dedicated functions for iPython notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyAgrum.lib.notebook</span> <span class="k">as</span> <span class="nn">gnb</span>
+<span class="n">bn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<g id="a_node1"><a xlink:title="(0) A">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+</a>
+</g>
+</g>
+<!-- T -->
+<g id="node7" class="node">
+<title>T</title>
+<g id="a_node7"><a xlink:title="(2) T">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">T</text>
+</a>
+</g>
+</g>
+<!-- A&#45;&gt;T -->
+<g id="edge4" class="edge">
+<title>A-&gt;T</title>
+<g id="a_edge4"><a xlink:title="(0, 2) : ">
+<path fill="none" stroke="#4a4a4a" d="M27,-215.7C27,-207.98 27,-198.71 27,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-190.1 27,-180.1 23.5,-190.1 30.5,-190.1"/>
+</a>
+</g>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<g id="a_node2"><a xlink:title="(5) E">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">E</text>
+</a>
+</g>
+</g>
+<!-- D -->
+<g id="node5" class="node">
+<title>D</title>
+<g id="a_node5"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M96.57,-74.83C106.75,-64.94 120.52,-51.55 132.03,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="134.47,-42.87 139.2,-33.38 129.59,-37.85 134.47,-42.87"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node6" class="node">
+<title>X</title>
+<g id="a_node6"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;X -->
+<g id="edge2" class="edge">
+<title>E-&gt;X</title>
+<g id="a_edge2"><a xlink:title="(5, 7) : ">
+<path fill="none" stroke="#4a4a4a" d="M82,-71.7C82,-63.98 82,-54.71 82,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="85.5,-46.1 82,-36.1 78.5,-46.1 85.5,-46.1"/>
+</a>
+</g>
+</g>
+<!-- S -->
+<g id="node3" class="node">
+<title>S</title>
+<g id="a_node3"><a xlink:title="(1) S">
+<ellipse fill="#404040" stroke="black" cx="126" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="126" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">S</text>
+</a>
+</g>
+</g>
+<!-- B -->
+<g id="node4" class="node">
+<title>B</title>
+<g id="a_node4"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</a>
+</g>
+</g>
+<!-- S&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>S-&gt;B</title>
+<g id="a_edge3"><a xlink:title="(1, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M129.38,-215.87C134.17,-191.56 142.99,-146.82 148.67,-118.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="152.11,-118.68 150.61,-108.19 145.24,-117.32 152.11,-118.68"/>
+</a>
+</g>
+</g>
+<!-- L -->
+<g id="node8" class="node">
+<title>L</title>
+<g id="a_node8"><a xlink:title="(3) L">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">L</text>
+</a>
+</g>
+</g>
+<!-- S&#45;&gt;L -->
+<g id="edge7" class="edge">
+<title>S-&gt;L</title>
+<g id="a_edge7"><a xlink:title="(1, 3) : ">
+<path fill="none" stroke="#4a4a4a" d="M119.6,-216.41C116.49,-208.34 112.67,-198.43 109.17,-189.35"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="112.4,-188.03 105.54,-179.96 105.87,-190.55 112.4,-188.03"/>
+</a>
+</g>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>B-&gt;D</title>
+<g id="a_edge1"><a xlink:title="(4, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M154,-71.7C154,-63.98 154,-54.71 154,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-46.1 154,-36.1 150.5,-46.1 157.5,-46.1"/>
+</a>
+</g>
+</g>
+<!-- T&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>T-&gt;E</title>
+<g id="a_edge6"><a xlink:title="(2, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M38.93,-145.81C46.21,-136.55 55.66,-124.52 63.85,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="66.66,-116.18 70.09,-106.16 61.16,-111.86 66.66,-116.18"/>
+</a>
+</g>
+</g>
+<!-- L&#45;&gt;E -->
+<g id="edge8" class="edge">
+<title>L-&gt;E</title>
+<g id="a_edge8"><a xlink:title="(3, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M94.88,-144.05C92.99,-136.26 90.7,-126.82 88.58,-118.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="91.96,-117.17 86.2,-108.28 85.15,-118.82 91.96,-117.17"/>
+</a>
+</g>
+</g>
+</g>
+</svg></div></div>
+</div>
+</div>
+<div class="section" id="create-the-probability-tables">
+<h3>Create the probability tables<a class="headerlink" href="#create-the-probability-tables" title="Permalink to this headline">¶</a></h3>
+<p>Once the network topology is constructed, we must initialize the conditional probability tables (CPT) distributions.</p>
+<p>To get the CPT of a variable, the <code class="docutils literal notranslate"><span class="pre">cpt</span></code> method of the BayesNet instance with the variable’s id as parameter is applied as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">fillWith</span><span class="p">([</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.01</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr style='border:1px solid black;color:black;background-color:#808080'><th colspan='2'><center>A</center></th></tr>
+<tr><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><td style='color:black;background-color:#80fd64;text-align:right;'>0.9900</td><td style='color:black;background-color:#fd8064;text-align:right;'>0.0100</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="o">.</span><span class="n">fillWith</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr style='border:1px solid black;color:black;background-color:#808080'><th colspan='2'><center>S</center></th></tr>
+<tr><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><td style='color:black;background-color:#bfbf64;text-align:right;'>0.5000</td><td style='color:black;background-color:#bfbf64;text-align:right;'>0.5000</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">var_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;A&#39;, &#39;T&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">T</span><span class="p">)[:]</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],[</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">0.05</span><span class="p">]]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>T</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>A</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#80fd64;text-align:right;'>0.9900</td><td style='color:black;background-color:#fd8064;text-align:right;'>0.0100</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#85f864;text-align:right;'>0.9500</td><td style='color:black;background-color:#f88564;text-align:right;'>0.0500</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">L</span><span class="p">)[:]</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],[</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#80fd64;text-align:right;'>0.9900</td><td style='color:black;background-color:#fd8064;text-align:right;'>0.0100</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">B</span><span class="p">)[:]</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="mf">0.7</span><span class="p">,</span><span class="mf">0.3</span><span class="p">],[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.6</span><span class="p">]]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>B</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#a5d864;text-align:right;'>0.7000</td><td style='color:black;background-color:#d8a564;text-align:right;'>0.3000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#cbb264;text-align:right;'>0.4000</td><td style='color:black;background-color:#b2cb64;text-align:right;'>0.6000</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">var_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;L&#39;, &#39;T&#39;, &#39;E&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># L=0,T=0</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># L=0,T=1</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># L=1,T=0</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># L=1,T=1</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>E</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>L</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>T</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td></tr>
+</table></div></div>
+</div>
+<p>Instead of the assignment-method applied above, one can obtain the same result by applying dictionaries. The cell below produces the same output as the cell above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)[{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>E</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>L</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>T</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#ff7f64;text-align:right;'>0.0000</td><td style='color:black;background-color:#7fff64;text-align:right;'>1.0000</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">.</span><span class="n">var_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;E&#39;, &#39;B&#39;, &#39;D&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span> <span class="c1"># E=0,B=0</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span> <span class="c1"># E=0,B=1</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span> <span class="c1"># E=1,B=0</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span> <span class="c1"># E=1,B=1</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#e59864;text-align:right;'>0.2000</td><td style='color:black;background-color:#98e564;text-align:right;'>0.8000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#d8a564;text-align:right;'>0.3000</td><td style='color:black;background-color:#a5d864;text-align:right;'>0.7000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td></tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">X</span><span class="p">)[:]</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">0.05</span><span class="p">],[</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.98</span><span class="p">]]</span>
+<span class="n">bn</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>X</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#85f864;text-align:right;'>0.9500</td><td style='color:black;background-color:#f88564;text-align:right;'>0.0500</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#fc8164;text-align:right;'>0.0200</td><td style='color:black;background-color:#81fc64;text-align:right;'>0.9800</td></tr>
+</table></div></div>
+</div>
+<p>At this point the Bayes Net is completely specified and can be applied for arbitrary queries in the inference phase.</p>
+</div>
+</div>
+<div class="section" id="saving-and-loading-bayes-nets">
+<h2>Saving and Loading Bayes Nets<a class="headerlink" href="#saving-and-loading-bayes-nets" title="Permalink to this headline">¶</a></h2>
+<p>The specified Bayes Net can be saved in different formats. A list of supported formats can be displayed as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gum</span><span class="o">.</span><span class="n">availableBNExts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bif|dsl|net|bifxml|o3prm|uai
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, the Bayes Net is saved in BIF format:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gum</span><span class="o">.</span><span class="n">saveBN</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;VisitAsia.bif&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;VisitAsia.bif&quot;</span><span class="p">),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>network &quot;Asia&quot; {
+// written by aGrUM 0.20.1
+}
+
+variable A {
+   type discrete[2] {0, 1};
+}
+
+variable S {
+   type discrete[2] {0, 1};
+}
+
+variable T {
+   type discrete[2] {0, 1};
+}
+
+variable L {
+   type discrete[2] {0, 1};
+}
+
+variable B {
+   type discrete[2] {0, 1};
+}
+
+variable E {
+   type discrete[2] {0, 1};
+}
+
+variable D {
+   type discrete[2] {0, 1};
+}
+
+variable X {
+   type discrete[2] {0, 1};
+}
+
+probability (A) {
+   default 0.99 0.01;
+}
+probability (S) {
+   default 0.5 0.5;
+}
+probability (T | A) {
+   (0) 0.99 0.01;
+   (1) 0.95 0.05;
+}
+probability (L | S) {
+   (0) 0.99 0.01;
+   (1) 0.9 0.1;
+}
+probability (B | S) {
+   (0) 0.7 0.3;
+   (1) 0.4 0.6;
+}
+probability (E | T, L) {
+   (0, 0) 1 0;
+   (1, 0) 0 1;
+   (0, 1) 0 1;
+   (1, 1) 0 1;
+}
+probability (D | B, E) {
+   (0, 0) 0.9 0.1;
+   (1, 0) 0.2 0.8;
+   (0, 1) 0.3 0.7;
+   (1, 1) 0.1 0.9;
+}
+probability (X | E) {
+   (0) 0.95 0.05;
+   (1) 0.02 0.98;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We load the BN, which has been saved previously. What we get is actually what we saved:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn2</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">loadBN</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;out&quot;</span><span class="p">,</span><span class="s2">&quot;VisitAsia.bif&quot;</span><span class="p">))</span>
+<span class="n">bn2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<g id="a_node1"><a xlink:title="(0) A">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+</a>
+</g>
+</g>
+<!-- T -->
+<g id="node7" class="node">
+<title>T</title>
+<g id="a_node7"><a xlink:title="(2) T">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">T</text>
+</a>
+</g>
+</g>
+<!-- A&#45;&gt;T -->
+<g id="edge4" class="edge">
+<title>A-&gt;T</title>
+<g id="a_edge4"><a xlink:title="(0, 2) : ">
+<path fill="none" stroke="#4a4a4a" d="M27,-215.7C27,-207.98 27,-198.71 27,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-190.1 27,-180.1 23.5,-190.1 30.5,-190.1"/>
+</a>
+</g>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<g id="a_node2"><a xlink:title="(5) E">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">E</text>
+</a>
+</g>
+</g>
+<!-- D -->
+<g id="node5" class="node">
+<title>D</title>
+<g id="a_node5"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M96.57,-74.83C106.75,-64.94 120.52,-51.55 132.03,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="134.47,-42.87 139.2,-33.38 129.59,-37.85 134.47,-42.87"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node6" class="node">
+<title>X</title>
+<g id="a_node6"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;X -->
+<g id="edge2" class="edge">
+<title>E-&gt;X</title>
+<g id="a_edge2"><a xlink:title="(5, 7) : ">
+<path fill="none" stroke="#4a4a4a" d="M82,-71.7C82,-63.98 82,-54.71 82,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="85.5,-46.1 82,-36.1 78.5,-46.1 85.5,-46.1"/>
+</a>
+</g>
+</g>
+<!-- S -->
+<g id="node3" class="node">
+<title>S</title>
+<g id="a_node3"><a xlink:title="(1) S">
+<ellipse fill="#404040" stroke="black" cx="126" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="126" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">S</text>
+</a>
+</g>
+</g>
+<!-- B -->
+<g id="node4" class="node">
+<title>B</title>
+<g id="a_node4"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</a>
+</g>
+</g>
+<!-- S&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>S-&gt;B</title>
+<g id="a_edge3"><a xlink:title="(1, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M129.38,-215.87C134.17,-191.56 142.99,-146.82 148.67,-118.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="152.11,-118.68 150.61,-108.19 145.24,-117.32 152.11,-118.68"/>
+</a>
+</g>
+</g>
+<!-- L -->
+<g id="node8" class="node">
+<title>L</title>
+<g id="a_node8"><a xlink:title="(3) L">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">L</text>
+</a>
+</g>
+</g>
+<!-- S&#45;&gt;L -->
+<g id="edge7" class="edge">
+<title>S-&gt;L</title>
+<g id="a_edge7"><a xlink:title="(1, 3) : ">
+<path fill="none" stroke="#4a4a4a" d="M119.6,-216.41C116.49,-208.34 112.67,-198.43 109.17,-189.35"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="112.4,-188.03 105.54,-179.96 105.87,-190.55 112.4,-188.03"/>
+</a>
+</g>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>B-&gt;D</title>
+<g id="a_edge1"><a xlink:title="(4, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M154,-71.7C154,-63.98 154,-54.71 154,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-46.1 154,-36.1 150.5,-46.1 157.5,-46.1"/>
+</a>
+</g>
+</g>
+<!-- T&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>T-&gt;E</title>
+<g id="a_edge6"><a xlink:title="(2, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M38.93,-145.81C46.21,-136.55 55.66,-124.52 63.85,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="66.66,-116.18 70.09,-106.16 61.16,-111.86 66.66,-116.18"/>
+</a>
+</g>
+</g>
+<!-- L&#45;&gt;E -->
+<g id="edge8" class="edge">
+<title>L-&gt;E</title>
+<g id="a_edge8"><a xlink:title="(3, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M94.88,-144.05C92.99,-136.26 90.7,-126.82 88.58,-118.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="91.96,-117.17 86.2,-108.28 85.15,-118.82 91.96,-117.17"/>
+</a>
+</g>
+</g>
+</g>
+</svg></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bn2</span><span class="o">.</span><span class="n">cpt</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#e59864;text-align:right;'>0.2000</td><td style='color:black;background-color:#98e564;text-align:right;'>0.8000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#d8a564;text-align:right;'>0.3000</td><td style='color:black;background-color:#a5d864;text-align:right;'>0.7000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td></tr>
+</table></div></div>
+</div>
+<p>In this way you can easily load arbitrary Bayesian Networks, e.g. from <a class="reference external" href="https://www.bnlearn.com/bnrepository/">here</a>.</p>
+</div>
+<div class="section" id="markov-blanket">
+<h2>Markov Blanket<a class="headerlink" href="#markov-blanket" title="Permalink to this headline">¶</a></h2>
+<p>The Markov blanket of a node <span class="math notranslate nohighlight">\(X\)</span> is the set of nodes <span class="math notranslate nohighlight">\(M\!B(X)\)</span> such that <span class="math notranslate nohighlight">\(X\)</span> is independent from the rest of the nodes given <span class="math notranslate nohighlight">\(M\!B(X)\)</span>. The Markov Blanket can be visualized as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gum</span><span class="o">.</span><span class="n">MarkovBlanket</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170pt" height="188pt" viewBox="0.00 0.00 170.00 188.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>no_name</title>
+<!-- 2 -->
+<g id="node1" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="63" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="63" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">T</text>
+</g>
+<!-- 5 -->
+<g id="node4" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="red" cx="99" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">E</text>
+</g>
+<!-- 2&#45;&gt;5 -->
+<g id="edge1" class="edge">
+<title>2-&gt;5</title>
+<path fill="none" stroke="#4a4a4a" d="M71.35,-144.76C75.71,-136.28 81.15,-125.71 86.04,-116.2"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="89.23,-117.64 90.7,-107.15 83.01,-114.44 89.23,-117.64"/>
+</g>
+<!-- 3 -->
+<g id="node2" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="135" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="135" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">L</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g id="edge2" class="edge">
+<title>3-&gt;5</title>
+<path fill="none" stroke="#4a4a4a" d="M126.65,-144.76C122.29,-136.28 116.85,-125.71 111.96,-116.2"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="114.99,-114.44 107.3,-107.15 108.77,-117.64 114.99,-114.44"/>
+</g>
+<!-- 4 -->
+<g id="node3" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">B</text>
+</g>
+<!-- 6 -->
+<g id="node5" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">D</text>
+</g>
+<!-- 4&#45;&gt;6 -->
+<g id="edge3" class="edge">
+<title>4-&gt;6</title>
+<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+</g>
+<!-- 5&#45;&gt;6 -->
+<g id="edge4" class="edge">
+<title>5-&gt;6</title>
+<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+</g>
+<!-- 7 -->
+<g id="node6" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">X</text>
+</g>
+<!-- 5&#45;&gt;7 -->
+<g id="edge5" class="edge">
+<title>5-&gt;7</title>
+<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
+</g>
+</g>
+</svg></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gum</span><span class="o">.</span><span class="n">MarkovBlanket</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="134pt" height="188pt" viewBox="0.00 0.00 134.00 188.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>no_name</title>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="27" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">S</text>
+</g>
+<!-- 4 -->
+<g id="node2" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="red" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">B</text>
+</g>
+<!-- 1&#45;&gt;4 -->
+<g id="edge1" class="edge">
+<title>1-&gt;4</title>
+<path fill="none" stroke="#4a4a4a" d="M27,-143.7C27,-135.98 27,-126.71 27,-118.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-118.1 27,-108.1 23.5,-118.1 30.5,-118.1"/>
+</g>
+<!-- 6 -->
+<g id="node4" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="63" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="63" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">D</text>
+</g>
+<!-- 4&#45;&gt;6 -->
+<g id="edge2" class="edge">
+<title>4-&gt;6</title>
+<path fill="none" stroke="#4a4a4a" d="M35.35,-72.76C39.71,-64.28 45.15,-53.71 50.04,-44.2"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="53.23,-45.64 54.7,-35.15 47.01,-42.44 53.23,-45.64"/>
+</g>
+<!-- 5 -->
+<g id="node3" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="99" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">E</text>
+</g>
+<!-- 5&#45;&gt;6 -->
+<g id="edge3" class="edge">
+<title>5-&gt;6</title>
+<path fill="none" stroke="#4a4a4a" d="M90.65,-72.76C86.29,-64.28 80.85,-53.71 75.96,-44.2"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="78.99,-42.44 71.3,-35.15 72.77,-45.64 78.99,-42.44"/>
+</g>
+</g>
+</svg></div></div>
+</div>
+</div>
+<div class="section" id="inference-in-bayesian-networks">
+<h2>Inference in Bayesian networks<a class="headerlink" href="#inference-in-bayesian-networks" title="Permalink to this headline">¶</a></h2>
+<p>In the inference phase an engine must calculate probabilities, which are queried. PyAgrum provides two inference engines:</p>
+<ul class="simple">
+<li><p><strong>LazyPropagation</strong>: an exact inference method that transforms the Bayesian network into a hypergraph called a join tree or a junction tree. This tree is constructed in order to optimize inference computations.</p></li>
+<li><p><strong>Gibbs</strong>: an approximate inference engine using the Gibbs sampling algorithm to generate a sequence of samples from the joint probability distribution.</p></li>
+</ul>
+<p>In a small example like this, <code class="docutils literal notranslate"><span class="pre">LazyPropagation</span></code> can be applied:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">LazyPropagation</span><span class="p">(</span><span class="n">bn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inference-without-evidence">
+<h3>Inference without evidence<a class="headerlink" href="#inference-without-evidence" title="Permalink to this headline">¶</a></h3>
+<p>Calculate <span class="math notranslate nohighlight">\(P(L)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  L                |
+0        |1        |
+---------|---------|
+ 0.9450  | 0.0550  |
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate <span class="math notranslate nohighlight">\(P(X)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  D                |
+0        |1        |
+---------|---------|
+ 0.5640  | 0.4360  |
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate Joint Probability <span class="math notranslate nohighlight">\(P(S,B,X)\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">.</span><span class="n">addJointTarget</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">S</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">X</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">.</span><span class="n">jointPosterior</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">S</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">X</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>S</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#808080'><center>X</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#d5a864;text-align:right;'>0.3259</td><td style='color:black;background-color:#e99464;text-align:right;'>0.1697</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#ed9064;text-align:right;'>0.1397</td><td style='color:black;background-color:#de9f64;text-align:right;'>0.2545</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#fb8264;text-align:right;'>0.0241</td><td style='color:black;background-color:#fb8264;text-align:right;'>0.0303</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#fd8064;text-align:right;'>0.0103</td><td style='color:black;background-color:#f98464;text-align:right;'>0.0455</td></tr>
+</table></div></div>
+</div>
+</div>
+<div class="section" id="inference-with-evidence">
+<h3>Inference with evidence<a class="headerlink" href="#inference-with-evidence" title="Permalink to this headline">¶</a></h3>
+<p>As demonstrated below, the probability for <em>lung cancer</em> without evidence is <span class="math notranslate nohighlight">\(0.055\)</span>. Suppose, that we now know the patient is smoker. Does this evidence increase the probability for <em>lung cancer</em>?</p>
+<p>As shown below, evidence can be entered using a dictionary. When you know precisely the value taken by a random variable, the evidence is called a hard evidence. This is the case, for instance, when you know for sure that the patient is a smoker. In this case, the knowledge is entered in the dictionary as <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">name:</span> <span class="pre">label</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">=</span><span class="n">gum</span><span class="o">.</span><span class="n">LazyPropagation</span><span class="p">(</span><span class="n">bn</span><span class="p">)</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">setEvidence</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr style='border:1px solid black;color:black;background-color:#808080'><th colspan='2'><center>L</center></th></tr>
+<tr><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><td style='color:black;background-color:#8bf264;text-align:right;'>0.9000</td><td style='color:black;background-color:#f28b64;text-align:right;'>0.1000</td></tr>
+</table></div></div>
+</div>
+<p>The probability for lung cancer almost doubled, if we know that the patient is a smoker.
+And if we additionally know, that X-Ray test has been positive?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">.</span><span class="n">setEvidence</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr style='border:1px solid black;color:black;background-color:#808080'><th colspan='2'><center>L</center></th></tr>
+<tr><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><td style='color:black;background-color:#d1ac64;text-align:right;'>0.3540</td><td style='color:black;background-color:#acd164;text-align:right;'>0.6460</td></tr>
+</table></div></div>
+</div>
+<p>When you have <strong>incomplete knowledge</strong> about the value of a random variable, this is called a <strong>soft evidence</strong>. In this case, this evidence is entered as the belief you have over the possible values that the random variable can take, in other words, as <em>P(evidence|true value of the variable)</em>.
+Imagine for example that you think that if the patient is not smoking, you have only 50% chances of knowing it, but if he is a smoker, you are sure to know it. Then, your belief about the smoker-state of the patient is [0.5, 1]. Below it is demonstrated how this belief is entered:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ie</span><span class="o">.</span><span class="n">setEvidence</span><span class="p">({</span><span class="s1">&#39;S&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]})</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">makeInference</span><span class="p">()</span>
+<span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="c1"># using gnb&#39;s feature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table style="border:1px solid black;">
+<tr style='border:1px solid black;color:black;background-color:#808080'><th colspan='2'><center>L</center></th></tr>
+<tr><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
+<tr><td style='color:black;background-color:#87f664;text-align:right;'>0.9300</td><td style='color:black;background-color:#f68764;text-align:right;'>0.0700</td></tr>
+</table></div></div>
+</div>
+<p>the pyAgrum.lib.notebook utility proposes certain functions to graphically show distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showProba</span><span class="p">(</span><span class="n">ie</span><span class="o">.</span><span class="n">posterior</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetAsia_71_0.svg" src="_images/BayesNetAsia_71_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showPosterior</span><span class="p">(</span><span class="n">bn</span><span class="p">,{</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetAsia_72_0.svg" src="_images/BayesNetAsia_72_0.svg" /></div>
+</div>
+</div>
+</div>
+<div class="section" id="inference-in-the-whole-bayes-net">
+<h2>Inference in the whole Bayes net<a class="headerlink" href="#inference-in-the-whole-bayes-net" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">evs</span><span class="o">=</span><span class="p">{})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetAsia_74_0.svg" src="_images/BayesNetAsia_74_0.svg" /></div>
+</div>
+<div class="section" id="id2">
+<h3>Inference with evidence<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetAsia_76_0.svg" src="_images/BayesNetAsia_76_0.svg" /></div>
+</div>
+</div>
+<div class="section" id="inference-with-soft-and-hard-evidence">
+<h3>Inference with soft and hard evidence<a class="headerlink" href="#inference-with-soft-and-hard-evidence" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/BayesNetAsia_78_0.svg" src="_images/BayesNetAsia_78_0.svg" /></div>
+</div>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>Lauritzen S, Spiegelhalter D (1988). <em>Local Computation with Probabilities on Graphical Structures and their Application to Expert Systems (with discussion)</em>. Journal of the Royal Statistical Society: Series B, 50(2):157–224.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Thrombosis.html" title="previous page">Correlation is not Causality</a>
+    <a class='right-next' id="next-link" href="BayesNetLearningWithPandas.html" title="next page">Learn CPTs of Bayesian Netork</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
