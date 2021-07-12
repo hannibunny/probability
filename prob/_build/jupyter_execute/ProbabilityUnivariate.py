@@ -6,7 +6,7 @@ If the outcomes are finite (for example the 6 possibilities in a die throwing ev
 
 The probability that the random variable $X$ takes the value $x$ is dentoted by $P(X=x)$ or for short $P(x)$. The description of the probabilities $P(x)$ for all possible $x \in V(X)$ is called the **probability distribution** of variable $X$.
 
-### Probability Mass Function and Cumulative Distribution Function of Discrete Random Variables
+## Probability Mass Function and Cumulative Distribution Function of Discrete Random Variables
 
 In the case of discrete random variables $X$, the probability distribution is called **probability mass function (pdf) $p_X(x)$**, it assigns to all $x \in V(X)$ the corresponding probability $P(x)$. For all probabilities the following conditions must be satisfied:
 
@@ -38,7 +38,7 @@ $$
 
 Every CDF is non-decreasing and has a maximum value of 1.
 
-#### Discrete Uniform Distribution
+### Discrete Uniform Distribution
 
 For the experiment "rolling a dice" the possible outcomes are 1,2,3,4,5 and 6. The corresponding discrete random variable $X$, has the probability mass function $p_X(x)$, which is defined by:
 
@@ -81,7 +81,7 @@ For example, if the probability $P(X=1)=p=0.7$, the pdf visualisation of the Ber
 
 p=0.7
 plt.stem([0,1],[1-p,p])
-plt.xlabel("$X$"), plt.ylabel("$P(X)$"), plt.title("Bernoulli Distribution")
+plt.xlabel("$X$"), plt.ylabel("$P(X)$"), plt.title("PMF of Bernoulli Distribution")
 plt.show()
 
 #### Binomial Distribution
@@ -121,7 +121,7 @@ plt.figure(figsize=(12,8))
 plt.subplot(1,2,1)
 for p,c in zip(p_list,colors):
     y=[comb(n,k)*p**k*(1-p)**(n-k) for k in range(n)]
-    plt.plot(range(n),y,"o"+c,label="p="+str(p))
+    plt.plot(range(n),y,"o"+c,ls="--",label="p="+str(p))
 plt.xlabel("k successes")
 plt.ylabel("Prob. for k successes")
 plt.legend()
@@ -130,7 +130,7 @@ plt.title("PMF of Binomial Distribution, $n=30$")
 plt.subplot(1,2,2)
 for p,c in zip(p_list,colors):
     y=[np.sum([comb(n,k)*p**k*(1-p)**(n-k) for k in range(i)]) for i in range(n)]
-    plt.plot(range(n),y,"o"+c,label="p="+str(p))
+    plt.plot(range(n),y,"o"+c,ls="--",label="p="+str(p))
 plt.xlabel("k successes")
 plt.ylabel("Prob. for k successes")
 plt.legend()
@@ -146,9 +146,21 @@ $$
 $$
 
 For example for the coin-tossing experiment, the probability that the first success comes 
-* at the first toss (k=1) is $$0.5^0 \cdot 0.5 =0.5$$
-* at the second toss(k=2) is $$0.5^1 \cdot 0.5 =0.25$$
-* at the third toss(k=3) is $$0.5^2 \cdot 0.5 =0.125$$
+* at the first toss (k=1) is 
+
+$$0.5^0 \cdot 0.5 =0.5$$
+
+
+* at the second toss(k=2) is 
+
+$$0.5^1 \cdot 0.5 =0.25$$
+
+
+* at the third toss(k=3) is 
+
+$$0.5^2 \cdot 0.5 =0.125$$
+
+
 * ...
 
 n=30
@@ -158,7 +170,7 @@ markers=["o"]
 plt.figure(figsize=(8,5))
 for p,c in zip(p_list,colors):
     y=[np.sum([comb(n,k)*p**k*(1-p)**(n-k) for k in range(i)]) for i in range(n)]
-    plt.plot(range(n),y,"o"+c,label="p="+str(p))
+    plt.plot(range(n),y,"o"+c,ls="--",label="p="+str(p))
 plt.xlabel("k successes")
 plt.ylabel("Prob. for k successes")
 plt.legend()
@@ -171,7 +183,7 @@ colors=["r","g","b"]
 plt.figure(figsize=(8,5))
 for p,c in zip(p_list,colors):
     y=[(1-p)**(k-1)*p for k in range(1,n)]
-    plt.plot(range(1,n),y,"o"+c,label="p="+str(p))
+    plt.plot(range(1,n),y,"o"+c,ls="--",label="p="+str(p))
 plt.xlabel("k draws")
 plt.ylabel("Prob. for first successes after k draws")
 plt.legend()
