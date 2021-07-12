@@ -4,7 +4,7 @@
 * Author: Prof. Dr. Johannes Maucher
 * Institution: Stuttgart Media University
 * Version: 0.1 - Draft!!!
-* Last Update: 23.04.2021
+* Last Update: 12.07.2021
 
 In this document the basic notions, rules and theorems of Probability Theory are introduced. The goal is to provide the skills from this subject, which are fundamental for Artificial Intelligence and Machine Learning. This means that this introduction does not claim to present the field in its entirety. 
 
