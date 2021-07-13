@@ -474,8 +474,8 @@ P(X_{i_1},X_{i_2},\ldots, X_{i_Z}).
 <p>The answer is: By marginalizing all random variables, which are not in the subset.</p>
 <p>In the most simple case we have two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> and we know all Joint Probabilities of type <span class="math notranslate nohighlight">\(P(X=x_i,Y=y_j)\)</span>. If we are interested in <span class="math notranslate nohighlight">\(P(X=x_i)\)</span>, we can obtain this value by marginalising variable <span class="math notranslate nohighlight">\(Y\)</span>, which means that we calculate the sum of the Joint Probabilities <span class="math notranslate nohighlight">\(P(X=x_i,Y=y_j)\)</span> over all possible values <span class="math notranslate nohighlight">\(y_j \in V(Y)\)</span>.</p>
 <p><strong>Marginalisation law:</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-afc1e988-ab03-4462-9a77-acdad9c50dbe">
-<span class="eqno">(1)<a class="headerlink" href="#equation-afc1e988-ab03-4462-9a77-acdad9c50dbe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9844fd7b-bf42-42fc-9ef2-be142551691a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-9844fd7b-bf42-42fc-9ef2-be142551691a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(x_i)=\sum\limits_{y_j \in V(Y)} P(x_i,y_j)
 \label{eq:marg} \tag{1}
 \end{equation}\]</div>
@@ -520,31 +520,31 @@ P(x_i)=\sum\limits_{y_j \in V(Y)} \sum\limits_{z_k \in V(Z)} P(x_i,y_j,z_k)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-#T_0430c_row0_col3,#T_0430c_row1_col3{
+#T_67f15_row0_col3,#T_67f15_row1_col3{
             background-color:  red;
-        }#T_0430c_row2_col0,#T_0430c_row2_col1,#T_0430c_row2_col2{
+        }#T_67f15_row2_col0,#T_67f15_row2_col1,#T_67f15_row2_col2{
             background-color:  green;
-        }</style><table id="T_0430c_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >BionTech</th>        <th class="col_heading level0 col1" >AstraZeneca</th>        <th class="col_heading level0 col2" >Moderna</th>        <th class="col_heading level0 col3" > </th>    </tr></thead><tbody>
+        }</style><table id="T_67f15_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >BionTech</th>        <th class="col_heading level0 col1" >AstraZeneca</th>        <th class="col_heading level0 col2" >Moderna</th>        <th class="col_heading level0 col3" > </th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_0430c_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
-                        <td id="T_0430c_row0_col0" class="data row0 col0" >0.452862</td>
-                        <td id="T_0430c_row0_col1" class="data row0 col1" >0.041664</td>
-                        <td id="T_0430c_row0_col2" class="data row0 col2" >0.209881</td>
-                        <td id="T_0430c_row0_col3" class="data row0 col3" >0.704407</td>
+                        <th id="T_67f15_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
+                        <td id="T_67f15_row0_col0" class="data row0 col0" >0.452862</td>
+                        <td id="T_67f15_row0_col1" class="data row0 col1" >0.041664</td>
+                        <td id="T_67f15_row0_col2" class="data row0 col2" >0.209881</td>
+                        <td id="T_67f15_row0_col3" class="data row0 col3" >0.704407</td>
             </tr>
             <tr>
-                        <th id="T_0430c_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
-                        <td id="T_0430c_row1_col0" class="data row1 col0" >0.281872</td>
-                        <td id="T_0430c_row1_col1" class="data row1 col1" >0.013571</td>
-                        <td id="T_0430c_row1_col2" class="data row1 col2" >0.000150</td>
-                        <td id="T_0430c_row1_col3" class="data row1 col3" >0.295593</td>
+                        <th id="T_67f15_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
+                        <td id="T_67f15_row1_col0" class="data row1 col0" >0.281872</td>
+                        <td id="T_67f15_row1_col1" class="data row1 col1" >0.013571</td>
+                        <td id="T_67f15_row1_col2" class="data row1 col2" >0.000150</td>
+                        <td id="T_67f15_row1_col3" class="data row1 col3" >0.295593</td>
             </tr>
             <tr>
-                        <th id="T_0430c_level0_row2" class="row_heading level0 row2" > </th>
-                        <td id="T_0430c_row2_col0" class="data row2 col0" >0.734734</td>
-                        <td id="T_0430c_row2_col1" class="data row2 col1" >0.055235</td>
-                        <td id="T_0430c_row2_col2" class="data row2 col2" >0.210031</td>
-                        <td id="T_0430c_row2_col3" class="data row2 col3" >1.000000</td>
+                        <th id="T_67f15_level0_row2" class="row_heading level0 row2" > </th>
+                        <td id="T_67f15_row2_col0" class="data row2 col0" >0.734734</td>
+                        <td id="T_67f15_row2_col1" class="data row2 col1" >0.055235</td>
+                        <td id="T_67f15_row2_col2" class="data row2 col2" >0.210031</td>
+                        <td id="T_67f15_row2_col3" class="data row2 col3" >1.000000</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -572,8 +572,8 @@ P(X=x_i | Y=y_j) \quad \mbox{ or for short } \quad P(x_i | y_j)
 <p>is the probability that <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x_i\)</span>, if it is known, that <span class="math notranslate nohighlight">\(Y\)</span> has the value <span class="math notranslate nohighlight">\(y_j\)</span>. Instead of <em>if it is known</em> one can also say <em>if it has been observed</em>.</p>
 <p>The <strong>marginal probability</strong>, as introduced above, is the probability of a single event occurring, independent of other events. A <strong>conditional probability</strong>, on the other hand, is the probability that an event occurs given that another specific event has already occurred. This means that the calculation for one variable is dependent on the value of another variable.</p>
 <p>The conditional distribution of a variable given another variable is the joint distribution of both variables divided by the marginal distribution of the other variable:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66384400-0dcf-475e-9449-584173561ced">
-<span class="eqno">(2)<a class="headerlink" href="#equation-66384400-0dcf-475e-9449-584173561ced" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e0a87f1e-5085-409b-9163-9abbbe6f1c10">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e0a87f1e-5085-409b-9163-9abbbe6f1c10" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(x_i | y_j)=\frac{P(x_i,y_j)}{P(y_j)}
 \label{eq:cond} \tag{2}
 \end{equation}\]</div>
@@ -624,8 +624,8 @@ P(x_{i_1}, x_{i_2},  \ldots x_{i_{N}}) = P(x_{i_1} | x_{i_2},  \ldots x_{i_{N}} 
 \end{split}\]</div>
 <p><strong>Bayes Rule and Bayesian Inference:</strong></p>
 <p>From equation <span class="math notranslate nohighlight">\(\eqref{eq:cond}\)</span> one of the central theorems of Artificial Intelligence and Machine Learning can be deduced: The <strong>Bayes Theorem:</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-418fb8f7-1464-4fa0-9d57-686bfb0c5ade">
-<span class="eqno">(3)<a class="headerlink" href="#equation-418fb8f7-1464-4fa0-9d57-686bfb0c5ade" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0c36bb9d-0342-48b7-ae6d-159457bcbe8c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-0c36bb9d-0342-48b7-ae6d-159457bcbe8c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
 \label{eq:bayes} \tag{3}
 \end{equation}\]</div>
@@ -637,16 +637,16 @@ P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
 <li><p><span class="math notranslate nohighlight">\(P(y_j)\)</span> is the <em>evidence</em>.</p></li>
 </ul>
 <p>By applying marginalisation (<span class="math notranslate nohighlight">\(\eqref{eq:marg}\)</span>) and equation <span class="math notranslate nohighlight">\(\eqref{eq:cond}\)</span> to the evidence (denominator) in the Bayes Theorem, we get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67b0cb21-cb71-4ea4-afec-407e6847f109">
-<span class="eqno">(4)<a class="headerlink" href="#equation-67b0cb21-cb71-4ea4-afec-407e6847f109" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c54a2104-9504-4405-8be4-9cd5ee51ec8a">
+<span class="eqno">(4)<a class="headerlink" href="#equation-c54a2104-9504-4405-8be4-9cd5ee51ec8a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{\sum\limits_{x_k \in V(X)}P(y_j | x_k) P(x_k)}
 \label{eq:bayes2} \tag{4}
 \end{equation}\]</div>
 <p>For <strong>Bayesian Inference</strong> this equation is applied as follows: Assume that you want to estimate the output of a random variable <span class="math notranslate nohighlight">\(X\)</span>, in particular the probability that the random variable takes the value <span class="math notranslate nohighlight">\(X=x_i\)</span>.</p>
 <p>If <strong>prior knowledge</strong> on the distribution of <span class="math notranslate nohighlight">\(X\)</span> is available than <span class="math notranslate nohighlight">\(P(x_i)\)</span> is known. Now, assume that you know the value <span class="math notranslate nohighlight">\(y_i\)</span> of another random variable <span class="math notranslate nohighlight">\(Y\)</span>, which is not independent of <span class="math notranslate nohighlight">\(X\)</span>. Moreover, you have a model <span class="math notranslate nohighlight">\(p(y_i|x_i)\)</span>, which describes the probability of <span class="math notranslate nohighlight">\(Y=y_j\)</span>, if <span class="math notranslate nohighlight">\(X=x_i\)</span> is fixed. Since <span class="math notranslate nohighlight">\(Y\)</span> is not independent of <span class="math notranslate nohighlight">\(X\)</span>, the observation of <span class="math notranslate nohighlight">\(Y=y_j\)</span> provides a better estimate for the probability of <span class="math notranslate nohighlight">\(X=x_i\)</span>. This better estimate is the <strong>a-posteriori</strong> <span class="math notranslate nohighlight">\(P(x_i | y_j)\)</span>, which is calculated according to equation <span class="math notranslate nohighlight">\(\eqref{eq:cond}\)</span>.</p>
 <p>Certainly, the Bayes Theorem is not restricted to only two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. It can be generalized to arbitrary disjoint sets of random variables <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6e43b3b-2e1e-4099-92a4-33a4093a12e2">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b6e43b3b-2e1e-4099-92a4-33a4093a12e2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-04609744-3a7a-42a6-946d-ddbfb66f0965">
+<span class="eqno">(5)<a class="headerlink" href="#equation-04609744-3a7a-42a6-946d-ddbfb66f0965" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 \label{eq:bayesU} \tag{5}
 \end{equation}\]</div>
@@ -659,14 +659,14 @@ P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 <div class="section" id="multiple-continuous-random-variables">
 <h2>Multiple Continuous Random Variables<a class="headerlink" href="#multiple-continuous-random-variables" title="Permalink to this headline">¶</a></h2>
 <p>Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the <strong>marginalisation rule</strong> (equation <span class="math notranslate nohighlight">\(\eqref{eq:marg}\)</span>) the sum over discrete joint probabilities must be replaced by the integral of the <strong>joint probability function</strong> <span class="math notranslate nohighlight">\(p_{X,Y}(x,y)\)</span> in order to calculate the <strong>marginal probability density function</strong> <span class="math notranslate nohighlight">\(p_X(x)\)</span> as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8dcecbf7-5d9e-4e63-8307-e251a377a11b">
-<span class="eqno">(6)<a class="headerlink" href="#equation-8dcecbf7-5d9e-4e63-8307-e251a377a11b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9c00dc0-2f68-4766-b1a4-fe3a2e30624c">
+<span class="eqno">(6)<a class="headerlink" href="#equation-a9c00dc0-2f68-4766-b1a4-fe3a2e30624c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(y \in \left[a,b\right]\)</span>.</p>
 <p>The most popular multi-dimensional joint probability function for continuous variables is the <strong>multi-dimensional Gaussian distribution</strong>, which is defined as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b4b97c8-e8e6-4a6e-ab76-3b6d347fe26d">
-<span class="eqno">(7)<a class="headerlink" href="#equation-4b4b97c8-e8e6-4a6e-ab76-3b6d347fe26d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6acc28e9-ee6a-44dc-932b-e3d3571580f8">
+<span class="eqno">(7)<a class="headerlink" href="#equation-6acc28e9-ee6a-44dc-932b-e3d3571580f8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
   p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty &lt; x &lt; \infty 
 \label{eq:pdfmulti}
 \end{equation}\]</div>

@@ -14,6 +14,7 @@ Required Python modules:
 
 %matplotlib inline
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 np.set_printoptions(precision=5,suppress=True)
 
@@ -24,10 +25,9 @@ Read customer data from file. Each row in the file represents one custoner. The 
 * 1 = Middle Class
 * 2 = Premium Class
 
-customerArray=np.fromfile("AutoKunden.txt",sep=' ').reshape(-1,3)
-print("     ID   Income   Car-class")
-print(customerArray)
-Ntot=len(customerArray)
+autoDF=pd.read_csv("AutoKunden.csv",index_col=0)#,header=None,names=["income","class"],sep="  ",index_col=0)
+
+autoDF
 
 The above data shall be applied for training the classifier. **The trained model shall then be applied to classify customers, whose annual income is defined in the list below:**
 
@@ -36,27 +36,21 @@ AnnualIncomeList=[25000,29000,63000,69000] #customers with this annual income sh
 ## Training
 In the training-phase for each car-class $C_i$ the likelihood-function $p(x|C_i)$ and the a-priori probability $p(C_i)$ must be determined. It is assumed that the likelihoods are gaussian normal distributions. Hence, for each class the **mean** and the **standard-deviation** must be estimated from the given data. 
 
+classStats=autoDF.groupby(by="class").agg({"class":"count","income":["mean","std"]})
+classStats["apriori"]=classStats["class","count"].apply(lambda x:x/autoDF.shape[0])
+classStats
+
 plt.figure(figsize=(10,8))
 Aposteriori=[]
 x=list(range(0,100000,100))
-for c in range(0,3): #iterate over the 3 classes
-    print('-'*40)
-    print('Learned modell of class %d'%c)
-    A=customerArray[customerArray[:,2]==c] #Filter customers of current class
-    p=float(len(A))/Ntot # a-priori probability
-    m=np.mean(A[:,1])    # mean-value
-    s=np.std(A[:,1])     # standard deviation
-    print("   A-Priori probability of this class: P(C%1d) = %1.2f "%(c,p))
-    print("   Estimated mean of this class\' likelihood: %4.2f "%m)
-    print("   Estimated standard deviation of this class\' likelihood: %4.2f "%s)
-    
-    # Likelihood multiplied by a-priori probability
+for c in classStats.index:
+    p=classStats["apriori"].values[c]
+    m=classStats["income"]["mean"].values[c]
+    s=classStats["income"]["std"].values[c]
     likelihood = 1.0/(s * np.sqrt(2 * np.pi))*np.exp( - (x - m)**2 / (2 * s**2) )
     aposterioriMod=p*likelihood
-    
     Aposteriori.append(aposterioriMod)
     plt.plot(x,aposterioriMod,label='class '+str(c))
-
 plt.grid(True)
 for AnnualIncome in AnnualIncomeList: #plot vertical lines at the annual incomes for which classification is required
     plt.axvline(x=AnnualIncome,color='m',ls='dashed')
@@ -93,8 +87,8 @@ For Bayesian Classification Scikit-Learn provides Naive Bayes Classifiers for Ga
 
 from sklearn.naive_bayes import GaussianNB
 
-Income = np.atleast_2d(customerArray[:,1]).T
-labels = customerArray[:,2]
+Income = np.atleast_2d(autoDF.values[:,0]).T
+labels = autoDF.values[:,1]
 
 ### Train the Naive Bayes Classifier:
 
@@ -105,6 +99,7 @@ The parameters mean and standarddeviation of the learned likelihoods are:
 
 print("Learned mean values for each of the 3 classes: \n",clf.theta_)
 print("Learned standard deviations for each of the 3 classes: \n",np.sqrt(clf.sigma_))
+print("Note that std is slightly different as above. This is because std of pandas divides by (N-1)")
 
 ### Use the trained model for predictions
 
@@ -121,7 +116,7 @@ for i,inc in enumerate(AnnualIncomeList):
 
 ### Model Accuracy on training data
 
-Income=np.atleast_2d(customerArray[:,1]).T
+Income=np.atleast_2d(autoDF.values[:,0]).T
 predictions=clf.predict(Income)
 
 correctClassification=predictions==labels
@@ -129,7 +124,7 @@ print(correctClassification)
 
 numCorrect=np.sum(correctClassification)
 
-accuracyTrain=float(numCorrect)/Ntot
+accuracyTrain=float(numCorrect)/autoDF.shape[0]
 print("Accuracy on training data is: %1.3f"%accuracyTrain)
 
 from sklearn.metrics import confusion_matrix

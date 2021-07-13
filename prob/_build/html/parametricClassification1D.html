@@ -313,6 +313,7 @@ P(C_i|x)=\frac{p(x|C_i)P(C_i)}{P(x)} = \frac{p(x|C_i)P(C_i)}{\sum_k p(x|C_k)P(C_
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -329,45 +330,179 @@ P(C_i|x)=\frac{p(x|C_i)P(C_i)}{P(x)} = \frac{p(x|C_i)P(C_i)}{\sum_k p(x|C_k)P(C_
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">customerArray</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="s2">&quot;AutoKunden.txt&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;     ID   Income   Car-class&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">customerArray</span><span class="p">)</span>
-<span class="n">Ntot</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">customerArray</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">autoDF</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;AutoKunden.csv&quot;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="c1">#,header=None,names=[&quot;income&quot;,&quot;class&quot;],sep=&quot;  &quot;,index_col=0)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">autoDF</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ID   Income   Car-class
-[[    1. 77017.     2.]
- [    2. 69062.     1.]
- [    3. 16558.     0.]
- [    4. 88625.     2.]
- [    5. 93726.     2.]
- [    6. 66035.     1.]
- [    7. 72293.     2.]
- [    8. 14595.     0.]
- [    9. 36797.     1.]
- [   10. 65124.     2.]
- [   11. 15454.     0.]
- [   12. 21161.     1.]
- [   13. 56231.     1.]
- [   14. 44612.     1.]
- [   15. 31415.     1.]
- [   16. 26697.     0.]
- [   17. 23132.     1.]
- [   18. 17469.     0.]
- [   19. 64526.     1.]
- [   20. 17936.     0.]
- [   21. 33298.     1.]
- [   22. 25335.     1.]
- [   23. 67334.     2.]
- [   24. 20405.     0.]
- [   25. 28099.     0.]
- [   26. 37016.     1.]
- [   27. 81069.     2.]]
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>income</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>77017</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>69062</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16558</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>88625</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>93726</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>66035</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>72293</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>14595</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>36797</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>65124</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>15454</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>21161</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>56231</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>44612</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>31415</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>26697</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>23132</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>17469</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>64526</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>17936</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>33298</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>25335</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>67334</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>20405</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>28099</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>37016</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>81069</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The above data shall be applied for training the classifier. <strong>The trained model shall then be applied to classify customers, whose annual income is defined in the list below:</strong></p>
 <div class="cell docutils container">
@@ -383,27 +518,93 @@ P(C_i|x)=\frac{p(x|C_i)P(C_i)}{P(x)} = \frac{p(x|C_i)P(C_i)}{\sum_k p(x|C_k)P(C_
 <p>In the training-phase for each car-class <span class="math notranslate nohighlight">\(C_i\)</span> the likelihood-function <span class="math notranslate nohighlight">\(p(x|C_i)\)</span> and the a-priori probability <span class="math notranslate nohighlight">\(p(C_i)\)</span> must be determined. It is assumed that the likelihoods are gaussian normal distributions. Hence, for each class the <strong>mean</strong> and the <strong>standard-deviation</strong> must be estimated from the given data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">classStats</span><span class="o">=</span><span class="n">autoDF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;count&quot;</span><span class="p">,</span><span class="s2">&quot;income&quot;</span><span class="p">:[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="s2">&quot;std&quot;</span><span class="p">]})</span>
+<span class="n">classStats</span><span class="p">[</span><span class="s2">&quot;apriori&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">classStats</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">,</span><span class="s2">&quot;count&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">/</span><span class="n">autoDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">classStats</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>class</th>
+      <th colspan="2" halign="left">income</th>
+      <th>apriori</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8</td>
+      <td>19651.625</td>
+      <td>5099.443609</td>
+      <td>0.296296</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>12</td>
+      <td>42385.000</td>
+      <td>17406.072645</td>
+      <td>0.444444</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7</td>
+      <td>77884.000</td>
+      <td>10666.250044</td>
+      <td>0.259259</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">Aposteriori</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">x</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span> <span class="c1">#iterate over the 3 classes</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Learned modell of class </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="k">c</span>)
-    <span class="n">A</span><span class="o">=</span><span class="n">customerArray</span><span class="p">[</span><span class="n">customerArray</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="n">c</span><span class="p">]</span> <span class="c1">#Filter customers of current class</span>
-    <span class="n">p</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">/</span><span class="n">Ntot</span> <span class="c1"># a-priori probability</span>
-    <span class="n">m</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># mean-value</span>
-    <span class="n">s</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># standard deviation</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   A-Priori probability of this class: P(C</span><span class="si">%1d</span><span class="s2">) = </span><span class="si">%1.2f</span><span class="s2"> &quot;</span><span class="o">%</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">p</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Estimated mean of this class</span><span class="se">\&#39;</span><span class="s2"> likelihood: </span><span class="si">%4.2f</span><span class="s2"> &quot;</span><span class="o">%</span><span class="k">m</span>)
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Estimated standard deviation of this class</span><span class="se">\&#39;</span><span class="s2"> likelihood: </span><span class="si">%4.2f</span><span class="s2"> &quot;</span><span class="o">%</span><span class="k">s</span>)
-    
-    <span class="c1"># Likelihood multiplied by a-priori probability</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">classStats</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">=</span><span class="n">classStats</span><span class="p">[</span><span class="s2">&quot;apriori&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">classStats</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">][</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+    <span class="n">s</span><span class="o">=</span><span class="n">classStats</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">][</span><span class="s2">&quot;std&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
     <span class="n">likelihood</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
     <span class="n">aposterioriMod</span><span class="o">=</span><span class="n">p</span><span class="o">*</span><span class="n">likelihood</span>
-    
     <span class="n">Aposteriori</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aposterioriMod</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">aposterioriMod</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;class &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">AnnualIncome</span> <span class="ow">in</span> <span class="n">AnnualIncomeList</span><span class="p">:</span> <span class="c1">#plot vertical lines at the annual incomes for which classification is required</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">AnnualIncome</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
@@ -416,24 +617,7 @@ P(C_i|x)=\frac{p(x|C_i)P(C_i)}{P(x)} = \frac{p(x|C_i)P(C_i)}{\sum_k p(x|C_k)P(C_
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----------------------------------------
-Learned modell of class 0
-   A-Priori probability of this class: P(C0) = 0.30 
-   Estimated mean of this class&#39; likelihood: 19651.62 
-   Estimated standard deviation of this class&#39; likelihood: 4770.09 
-----------------------------------------
-Learned modell of class 1
-   A-Priori probability of this class: P(C1) = 0.44 
-   Estimated mean of this class&#39; likelihood: 42385.00 
-   Estimated standard deviation of this class&#39; likelihood: 16665.05 
-----------------------------------------
-Learned modell of class 2
-   A-Priori probability of this class: P(C2) = 0.26 
-   Estimated mean of this class&#39; likelihood: 77884.00 
-   Estimated standard deviation of this class&#39; likelihood: 9875.03 
-</pre></div>
-</div>
-<img alt="_images/parametricClassification1D_8_1.png" src="_images/parametricClassification1D_8_1.png" />
+<img alt="_images/parametricClassification1D_10_0.png" src="_images/parametricClassification1D_10_0.png" />
 </div>
 </div>
 </div>
@@ -462,30 +646,28 @@ C_{pred} = argmax_{C_i}\left( \frac{p(x|C_i) \cdot p(C_i)}{p(x)}\right) = argmax
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Annual Income = 25000.00
-APosteriori propabilitiy of class 0 = 0.6816
-APosteriori propabilitiy of class 1 = 0.3184
+Annual Income = 25000.00
+APosteriori propabilitiy of class 0 = 0.6837
+APosteriori propabilitiy of class 1 = 0.3163
 APosteriori propabilitiy of class 2 = 0.0000
 Most probable class for customer with income 25000.00 Euro is 0 
 --------------------
 Annual Income = 29000.00
-APosteriori propabilitiy of class 0 = 0.3203
-APosteriori propabilitiy of class 1 = 0.6797
+APosteriori propabilitiy of class 0 = 0.3630
+APosteriori propabilitiy of class 1 = 0.6370
 APosteriori propabilitiy of class 2 = 0.0000
 Most probable class for customer with income 29000.00 Euro is 1 
 --------------------
 Annual Income = 63000.00
 APosteriori propabilitiy of class 0 = 0.0000
-APosteriori propabilitiy of class 1 = 0.5954
-APosteriori propabilitiy of class 2 = 0.4046
+APosteriori propabilitiy of class 1 = 0.5797
+APosteriori propabilitiy of class 2 = 0.4203
 Most probable class for customer with income 63000.00 Euro is 1 
 --------------------
 Annual Income = 69000.00
 APosteriori propabilitiy of class 0 = 0.0000
-APosteriori propabilitiy of class 1 = 0.2984
-APosteriori propabilitiy of class 2 = 0.7016
+APosteriori propabilitiy of class 1 = 0.3159
+APosteriori propabilitiy of class 2 = 0.6841
 Most probable class for customer with income 69000.00 Euro is 2 
 </pre></div>
 </div>
@@ -504,8 +686,8 @@ Most probable class for customer with income 69000.00 Euro is 2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Income</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">customerArray</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">customerArray</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Income</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">autoDF</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">autoDF</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -530,6 +712,7 @@ Most probable class for customer with income 69000.00 Euro is 2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Learned mean values for each of the 3 classes: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">clf</span><span class="o">.</span><span class="n">theta_</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Learned standard deviations for each of the 3 classes: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">sigma_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Note that std is slightly different as above. This is because std of pandas divides by (N-1)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -542,6 +725,7 @@ Learned standard deviations for each of the 3 classes:
  [[ 4770.09278]
  [16665.04581]
  [ 9875.02871]]
+Note that std is slightly different as above. This is because std of pandas divides by (N-1)
 </pre></div>
 </div>
 </div>
@@ -590,7 +774,7 @@ A-Posteriori for class 0: 0.000 ; class 1: 0.298 ; class 3 0.702 for user with i
 <h3>Model Accuracy on training data<a class="headerlink" href="#model-accuracy-on-training-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Income</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">customerArray</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Income</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">autoDF</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 <span class="n">predictions</span><span class="o">=</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Income</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -620,7 +804,7 @@ A-Posteriori for class 0: 0.000 ; class 1: 0.298 ; class 3 0.702 for user with i
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracyTrain</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">numCorrect</span><span class="p">)</span><span class="o">/</span><span class="n">Ntot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracyTrain</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">numCorrect</span><span class="p">)</span><span class="o">/</span><span class="n">autoDF</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy on training data is: </span><span class="si">%1.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="k">accuracyTrain</span>)
 </pre></div>
 </div>
