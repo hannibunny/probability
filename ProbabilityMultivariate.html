@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiple Random Variables &#8212; Modelling of Uncertainty</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -58,14 +55,14 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Estimating Probabilities" href="estimateProbability.html" />
     <link rel="prev" title="Discrete and Continuous Random Variables" href="ProbabilityUnivariate.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -74,32 +71,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Modelling of Uncertainty</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modelling of Uncertainty</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Basic Concepts of Probability Theory for AI and ML
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Probability Theory
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ProbabilityUnivariate.html">
    Discrete and Continuous Random Variables
@@ -116,12 +113,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Exercises and Applications
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="exampleProbEst.html">
    Estimation of Probabilities from Datasets
@@ -138,12 +135,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Bayesian Networks
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="BayesNetAsia.html">
    Bayesian Networks with pyAgrum
@@ -156,6 +153,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -171,21 +169,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -203,16 +201,16 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -231,16 +229,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-to-be-used-in-this-section">
    Example to be used in this section
@@ -273,8 +271,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -368,10 +366,11 @@ X_1,X_2,\ldots, X_N\)</span> and their corresponding values <span class="math no
 P(X=x_i,Y=y_j) \quad \mbox{ or for short} \quad P(x_i,y_j).
 \]</div>
 <p>Note, that the comma between the two variables stands for <strong>and</strong>.</p>
-<p>The set of all joint probabilites
-$<span class="math notranslate nohighlight">\(
+<p>The set of all joint probabilites</p>
+<div class="math notranslate nohighlight">
+\[
 P(X=x_i,Y=y_j)  \quad \forall \quad x_i \in V(X), y_j \in V(Y)
-\)</span>$</p>
+\]</div>
 <p>is called the <strong>Joint Probability Distribution</strong> of the two variables.</p>
 <p>In the example the Joint Probability Distribution can be obtained by just dividing the absolute numbers, given in the entries of the dataframe <code class="docutils literal notranslate"><span class="pre">vacData</span></code> by the total amount of vaccinated people (16.583.242):</p>
 <div class="cell docutils container">
@@ -474,11 +473,10 @@ P(X_{i_1},X_{i_2},\ldots, X_{i_Z}).
 <p>The answer is: By marginalizing all random variables, which are not in the subset.</p>
 <p>In the most simple case we have two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> and we know all Joint Probabilities of type <span class="math notranslate nohighlight">\(P(X=x_i,Y=y_j)\)</span>. If we are interested in <span class="math notranslate nohighlight">\(P(X=x_i)\)</span>, we can obtain this value by marginalising variable <span class="math notranslate nohighlight">\(Y\)</span>, which means that we calculate the sum of the Joint Probabilities <span class="math notranslate nohighlight">\(P(X=x_i,Y=y_j)\)</span> over all possible values <span class="math notranslate nohighlight">\(y_j \in V(Y)\)</span>.</p>
 <p><strong>Marginalisation law:</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-9844fd7b-bf42-42fc-9ef2-be142551691a">
-<span class="eqno">(1)<a class="headerlink" href="#equation-9844fd7b-bf42-42fc-9ef2-be142551691a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>\begin{equation}
 P(x_i)=\sum\limits_{y_j \in V(Y)} P(x_i,y_j)
 \label{eq:marg} \tag{1}
-\end{equation}\]</div>
+\end{equation}</p>
 <p>The <strong>marginal variables</strong> are those variables in the subset of variables being retained (<span class="math notranslate nohighlight">\(X\)</span> in the equation above).</p>
 <p>Similarly, in the case of 3 random variables <span class="math notranslate nohighlight">\(X,Y\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> one can obtain the probabilities of the marginal variable <span class="math notranslate nohighlight">\(X\)</span> from the Joint Probability Distribution of the 3 variables by marginalising <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -520,31 +518,31 @@ P(x_i)=\sum\limits_{y_j \in V(Y)} \sum\limits_{z_k \in V(Z)} P(x_i,y_j,z_k)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-#T_67f15_row0_col3,#T_67f15_row1_col3{
+#T_a961d_row0_col3,#T_a961d_row1_col3{
             background-color:  red;
-        }#T_67f15_row2_col0,#T_67f15_row2_col1,#T_67f15_row2_col2{
+        }#T_a961d_row2_col0,#T_a961d_row2_col1,#T_a961d_row2_col2{
             background-color:  green;
-        }</style><table id="T_67f15_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >BionTech</th>        <th class="col_heading level0 col1" >AstraZeneca</th>        <th class="col_heading level0 col2" >Moderna</th>        <th class="col_heading level0 col3" > </th>    </tr></thead><tbody>
+        }</style><table id="T_a961d_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >BionTech</th>        <th class="col_heading level0 col1" >AstraZeneca</th>        <th class="col_heading level0 col2" >Moderna</th>        <th class="col_heading level0 col3" > </th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_67f15_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
-                        <td id="T_67f15_row0_col0" class="data row0 col0" >0.452862</td>
-                        <td id="T_67f15_row0_col1" class="data row0 col1" >0.041664</td>
-                        <td id="T_67f15_row0_col2" class="data row0 col2" >0.209881</td>
-                        <td id="T_67f15_row0_col3" class="data row0 col3" >0.704407</td>
+                        <th id="T_a961d_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
+                        <td id="T_a961d_row0_col0" class="data row0 col0" >0.452862</td>
+                        <td id="T_a961d_row0_col1" class="data row0 col1" >0.041664</td>
+                        <td id="T_a961d_row0_col2" class="data row0 col2" >0.209881</td>
+                        <td id="T_a961d_row0_col3" class="data row0 col3" >0.704407</td>
             </tr>
             <tr>
-                        <th id="T_67f15_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
-                        <td id="T_67f15_row1_col0" class="data row1 col0" >0.281872</td>
-                        <td id="T_67f15_row1_col1" class="data row1 col1" >0.013571</td>
-                        <td id="T_67f15_row1_col2" class="data row1 col2" >0.000150</td>
-                        <td id="T_67f15_row1_col3" class="data row1 col3" >0.295593</td>
+                        <th id="T_a961d_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
+                        <td id="T_a961d_row1_col0" class="data row1 col0" >0.281872</td>
+                        <td id="T_a961d_row1_col1" class="data row1 col1" >0.013571</td>
+                        <td id="T_a961d_row1_col2" class="data row1 col2" >0.000150</td>
+                        <td id="T_a961d_row1_col3" class="data row1 col3" >0.295593</td>
             </tr>
             <tr>
-                        <th id="T_67f15_level0_row2" class="row_heading level0 row2" > </th>
-                        <td id="T_67f15_row2_col0" class="data row2 col0" >0.734734</td>
-                        <td id="T_67f15_row2_col1" class="data row2 col1" >0.055235</td>
-                        <td id="T_67f15_row2_col2" class="data row2 col2" >0.210031</td>
-                        <td id="T_67f15_row2_col3" class="data row2 col3" >1.000000</td>
+                        <th id="T_a961d_level0_row2" class="row_heading level0 row2" > </th>
+                        <td id="T_a961d_row2_col0" class="data row2 col0" >0.734734</td>
+                        <td id="T_a961d_row2_col1" class="data row2 col1" >0.055235</td>
+                        <td id="T_a961d_row2_col2" class="data row2 col2" >0.210031</td>
+                        <td id="T_a961d_row2_col3" class="data row2 col3" >1.000000</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -572,11 +570,10 @@ P(X=x_i | Y=y_j) \quad \mbox{ or for short } \quad P(x_i | y_j)
 <p>is the probability that <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x_i\)</span>, if it is known, that <span class="math notranslate nohighlight">\(Y\)</span> has the value <span class="math notranslate nohighlight">\(y_j\)</span>. Instead of <em>if it is known</em> one can also say <em>if it has been observed</em>.</p>
 <p>The <strong>marginal probability</strong>, as introduced above, is the probability of a single event occurring, independent of other events. A <strong>conditional probability</strong>, on the other hand, is the probability that an event occurs given that another specific event has already occurred. This means that the calculation for one variable is dependent on the value of another variable.</p>
 <p>The conditional distribution of a variable given another variable is the joint distribution of both variables divided by the marginal distribution of the other variable:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0a87f1e-5085-409b-9163-9abbbe6f1c10">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e0a87f1e-5085-409b-9163-9abbbe6f1c10" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>\begin{equation}
 P(x_i | y_j)=\frac{P(x_i,y_j)}{P(y_j)}
 \label{eq:cond} \tag{2}
-\end{equation}\]</div>
+\end{equation}</p>
 <p>In the general case of <span class="math notranslate nohighlight">\(N\)</span> random variables <span class="math notranslate nohighlight">\(X_1,X_2,\ldots, X_N\)</span>, the values of an arbitrary subset of variables can be known and one can ask for the joint probability of all other variables. For example if the values of <span class="math notranslate nohighlight">\(X_k, X_{k+1}, \ldots X_N\)</span> are known, the probability for <span class="math notranslate nohighlight">\(X_1, X_{2}, \ldots X_{k-1}\)</span> given these known values is</p>
 <div class="math notranslate nohighlight">
 \[
@@ -624,11 +621,10 @@ P(x_{i_1}, x_{i_2},  \ldots x_{i_{N}}) = P(x_{i_1} | x_{i_2},  \ldots x_{i_{N}} 
 \end{split}\]</div>
 <p><strong>Bayes Rule and Bayesian Inference:</strong></p>
 <p>From equation <span class="math notranslate nohighlight">\(\eqref{eq:cond}\)</span> one of the central theorems of Artificial Intelligence and Machine Learning can be deduced: The <strong>Bayes Theorem:</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c36bb9d-0342-48b7-ae6d-159457bcbe8c">
-<span class="eqno">(3)<a class="headerlink" href="#equation-0c36bb9d-0342-48b7-ae6d-159457bcbe8c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>\begin{equation}
 P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
 \label{eq:bayes} \tag{3}
-\end{equation}\]</div>
+\end{equation}</p>
 <p>In this equation</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(P(x_i | y_j)\)</span> is the <em>a-posteriori probability</em></p></li>
@@ -637,19 +633,17 @@ P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
 <li><p><span class="math notranslate nohighlight">\(P(y_j)\)</span> is the <em>evidence</em>.</p></li>
 </ul>
 <p>By applying marginalisation (<span class="math notranslate nohighlight">\(\eqref{eq:marg}\)</span>) and equation <span class="math notranslate nohighlight">\(\eqref{eq:cond}\)</span> to the evidence (denominator) in the Bayes Theorem, we get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c54a2104-9504-4405-8be4-9cd5ee51ec8a">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c54a2104-9504-4405-8be4-9cd5ee51ec8a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>\begin{equation}
 P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{\sum\limits_{x_k \in V(X)}P(y_j | x_k) P(x_k)}
 \label{eq:bayes2} \tag{4}
-\end{equation}\]</div>
+\end{equation}</p>
 <p>For <strong>Bayesian Inference</strong> this equation is applied as follows: Assume that you want to estimate the output of a random variable <span class="math notranslate nohighlight">\(X\)</span>, in particular the probability that the random variable takes the value <span class="math notranslate nohighlight">\(X=x_i\)</span>.</p>
 <p>If <strong>prior knowledge</strong> on the distribution of <span class="math notranslate nohighlight">\(X\)</span> is available than <span class="math notranslate nohighlight">\(P(x_i)\)</span> is known. Now, assume that you know the value <span class="math notranslate nohighlight">\(y_i\)</span> of another random variable <span class="math notranslate nohighlight">\(Y\)</span>, which is not independent of <span class="math notranslate nohighlight">\(X\)</span>. Moreover, you have a model <span class="math notranslate nohighlight">\(p(y_i|x_i)\)</span>, which describes the probability of <span class="math notranslate nohighlight">\(Y=y_j\)</span>, if <span class="math notranslate nohighlight">\(X=x_i\)</span> is fixed. Since <span class="math notranslate nohighlight">\(Y\)</span> is not independent of <span class="math notranslate nohighlight">\(X\)</span>, the observation of <span class="math notranslate nohighlight">\(Y=y_j\)</span> provides a better estimate for the probability of <span class="math notranslate nohighlight">\(X=x_i\)</span>. This better estimate is the <strong>a-posteriori</strong> <span class="math notranslate nohighlight">\(P(x_i | y_j)\)</span>, which is calculated according to equation <span class="math notranslate nohighlight">\(\eqref{eq:cond}\)</span>.</p>
 <p>Certainly, the Bayes Theorem is not restricted to only two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. It can be generalized to arbitrary disjoint sets of random variables <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04609744-3a7a-42a6-946d-ddbfb66f0965">
-<span class="eqno">(5)<a class="headerlink" href="#equation-04609744-3a7a-42a6-946d-ddbfb66f0965" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>\begin{equation}
 P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 \label{eq:bayesU} \tag{5}
-\end{equation}\]</div>
+\end{equation}</p>
 <p>Visually, the Bayes Theorem can be explained as shown below:</p>
 <figure align="center">
 <img src="https://maucher.home.hdm-stuttgart.de/Pics/probVisual.png" style="width:600px" align="center">
@@ -659,17 +653,15 @@ P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 <div class="section" id="multiple-continuous-random-variables">
 <h2>Multiple Continuous Random Variables<a class="headerlink" href="#multiple-continuous-random-variables" title="Permalink to this headline">¶</a></h2>
 <p>Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the <strong>marginalisation rule</strong> (equation <span class="math notranslate nohighlight">\(\eqref{eq:marg}\)</span>) the sum over discrete joint probabilities must be replaced by the integral of the <strong>joint probability function</strong> <span class="math notranslate nohighlight">\(p_{X,Y}(x,y)\)</span> in order to calculate the <strong>marginal probability density function</strong> <span class="math notranslate nohighlight">\(p_X(x)\)</span> as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9c00dc0-2f68-4766-b1a4-fe3a2e30624c">
-<span class="eqno">(6)<a class="headerlink" href="#equation-a9c00dc0-2f68-4766-b1a4-fe3a2e30624c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>\begin{equation}
 p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
-\end{equation}\]</div>
-<p>with <span class="math notranslate nohighlight">\(y \in \left[a,b\right]\)</span>.</p>
+\end{equation}
+with <span class="math notranslate nohighlight">\(y \in \left[a,b\right]\)</span>.</p>
 <p>The most popular multi-dimensional joint probability function for continuous variables is the <strong>multi-dimensional Gaussian distribution</strong>, which is defined as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6acc28e9-ee6a-44dc-932b-e3d3571580f8">
-<span class="eqno">(7)<a class="headerlink" href="#equation-6acc28e9-ee6a-44dc-932b-e3d3571580f8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
-  p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty &lt; x &lt; \infty 
+<p>\begin{equation}
+p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty &lt; x &lt; \infty
 \label{eq:pdfmulti}
-\end{equation}\]</div>
+\end{equation}</p>
 <p>Here</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{x}=\left[x_1,x_2,\ldots,x_d \right]\)</span> are the values of <span class="math notranslate nohighlight">\(d\)</span> random variables, which are jointly Gaussian distributed.</p></li>
@@ -734,9 +726,9 @@ $<span class="math notranslate nohighlight">\(
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">multivariate_normal</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">multivariate_normal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 <span class="n">_</span> <span class="o">=</span><span class="n">gauss2d</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -770,15 +762,15 @@ $<span class="math notranslate nohighlight">\(
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="ProbabilityUnivariate.html" title="previous page">Discrete and Continuous Random Variables</a>
     <a class='right-next' id="next-link" href="estimateProbability.html" title="next page">Estimating Probabilities</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -786,7 +778,7 @@ $<span class="math notranslate nohighlight">\(
         
           By Prof. Dr. Johannes Maucher<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -795,11 +787,9 @@ $<span class="math notranslate nohighlight">\(
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>
