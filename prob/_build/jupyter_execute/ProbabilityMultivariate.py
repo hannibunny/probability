@@ -129,10 +129,9 @@ probDist
 # 
 # **Marginalisation law:**
 # 
-# \begin{equation}
+# $$
 # P(x_i)=\sum\limits_{y_j \in V(Y)} P(x_i,y_j)
-# \label{eq:marg} \tag{1}
-# \end{equation}
+# $$ (eq:marg)
 # 
 # The **marginal variables** are those variables in the subset of variables being retained ($X$ in the equation above).
 # 
@@ -207,10 +206,9 @@ margProb.style.apply(highlight_margins, axis=None)
 # 
 # The conditional distribution of a variable given another variable is the joint distribution of both variables divided by the marginal distribution of the other variable:
 # 
-# \begin{equation}
+# $$
 # P(x_i | y_j)=\frac{P(x_i,y_j)}{P(y_j)}
-# \label{eq:cond} \tag{2}
-# \end{equation}
+# $$ (eq:cond)
 # 
 
 # In the general case of $N$ random variables $X_1,X_2,\ldots, X_N$, the values of an arbitrary subset of variables can be known and one can ask for the joint probability of all other variables. For example if the values of $X_k, X_{k+1}, \ldots X_N$ are known, the probability for $X_1, X_{2}, \ldots X_{k-1}$ given these known values is 
@@ -233,7 +231,7 @@ margProb.style.apply(highlight_margins, axis=None)
 # $$
 
 # **Chain Rule:**
-# By rearranging equation $\eqref{eq:cond}$ we can calculate a joint probability as a product of a conditional probability and an a-priori probability:
+# By rearranging equation {eq}`eq:cond` we can calculate a joint probability as a product of a conditional probability and an a-priori probability:
 # 
 # $$
 # p(x_i,y_j)= p(x_i|y_j)\cdot p(y_j)
@@ -271,12 +269,11 @@ margProb.style.apply(highlight_margins, axis=None)
 
 # **Bayes Rule and Bayesian Inference:**
 # 
-# From equation $\eqref{eq:cond}$ one of the central theorems of Artificial Intelligence and Machine Learning can be deduced: The **Bayes Theorem:**
+# From equation {eq}`eq:cond` one of the central theorems of Artificial Intelligence and Machine Learning can be deduced: The **Bayes Theorem:**
 # 
-# \begin{equation}
+# $$
 # P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
-# \label{eq:bayes} \tag{3}
-# \end{equation}
+# $$ (eq:bayes)
 # 
 # In this equation 
 # 
@@ -285,23 +282,21 @@ margProb.style.apply(highlight_margins, axis=None)
 # * $P(y_j | x_i)$ is the *likelihood*
 # * $P(y_j)$ is the *evidence*.
 # 
-# By applying marginalisation ($\eqref{eq:marg}$) and equation $\eqref{eq:cond}$ to the evidence (denominator) in the Bayes Theorem, we get:
+# By applying marginalisation ({eq}`eq:marg`) and equation {eq}`eq:cond` to the evidence (denominator) in the Bayes Theorem, we get:
 # 
-# \begin{equation}
+# $$
 # P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{\sum\limits_{x_k \in V(X)}P(y_j | x_k) P(x_k)}
-# \label{eq:bayes2} \tag{4}
-# \end{equation}
+# $$ (eq:bayes2)
 # 
 # For **Bayesian Inference** this equation is applied as follows: Assume that you want to estimate the output of a random variable $X$, in particular the probability that the random variable takes the value $X=x_i$. 
 # 
-# If **prior knowledge** on the distribution of $X$ is available than $P(x_i)$ is known. Now, assume that you know the value $y_i$ of another random variable $Y$, which is not independent of $X$. Moreover, you have a model $p(y_i|x_i)$, which describes the probability of $Y=y_j$, if $X=x_i$ is fixed. Since $Y$ is not independent of $X$, the observation of $Y=y_j$ provides a better estimate for the probability of $X=x_i$. This better estimate is the **a-posteriori** $P(x_i | y_j)$, which is calculated according to equation $\eqref{eq:cond}$.   
+# If **prior knowledge** on the distribution of $X$ is available than $P(x_i)$ is known. Now, assume that you know the value $y_i$ of another random variable $Y$, which is not independent of $X$. Moreover, you have a model $p(y_i|x_i)$, which describes the probability of $Y=y_j$, if $X=x_i$ is fixed. Since $Y$ is not independent of $X$, the observation of $Y=y_j$ provides a better estimate for the probability of $X=x_i$. This better estimate is the **a-posteriori** $P(x_i | y_j)$, which is calculated according to equation {eq}`eq:cond`.   
 # 
 # Certainly, the Bayes Theorem is not restricted to only two random variables $X$ and $Y$. It can be generalized to arbitrary disjoint sets of random variables $U$ and $V$ as follows:
 # 
-# \begin{equation}
+# $$
 # P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
-# \label{eq:bayesU} \tag{5}
-# \end{equation}
+# $$ (eq:bayesU)
 # 
 # Visually, the Bayes Theorem can be explained as shown below:
 
@@ -313,19 +308,19 @@ margProb.style.apply(highlight_margins, axis=None)
 
 # ## Multiple Continuous Random Variables
 # 
-# Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the **marginalisation rule** (equation $\eqref{eq:marg}$) the sum over discrete joint probabilities must be replaced by the integral of the **joint probability function** $p_{X,Y}(x,y)$ in order to calculate the **marginal probability density function** $p_X(x)$ as follows:
+# Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the **marginalisation rule** (equation {eq}`eq:marg`) the sum over discrete joint probabilities must be replaced by the integral of the **joint probability function** $p_{X,Y}(x,y)$ in order to calculate the **marginal probability density function** $p_X(x)$ as follows:
 # 
-# \begin{equation}
+# $$
 # p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
-# \end{equation}
+# $$
+# 
 # with $y \in \left[a,b\right]$.
 # 
 # The most popular multi-dimensional joint probability function for continuous variables is the **multi-dimensional Gaussian distribution**, which is defined as follows:
 # 
-# \begin{equation}
+# $$
 #   p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty < x < \infty 
-# \label{eq:pdfmulti}
-# \end{equation}
+# $$ (eq:pdfmulti)
 # 
 # Here 
 # 
@@ -333,6 +328,7 @@ margProb.style.apply(highlight_margins, axis=None)
 # 
 # * $\mathbf{\mu}=[\mu_1,\mu_2,\ldots, \mu_d]$ is **mean-value-vektor**
 # * the **covariance matrix** is
+# 
 # $$ 
 # \Sigma = \left(
 # 	\begin{array}{cccc}

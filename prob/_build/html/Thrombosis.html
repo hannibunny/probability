@@ -294,24 +294,24 @@
 <p>First, the observation period is too short. Knowing that there are in the average 12 cases per year, does not imply that we have 1 case each month. There can be months in a row without any cases, followed by months with more than 1 case. Or in the opposite direction. If we observed 5 cases in a certain month, we can not infer that by the end of the year we will have 60. Actually, this is a frequent mistake in the context of statistical modelling: We cannot afford more experience and learn unreliable models from small samples (training-datasets).</p>
 <p>The second reason, why we should not infer from</p>
 <div class="math notranslate nohighlight" id="equation-prel">
-<span class="eqno">(1)<a class="headerlink" href="#equation-prel" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-prel" title="Permalink to this equation">¶</a></span>\[
 P(T|V) &gt; P(T|\neg V)
 \]</div>
 <p>that Astra-Zeneca vaccination causes cebral venous thrombosis is that <strong>correlation is not causation</strong>. If we observe, that the ratio of cerebral thrombosis cases is higher for vaccinated people than for non-vaccinated people, we have a correlation between these two variables. However, we don’t know if the one variable (vaccination) <strong>causes</strong> a higher probability for the other (thrombosis).</p>
 <p>Actually, as already stated in <a class="reference external" href="https://www.zeit.de/2021/12/astrazeneca-nebenwirkungen-thrombosen-corona-impfung-impfstoff?wt_zmc=sm.ext.zonaudev.mail.ref.zeitde.share.link.x">Die Zeit, 17.03.2021: Besondere Thrombosen</a>, the true cause for the higher rate of thrombosis cases may not be vaccination but age. Long before vaccination researchers observed that almost only younger people (&lt; 50 years) are affected by cerebral venous thrombosis.</p>
 <div class="math notranslate nohighlight" id="equation-p-age">
-<span class="eqno">(2)<a class="headerlink" href="#equation-p-age" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-p-age" title="Permalink to this equation">¶</a></span>\[
 P(T|Age&lt;50) &gt; P(T|Age \geq 50)
 \]</div>
 <p>On the other hand Astra-Zenaca vaccination is currently provided only to <em>younger</em> people (&lt; 65 years), and the probability that persons of age <span class="math notranslate nohighlight">\( \geq 65\)</span> get this vaccination is zero:</p>
 <div class="math notranslate nohighlight" id="equation-p-vage">
-<span class="eqno">(3)<a class="headerlink" href="#equation-p-vage" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-p-vage" title="Permalink to this equation">¶</a></span>\[
 P(V|Age \geq 65) = 0
 \]</div>
 <p>Hence, it is clear that a higher rate of thrombosis under the vaccinated peoples can be expected, also in the case that vaccination has absolute no impact on thrombosis.</p>
 <p>In summary, we know, that cerebral venous thrombosis depends on age, but we don’t know if it also depends on Astra-Zeneca vaccination. If we can prove that</p>
 <div class="math notranslate nohighlight" id="equation-p-vindep">
-<span class="eqno">(4)<a class="headerlink" href="#equation-p-vindep" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-p-vindep" title="Permalink to this equation">¶</a></span>\[
 P(T|Age,V) = P(T|Age)
 \]</div>
 <p>than the probability for thrombosis is independent of vaccination.</p>

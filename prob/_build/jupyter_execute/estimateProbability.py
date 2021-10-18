@@ -302,6 +302,7 @@ persons
 m_weights=1/10*np.sum(weights)
 m_heights=1/10*np.sum(heights)
 print("Estimated Mean Vektor is m = %3.2f,%6.2f"%(m_weights,m_heights))
+est_mean=(m_weights,m_heights)
 
 
 # Next we determine the estimation of the covariance matrix $\Sigma$:
@@ -367,7 +368,7 @@ plt.show()
 
 # In order to better understand the estimated 2D-Gaussian distribution it's contour-plot is also visualized:
 
-# In[26]:
+# In[17]:
 
 
 fig = plt.figure(num=None, figsize=(12, 10), dpi=80, facecolor='w', edgecolor='k')
