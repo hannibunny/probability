@@ -863,6 +863,7 @@ s_{ij}=\frac{1}{Z-1}\sum_{k=1}^Z (x_{k,i}-m_i) \cdot (x_{k,j}-m_j)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_weights</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
 <span class="n">m_heights</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated Mean Vektor is m = </span><span class="si">%3.2f</span><span class="s2">,</span><span class="si">%6.2f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">m_weights</span><span class="p">,</span><span class="n">m_heights</span><span class="p">))</span>
+<span class="n">est_mean</span><span class="o">=</span><span class="p">(</span><span class="n">m_weights</span><span class="p">,</span><span class="n">m_heights</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -943,18 +944,7 @@ Estimated covariance matrix is S =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="n">f72c6594f5a4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">mgrid</span><span class="p">[</span><span class="mi">40</span><span class="p">:</span><span class="mi">110</span><span class="p">:</span><span class="mi">100</span><span class="n">j</span><span class="p">,</span> <span class="mi">120</span><span class="p">:</span><span class="mi">210</span><span class="p">:</span><span class="mi">100</span><span class="n">j</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="p">[</span><span class="n">m1</span><span class="p">,</span><span class="n">m2</span><span class="p">]</span><span class="o">=</span><span class="n">est_mean</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">s11</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">est_cov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">s22</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">est_cov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;est_mean&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/estimateProbability_43_0.png" src="_images/estimateProbability_43_0.png" />
 </div>
 </div>
 <p>In order to better understand the estimated 2D-Gaussian distribution it’s contour-plot is also visualized:</p>
