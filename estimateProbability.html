@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Estimating Probabilities &#8212; Modelling of Uncertainty</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
@@ -91,7 +92,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p>
  <span class="caption-text">
   Probability Theory
  </span>
@@ -113,7 +114,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p>
  <span class="caption-text">
   Exercises and Applications
  </span>
@@ -135,7 +136,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p>
  <span class="caption-text">
   Bayesian Networks
  </span>
@@ -262,12 +263,12 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#discrete-1">
      Discrete
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
+    <a class="reference internal nav-link" href="#continuous-1">
      Continuous
     </a>
    </li>
@@ -284,7 +285,7 @@
         
               <div>
                 
-  <div class="section" id="estimating-probabilities">
+  <section id="estimating-probabilities">
 <h1>Estimating Probabilities<a class="headerlink" href="#estimating-probabilities" title="Permalink to this headline">¶</a></h1>
 <p>In Artificial Intelligence, Data Science and Machine Learning we often have data, which is structured like this:</p>
 <figure align="center">
@@ -310,9 +311,9 @@ Age, \; Weight,\; Height, \; Marital Status.
 <li><p><span class="math notranslate nohighlight">\(P(X=x_i)\)</span> is the estimated probability, that variable <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x_i\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\#x_i\)</span> is the number of instances, for which <span class="math notranslate nohighlight">\(X=x_i\)</span> is true</p></li>
 </ul>
-<div class="section" id="univariate-distribution">
+<section id="univariate-distribution">
 <h2>Univariate Distribution<a class="headerlink" href="#univariate-distribution" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="discrete">
+<section id="discrete">
 <h3>Discrete<a class="headerlink" href="#discrete" title="Permalink to this headline">¶</a></h3>
 <p>For a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> the probability <span class="math notranslate nohighlight">\(P(X=x_i)\)</span> can be estimated from a dataset of <span class="math notranslate nohighlight">\(Z\)</span> instances by just counting the number of instances for which <span class="math notranslate nohighlight">\(X=x_i\)</span> is true and dividing this frequency by <span class="math notranslate nohighlight">\(Z\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -368,8 +369,8 @@ Est. prob. P(children=5) is 0.05
 <img alt="_images/estimateProbability_9_0.png" src="_images/estimateProbability_9_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="continuous">
+</section>
+<section id="continuous">
 <h3>Continuous<a class="headerlink" href="#continuous" title="Permalink to this headline">¶</a></h3>
 <p>For estimating the probability distribution (probability density function) of continuous random variables, one must</p>
 <ol class="simple">
@@ -451,12 +452,12 @@ s=\sqrt{\frac{1}{Z-1}\sum_{i=1}^Z (x_i-m)^2}.
 <img alt="_images/estimateProbability_18_0.png" src="_images/estimateProbability_18_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="multivariate-distribution">
+</section>
+</section>
+<section id="multivariate-distribution">
 <h2>Multivariate Distribution<a class="headerlink" href="#multivariate-distribution" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Discrete<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<section id="discrete-1">
+<h3>Discrete<a class="headerlink" href="#discrete-1" title="Permalink to this headline">¶</a></h3>
 <p>For a set of <span class="math notranslate nohighlight">\(N\)</span> random variables <span class="math notranslate nohighlight">\(X_1,X_2,\ldots,X_N\)</span> each <strong>joint probability</strong></p>
 <div class="math notranslate nohighlight">
 \[
@@ -709,9 +710,9 @@ P(x_{i_1},x_{i_2}, \ldots, x_{i_N}) =\frac{\#(x_{i_1},x_{i_2},\ldots,x_{i_N})}{Z
 \[
 P(children=1,inwork=2)=\frac{4}{20}=0.2
 \]</div>
-</div>
-<div class="section" id="id2">
-<h3>Continuous<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="continuous-1">
+<h3>Continuous<a class="headerlink" href="#continuous-1" title="Permalink to this headline">¶</a></h3>
 <p>In the case of multiple continuous random variables, in nearly all practical cases one of two options is applied:</p>
 <ol class="simple">
 <li><p>One (naively) assumes that all variables are independent of each other. Then the joint probability distribution is estimated as the product of the estimated univariate distributions</p></li>
@@ -719,9 +720,10 @@ P(children=1,inwork=2)=\frac{4}{20}=0.2
 </ol>
 <p>In this section we consider the second case, i.e. we assume, that the <span class="math notranslate nohighlight">\(N\)</span> random variables are jointly Gaussian distributed.</p>
 <p>Recall that the joint probability function for <strong>multi-dimensional Gaussian distribution</strong>, is defined by:</p>
-<p>\begin{equation}
-p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty &lt; x &lt; \infty,
-\end{equation}</p>
+<div class="math notranslate nohighlight">
+\[
+  p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty &lt; x &lt; \infty, 
+\]</div>
 <p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{x}=\left[x_1,x_2,\ldots,x_N \right]\)</span> are the values of <span class="math notranslate nohighlight">\(N\)</span> random variables, which are jointly Gaussian distributed.</p></li>
@@ -944,7 +946,11 @@ Estimated covariance matrix is S =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/estimateProbability_43_0.png" src="_images/estimateProbability_43_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/68/9tltm6l520v0stj3qjlc5v9w0000gn/T/ipykernel_37206/4212649082.py:14: MatplotlibDeprecationWarning: Calling gca() with keyword arguments was deprecated in Matplotlib 3.4. Starting two minor releases later, gca() will take no keyword arguments. The gca() function should only be used to get the current axes, or if no axes exist, create new axes with default keyword arguments. To create a new axes with non-default arguments, use plt.axes() or plt.subplot().
+  ax = fig.gca(projection=&#39;3d&#39;)
+</pre></div>
+</div>
+<img alt="_images/estimateProbability_43_1.png" src="_images/estimateProbability_43_1.png" />
 </div>
 </div>
 <p>In order to better understand the estimated 2D-Gaussian distribution it’s contour-plot is also visualized:</p>
@@ -966,9 +972,9 @@ Estimated covariance matrix is S =
 <img alt="_images/estimateProbability_45_0.png" src="_images/estimateProbability_45_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
