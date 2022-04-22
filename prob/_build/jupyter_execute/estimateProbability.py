@@ -223,9 +223,9 @@ pd.crosstab(famData.children,famData.workparents,normalize="all")
 # 
 # Recall that the joint probability function for **multi-dimensional Gaussian distribution**, is defined by:
 # 
-# \begin{equation}
+# $$
 #   p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty < x < \infty, 
-# \end{equation}
+# $$
 # 
 # where
 # 
