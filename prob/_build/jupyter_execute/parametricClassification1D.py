@@ -18,7 +18,6 @@
 # In[1]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -36,17 +35,12 @@ np.set_printoptions(precision=5,suppress=True)
 
 
 autoDF=pd.read_csv("AutoKunden.csv",index_col=0)#,header=None,names=["income","class"],sep="  ",index_col=0)
-
-
-# In[3]:
-
-
 autoDF
 
 
 # The above data shall be applied for training the classifier. **The trained model shall then be applied to classify customers, whose annual income is defined in the list below:**
 
-# In[4]:
+# In[3]:
 
 
 AnnualIncomeList=[25000,29000,63000,69000] #customers with this annual income shall be classified
@@ -55,7 +49,7 @@ AnnualIncomeList=[25000,29000,63000,69000] #customers with this annual income sh
 # ## Training
 # In the training-phase for each car-class $C_i$ the likelihood-function $p(x|C_i)$ and the a-priori probability $p(C_i)$ must be determined. It is assumed that the likelihoods are gaussian normal distributions. Hence, for each class the **mean** and the **standard-deviation** must be estimated from the given data. 
 
-# In[5]:
+# In[4]:
 
 
 classStats=autoDF.groupby(by="class").agg({"class":"count","income":["mean","std"]})
@@ -63,7 +57,7 @@ classStats["apriori"]=classStats["class","count"].apply(lambda x:x/autoDF.shape[
 classStats
 
 
-# In[6]:
+# In[5]:
 
 
 plt.figure(figsize=(10,8))
@@ -99,7 +93,7 @@ plt.show()
 
 # In the code-cell below, customers with incomes of $25.000.-,29000.-,63000.-$ and $69000.-$ Euro are classified by the learned model:
 
-# In[7]:
+# In[6]:
 
 
 for AnnualIncome in AnnualIncomeList:
@@ -116,14 +110,10 @@ for AnnualIncome in AnnualIncomeList:
 # ## Bayesian Classification with Scikit-Learn
 # For Bayesian Classification Scikit-Learn provides Naive Bayes Classifiers for Gaussian-, Bernoulli- and Multinomial distributed data. In the example above 1-dimensional Gaussian distributed input-data has been applied. In this case the Scikit-Learn Naive Bayes Classifier for Gaussian-distributed data, `GaussianNB` learns the same model as the classifier implemented in the previous sections of this notebook. This is demonstrated in the following code-cells:
 
-# In[8]:
+# In[7]:
 
 
 from sklearn.naive_bayes import GaussianNB
-
-
-# In[9]:
-
 
 Income = np.atleast_2d(autoDF.values[:,0]).T
 labels = autoDF.values[:,1]
@@ -131,7 +121,7 @@ labels = autoDF.values[:,1]
 
 # ### Train the Naive Bayes Classifier:
 
-# In[10]:
+# In[8]:
 
 
 clf=GaussianNB()
@@ -140,7 +130,7 @@ clf.fit(Income,labels)
 
 # The parameters mean and standarddeviation of the learned likelihoods are:
 
-# In[11]:
+# In[9]:
 
 
 print("Learned mean values for each of the 3 classes: \n",clf.theta_)
@@ -150,7 +140,7 @@ print("Note that std is slightly different as above. This is because std of pand
 
 # ### Use the trained model for predictions
 
-# In[12]:
+# In[10]:
 
 
 Income=np.atleast_2d(AnnualIncomeList).T
@@ -161,7 +151,7 @@ for inc,pre in zip(AnnualIncomeList,predictions):
 
 # The `predict(input)`-method returns the estimated class for the given input. If the a-posteriori probability $P(C_i|\mathbf{x})$ is of interest, the `predict_proba(input)`-method can be applied:
 
-# In[13]:
+# In[11]:
 
 
 predictionsProb=clf.predict_proba(Income)
@@ -171,34 +161,34 @@ for i,inc in enumerate(AnnualIncomeList):
 
 # ### Model Accuracy on training data
 
-# In[14]:
+# In[12]:
 
 
 Income=np.atleast_2d(autoDF.values[:,0]).T
 predictions=clf.predict(Income)
 
 
-# In[15]:
+# In[13]:
 
 
 correctClassification=predictions==labels
 print(correctClassification)
 
 
-# In[16]:
+# In[14]:
 
 
 numCorrect=np.sum(correctClassification)
 
 
-# In[17]:
+# In[15]:
 
 
 accuracyTrain=float(numCorrect)/autoDF.shape[0]
 print("Accuracy on training data is: %1.3f"%accuracyTrain)
 
 
-# In[18]:
+# In[16]:
 
 
 from sklearn.metrics import confusion_matrix
@@ -210,7 +200,7 @@ confusion_matrix(y_true=labels,y_pred=predictions)
 # ### Cross Validation
 # The accuracy on training data should not be applied for model evaluation. Instead a model should be evaluated by determining the accuracy (or other performance figures) on data, which has not been applied for training. Since we have only few labeled data in this example cross-validation is applied for determining the model's accuracy:
 
-# In[19]:
+# In[17]:
 
 
 from sklearn.model_selection import cross_val_score
@@ -247,7 +237,7 @@ print(cross_val_score(clf,Income,labels))
 # 
 # In the dataset the results of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. The analysis determined the quantities of $N=13$ constituents found in each of the three types of wines. The task is to predict the wine-type (first column of the dataset) from the 13 features, that have been obtained in the chemical analysis.
 
-# In[20]:
+# In[18]:
 
 
 import pandas as pd
@@ -255,33 +245,24 @@ wineDataFrame=pd.read_csv("wine.data",header=None)
 wineDataFrame
 
 
-# In[21]:
+# In[19]:
 
 
 wineData=wineDataFrame.values
-
-
-# In[22]:
-
-
 print(wineData.shape)
-
-
-# In[23]:
-
 
 features=wineData[:,1:] #features are in columns 1 to end
 labels=wineData[:,0] #class label is in column 0
 
 
-# In[24]:
+# In[20]:
 
 
 clf=GaussianNB()
 acc=cross_val_score(clf,features,labels,cv=5)
 
 
-# In[25]:
+# In[21]:
 
 
 print("Mean Accuracy is ",acc.mean())

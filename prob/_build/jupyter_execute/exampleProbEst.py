@@ -15,10 +15,6 @@
 
 import pandas as pd
 
-
-# In[2]:
-
-
 dataDict={"sex":["m","m","f","m","f","f","f","m","m","m"],
           "years":[10,2,4,4,5,1,7,2,4,1],
           "income":["h","m","m","l","m","l","m","m","h","m"],
@@ -42,7 +38,7 @@ data
 
 # First we calculate the frequencies of all value-combinations of the variables *sex* and *income*: 
 
-# In[3]:
+# In[2]:
 
 
 pd.crosstab(data["sex"],data["income"])
@@ -50,7 +46,7 @@ pd.crosstab(data["sex"],data["income"])
 
 # Next we, set the argument `normalize="all"` in the same method call. The result is the complete joint probability distribution of these two variables.
 
-# In[4]:
+# In[3]:
 
 
 pd.crosstab(data["sex"],data["income"],normalize="all")
@@ -64,7 +60,7 @@ pd.crosstab(data["sex"],data["income"],normalize="all")
 
 # Next, we set the argument `normalize="index"`. The calculated values are the conditional probabilities $P(income|sex)$:
 
-# In[5]:
+# In[4]:
 
 
 pd.crosstab(data["sex"],data["income"],normalize="index")
@@ -85,7 +81,7 @@ pd.crosstab(data["sex"],data["income"],normalize="index")
 
 # In order to calculate the conditional probabilities of type $P(sex|income)$ we can apply the same `crosstab()`, but now with `normalize="columns"`. 
 
-# In[6]:
+# In[5]:
 
 
 pd.crosstab(data["sex"],data["income"],normalize="columns")
@@ -99,7 +95,7 @@ pd.crosstab(data["sex"],data["income"],normalize="columns")
 
 # The `crosstab()`-method can also be applied for more than two variables, as demonstrated below:
 
-# In[7]:
+# In[6]:
 
 
 pd.crosstab([data["sex"],data["income"]],data["division"],normalize="all")
@@ -111,7 +107,7 @@ pd.crosstab([data["sex"],data["income"]],data["division"],normalize="all")
 # P(male,low,backoffice)=0.1
 # $$
 
-# In[8]:
+# In[7]:
 
 
 pd.crosstab([data["sex"],data["income"]],data["division"],normalize="index")
@@ -125,7 +121,7 @@ pd.crosstab([data["sex"],data["income"]],data["division"],normalize="index")
 
 # In order to calculate the answer for question 7, we set `normalize="columns"`:
 
-# In[9]:
+# In[8]:
 
 
 pd.crosstab([data["sex"],data["income"]],data["division"],normalize="columns")
@@ -137,13 +133,13 @@ pd.crosstab([data["sex"],data["income"]],data["division"],normalize="columns")
 # P(male,medium|design)=0.6
 # $$
 
-# For calculating the answer of question 9, we apply the `crosstab()`-method as described below and add the two values in column `m` which belong to rows that belong to *male* and at least 4 years:
+# For calculating the answer of question 8, we apply the `crosstab()`-method as described below and add the two values in column `m` which belong to rows that belong to *male* and at least 4 years:
 # 
 # $$
 # P(medium|male,\geq 4)= P(medium|male,4) + P(medium|male,10) =0 + 0 = 0 
 # $$
 
-# In[10]:
+# In[9]:
 
 
 pd.crosstab([data["sex"],data["years"]],data["income"],normalize="index")

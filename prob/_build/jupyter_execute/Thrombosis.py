@@ -81,10 +81,6 @@ P_TwV
 import daft
 from matplotlib import rc
 
-
-# In[5]:
-
-
 pgm = daft.PGM()
 pgm.add_node("A",r"$Age$",0,1)
 pgm.add_node("V",r"$V$",-1,0)
@@ -111,7 +107,7 @@ pgm.savefig("AgeVacThromb.png")
 
 # Actually, we do not have only the two options sketched above: It is known that birth-control-pills increase the risk for cerebral venous thrombosis. Moreover, it can be supposed that more younger people (<50 years) consume such pills. Then, maybe not age causes thrombosis but birth-control-pills. In this case the two bayesian networks above must be extended as follows:
 
-# In[6]:
+# In[5]:
 
 
 pgm = daft.PGM()

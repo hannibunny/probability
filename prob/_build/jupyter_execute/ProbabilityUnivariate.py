@@ -5,7 +5,7 @@
 
 # A random variable $X$ is a variable that can take multiple values $X=x_i$ depending on the outcome of a random event. We denote the set of possible values, that can be taken by the variable, by $V(X)$.
 # 
-# If the outcomes are finite (for example the 6 possibilities in a die throwing event) the random variable is said to be **discrete**. If the possible outcomes are not finite, for example, drawing a real number $x \in \left[0,1\right] \subset \mathbb{R}$, the random variable is said to be **continuous**.
+# If the outcomes are finite (for example the 6 possibilities in a die dice-rolling event) the random variable is said to be **discrete**. If the possible outcomes are not finite, for example, drawing a real number $x \in \left[0,1\right] \subset \mathbb{R}$, the random variable is said to be **continuous**.
 
 # The probability that the random variable $X$ takes the value $x$ is dentoted by $P(X=x)$ or for short $P(x)$. The description of the probabilities $P(x)$ for all possible $x \in V(X)$ is called the **probability distribution** of variable $X$.
 
@@ -58,10 +58,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 from scipy.special import comb
 
-
-# In[2]:
-
-
 plt.figure(figsize=(12,8))
 plt.subplot(1,2,1)
 plt.stem(range(1,7),[1/6]*6)
@@ -90,7 +86,7 @@ plt.show()
 
 # For example, if the probability $P(X=1)=p=0.7$, the pdf visualisation of the Bernoulli distribution is as plotted below:
 
-# In[3]:
+# In[2]:
 
 
 p=0.7
@@ -128,7 +124,7 @@ plt.show()
 
 # The pdf and cdf of binomial distributed variables of different success probabilities $p$ are plotted below:
 
-# In[4]:
+# In[3]:
 
 
 n=30
@@ -182,7 +178,7 @@ plt.show()
 # 
 # * ...
 
-# In[5]:
+# In[4]:
 
 
 n=30
@@ -200,7 +196,7 @@ plt.title("Binomial Distribution for different success probabilities and $n=30$"
 plt.show()  
 
 
-# In[6]:
+# In[5]:
 
 
 n=7
@@ -226,7 +222,7 @@ plt.show()
 # 
 # 
 
-# In[7]:
+# In[6]:
 
 
 i=range(1,10)
@@ -278,7 +274,7 @@ plt.show()
 # 
 # where $\mu$ is the mean and $\sigma$ is the standard deviation. This distribution is plotted below for two different standard deviations. As can be seen on the right hand side of the plot the value of the PDF can be $>0$.
 
-# In[8]:
+# In[7]:
 
 
 plt.figure(figsize=(14,5))
@@ -321,7 +317,7 @@ plt.show()
 # 
 # For this we can apply the [scipy stats module](https://docs.scipy.org/doc/scipy/reference/stats.html). This module provides pdfs and cdfs for a large bunch of different distributions. Here, we just require the Gaussian normal distribution, which can be imported as follows:
 
-# In[9]:
+# In[8]:
 
 
 from scipy.stats import norm
@@ -333,7 +329,7 @@ np.set_printoptions(precision=3)
 # $$P(2<x\leq5)=0.997-0.159 = 0.819$$
 # 
 
-# In[10]:
+# In[9]:
 
 
 m=3
@@ -349,7 +345,7 @@ print("Probability that value is between {} and {} is {:2.3f}".format(v,u,px5-px
 
 # This calculation is visualized below. The size of the red area under the pdf-curve is $P(2<x\leq5) = 0.819$.
 
-# In[11]:
+# In[10]:
 
 
 m=3
@@ -382,4 +378,14 @@ plt.hlines(px2, 0, 2, linestyles='--', color="red")
 plt.hlines(px5, 0, 5, linestyles='--', color="red")
            
 plt.show()
+
+
+# ### Interactive Demo
+# 
+# More discrete and continuous probability distributions are demonstrated in [https://ben18785.shinyapps.io/distribution-zoo/](https://ben18785.shinyapps.io/distribution-zoo/) 
+
+# In[ ]:
+
+
+
 

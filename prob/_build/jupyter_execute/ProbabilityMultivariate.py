@@ -78,7 +78,7 @@ probDist
 # 
 # measures the probability, that $X_1$ takes the value $x_{i_1}$ **and** $X_2$ takes the value $x_{i_2}$ **and**, ... $X_N$ takes the value $x_{i_N}$. The set of all Joint Probabilities for all possible values in the value range of the variables is called the Joint Probability of the given $N$ random variables.  
 # 
-# In the case of continuous variables, the joint probability distribution can be expressed either in terms of a joint cumulative distribution function (**cdf**) or in terms of a joint probability density function (**pdf**). For discrete random variables the probability mass function (**pmf**). These in turn can be used to find two other types of distributions: the [marginal distribution](#margProb) giving the probabilities for any one of the variables with no reference to any specific ranges of values for the other variables, and the [conditional probability distribution](#condprob). Both of them are described below.
+# In the case of continuous variables, the joint probability distribution can be expressed either in terms of a joint cumulative distribution function (**cdf**) or in terms of a joint probability density function (**pdf**). For discrete random variables the probability mass function (**pmf**) or the **cdf** describe the joint probability distribution. These in turn can be used to find two other types of distributions: the [marginal distribution](#margProb) giving the probabilities for any one of the variables with no reference to any specific ranges of values for the other variables, and the [conditional probability distribution](#condprob). Both of them are described below.
 
 # <a id="independence"></a>
 # ## Independence of random variables
@@ -396,10 +396,4 @@ from scipy.stats import multivariate_normal
 from matplotlib import pyplot as plt
 from matplotlib import cm
 _ =gauss2d()
-
-
-# In[ ]:
-
-
-
 
