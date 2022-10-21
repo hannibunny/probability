@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn CPTs of Bayesian Netork &#8212; Modelling of Uncertainty</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,61 +18,45 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Bayesian Networks with pyAgrum" href="BayesNetAsia.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -82,15 +65,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
       
@@ -101,17 +79,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Basic Concepts of Probability Theory for AI and ML
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Basic Concepts of Probability Theory for AI and ML
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Probability Theory
  </span>
@@ -133,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Exercises and Applications
  </span>
@@ -155,7 +132,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Bayesian Networks
  </span>
@@ -174,289 +151,151 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/BayesNetLearningWithPandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/BayesNetLearningWithPandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-two-bns">
+   Loading two BNs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#randomizing-the-parameters">
+   Randomizing the parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exact-kl-divergence">
+   Exact KL-divergence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-a-data-from-the-original-bn">
+   Generate a data from the original BN
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learn-cpts-of-bayesian-network-from-data">
+   Learn CPTs of Bayesian Network from Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-pyagrum-learners">
+     Apply pyAgrum Learners
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-pandas-to-learn-cpts">
+     Apply pandas to learn CPTs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-global-method-for-estimating-bayesian-network-parameters-from-csv-file-using-pandas">
+   A global method for estimating Bayesian network parameters from CSV file using PANDAS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters">
+   Influence of the size of the database on the quality of learned parameters
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
-    <div id="rtd-footer-container"></div>
 </div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/BayesNetLearningWithPandas.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/BayesNetLearningWithPandas.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
-</div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-two-bns">
-   Loading two BNs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#randomizing-the-parameters">
-   Randomizing the parameters
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exact-kl-divergence">
-   Exact KL-divergence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generate-a-data-from-the-original-bn">
-   Generate a data from the original BN
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-cpts-of-bayesian-network-from-data">
-   Learn CPTs of Bayesian Network from Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-pyagrum-learners">
-     Apply pyAgrum Learners
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-pandas-to-learn-cpts">
-     Apply pandas to learn CPTs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-global-method-for-estimating-bayesian-network-parameters-from-csv-file-using-pandas">
-   A global method for estimating Bayesian network parameters from CSV file using PANDAS
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters">
-   Influence of the size of the database on the quality of learned parameters
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Learn CPTs of Bayesian Netork</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-two-bns">
-   Loading two BNs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#randomizing-the-parameters">
-   Randomizing the parameters
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exact-kl-divergence">
-   Exact KL-divergence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generate-a-data-from-the-original-bn">
-   Generate a data from the original BN
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-cpts-of-bayesian-network-from-data">
-   Learn CPTs of Bayesian Network from Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-pyagrum-learners">
-     Apply pyAgrum Learners
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#apply-pandas-to-learn-cpts">
-     Apply pandas to learn CPTs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-global-method-for-estimating-bayesian-network-parameters-from-csv-file-using-pandas">
-   A global method for estimating Bayesian network parameters from CSV file using PANDAS
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters">
-   Influence of the size of the database on the quality of learned parameters
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <main id="main-content" role="main">
-                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="learn-cpts-of-bayesian-netork">
-<h1>Learn CPTs of Bayesian Netork<a class="headerlink" href="#learn-cpts-of-bayesian-netork" title="Permalink to this headline">#</a></h1>
+  <div class="section" id="learn-cpts-of-bayesian-netork">
+<h1>Learn CPTs of Bayesian Netork<a class="headerlink" href="#learn-cpts-of-bayesian-netork" title="Permalink to this headline">¶</a></h1>
 <p>For the design of Bayesian Networks for a given problem domain, one can follow one of the following approaches:</p>
 <ol class="simple">
 <li><p>topology (nodes and arcs) and the conditional propabilities are configured by applying expert knowledge, i.e. experts determine the relevant variables, their dependencies and estimate the conditional probabilities</p></li>
@@ -480,7 +319,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="loading-two-bns">
-<h2>Loading two BNs<a class="headerlink" href="#loading-two-bns" title="Permalink to this headline">#</a></h2>
+<h2>Loading two BNs<a class="headerlink" href="#loading-two-bns" title="Permalink to this headline">¶</a></h2>
 <p>Two identical Bayes Nets for the <em>Visit to Asia?</em>-problem (see section <a class="reference internal" href="BayesNetAsia.html"><span class="doc std std-doc">Bayesian Networks with pyAgrum</span></a> are loaded from disk.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -496,57 +335,12 @@ title="Print to PDF"
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
-<!-- E -->
-<g id="node1" class="node">
-<title>E</title>
-<g id="a_node1"><a xlink:title="(5) E">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">E</text>
-</a>
-</g>
-</g>
-<!-- D -->
-<g id="node2" class="node">
-<title>D</title>
-<g id="a_node2"><a xlink:title="(6) D">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;D -->
-<g id="edge5" class="edge">
-<title>E-&gt;D</title>
-<g id="a_edge5"><a xlink:title="(5, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
-</a>
-</g>
-</g>
-<!-- X -->
-<g id="node8" class="node">
-<title>X</title>
-<g id="a_node8"><a xlink:title="(7) X">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;X -->
-<g id="edge2" class="edge">
-<title>E-&gt;X</title>
-<g id="a_edge2"><a xlink:title="(5, 7) : ">
-<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
-</a>
-</g>
-</g>
 <!-- A -->
-<g id="node3" class="node">
+<g id="node1" class="node">
 <title>A</title>
-<g id="a_node3"><a xlink:title="(0) A">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+<g id="a_node1"><a xlink:title="(0) A">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
 </a>
 </g>
 </g>
@@ -554,8 +348,8 @@ title="Print to PDF"
 <g id="node5" class="node">
 <title>T</title>
 <g id="a_node5"><a xlink:title="(2) T">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
+<ellipse fill="#404040" stroke="black" cx="27" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
 </a>
 </g>
 </g>
@@ -563,17 +357,62 @@ title="Print to PDF"
 <g id="edge4" class="edge">
 <title>A-&gt;T</title>
 <g id="a_edge4"><a xlink:title="(0, 2) : ">
-<path fill="none" stroke="#4a4a4a" d="M154,-215.7C154,-207.98 154,-198.71 154,-190.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-190.1 154,-180.1 150.5,-190.1 157.5,-190.1"/>
+<path fill="none" stroke="#4a4a4a" d="M27,-215.7C27,-207.98 27,-198.71 27,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-190.1 27,-180.1 23.5,-190.1 30.5,-190.1"/>
+</a>
+</g>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<g id="a_node2"><a xlink:title="(5) E">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">E</text>
+</a>
+</g>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<g id="a_node4"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M96.57,-74.83C106.75,-64.94 120.52,-51.55 132.03,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="134.47,-42.87 139.2,-33.38 129.59,-37.85 134.47,-42.87"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node6" class="node">
+<title>X</title>
+<g id="a_node6"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;X -->
+<g id="edge2" class="edge">
+<title>E-&gt;X</title>
+<g id="a_edge2"><a xlink:title="(5, 7) : ">
+<path fill="none" stroke="#4a4a4a" d="M82,-71.7C82,-63.98 82,-54.71 82,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="85.5,-46.1 82,-36.1 78.5,-46.1 85.5,-46.1"/>
 </a>
 </g>
 </g>
 <!-- B -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>B</title>
-<g id="a_node4"><a xlink:title="(4) B">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+<g id="a_node3"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
 </a>
 </g>
 </g>
@@ -581,8 +420,8 @@ title="Print to PDF"
 <g id="edge1" class="edge">
 <title>B-&gt;D</title>
 <g id="a_edge1"><a xlink:title="(4, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+<path fill="none" stroke="#4a4a4a" d="M154,-71.7C154,-63.98 154,-54.71 154,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-46.1 154,-36.1 150.5,-46.1 157.5,-46.1"/>
 </a>
 </g>
 </g>
@@ -590,17 +429,17 @@ title="Print to PDF"
 <g id="edge6" class="edge">
 <title>T-&gt;E</title>
 <g id="a_edge6"><a xlink:title="(2, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
+<path fill="none" stroke="#4a4a4a" d="M38.93,-145.81C46.21,-136.55 55.66,-124.52 63.85,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="66.66,-116.18 70.09,-106.16 61.16,-111.86 66.66,-116.18"/>
 </a>
 </g>
 </g>
 <!-- S -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>S</title>
-<g id="a_node6"><a xlink:title="(1) S">
-<ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="54" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">S</text>
+<g id="a_node7"><a xlink:title="(1) S">
+<ellipse fill="#404040" stroke="black" cx="126" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="126" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">S</text>
 </a>
 </g>
 </g>
@@ -608,17 +447,17 @@ title="Print to PDF"
 <g id="edge3" class="edge">
 <title>S-&gt;B</title>
 <g id="a_edge3"><a xlink:title="(1, 4) : ">
-<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+<path fill="none" stroke="#4a4a4a" d="M129.38,-215.87C134.17,-191.56 142.99,-146.82 148.67,-118.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="152.11,-118.68 150.61,-108.19 145.24,-117.32 152.11,-118.68"/>
 </a>
 </g>
 </g>
 <!-- L -->
-<g id="node7" class="node">
+<g id="node8" class="node">
 <title>L</title>
-<g id="a_node7"><a xlink:title="(3) L">
-<ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="82" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">L</text>
+<g id="a_node8"><a xlink:title="(3) L">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
 </g>
 </g>
@@ -626,8 +465,8 @@ title="Print to PDF"
 <g id="edge7" class="edge">
 <title>S-&gt;L</title>
 <g id="a_edge7"><a xlink:title="(1, 3) : ">
-<path fill="none" stroke="#4a4a4a" d="M60.64,-216.41C63.91,-208.22 67.94,-198.14 71.62,-188.95"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="74.95,-190.05 75.41,-179.47 68.45,-187.45 74.95,-190.05"/>
+<path fill="none" stroke="#4a4a4a" d="M119.6,-216.41C116.49,-208.34 112.67,-198.43 109.17,-189.35"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="112.4,-188.03 105.54,-179.96 105.87,-190.55 112.4,-188.03"/>
 </a>
 </g>
 </g>
@@ -635,8 +474,8 @@ title="Print to PDF"
 <g id="edge8" class="edge">
 <title>L-&gt;E</title>
 <g id="a_edge8"><a xlink:title="(3, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M86.12,-144.05C88.01,-136.26 90.3,-126.82 92.42,-118.08"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="95.85,-118.82 94.8,-108.28 89.04,-117.17 95.85,-118.82"/>
+<path fill="none" stroke="#4a4a4a" d="M94.88,-144.05C92.99,-136.26 90.7,-126.82 88.58,-118.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="91.96,-117.17 86.2,-108.28 85.15,-118.82 91.96,-117.17"/>
 </a>
 </g>
 </g>
@@ -644,57 +483,12 @@ title="Print to PDF"
 </svg></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
-<!-- E -->
-<g id="node1" class="node">
-<title>E</title>
-<g id="a_node1"><a xlink:title="(5) E">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">E</text>
-</a>
-</g>
-</g>
-<!-- D -->
-<g id="node2" class="node">
-<title>D</title>
-<g id="a_node2"><a xlink:title="(6) D">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;D -->
-<g id="edge5" class="edge">
-<title>E-&gt;D</title>
-<g id="a_edge5"><a xlink:title="(5, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
-</a>
-</g>
-</g>
-<!-- X -->
-<g id="node8" class="node">
-<title>X</title>
-<g id="a_node8"><a xlink:title="(7) X">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
-</a>
-</g>
-</g>
-<!-- E&#45;&gt;X -->
-<g id="edge2" class="edge">
-<title>E-&gt;X</title>
-<g id="a_edge2"><a xlink:title="(5, 7) : ">
-<path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
-</a>
-</g>
-</g>
 <!-- A -->
-<g id="node3" class="node">
+<g id="node1" class="node">
 <title>A</title>
-<g id="a_node3"><a xlink:title="(0) A">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+<g id="a_node1"><a xlink:title="(0) A">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
 </a>
 </g>
 </g>
@@ -702,8 +496,8 @@ title="Print to PDF"
 <g id="node5" class="node">
 <title>T</title>
 <g id="a_node5"><a xlink:title="(2) T">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
+<ellipse fill="#404040" stroke="black" cx="27" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
 </a>
 </g>
 </g>
@@ -711,17 +505,62 @@ title="Print to PDF"
 <g id="edge4" class="edge">
 <title>A-&gt;T</title>
 <g id="a_edge4"><a xlink:title="(0, 2) : ">
-<path fill="none" stroke="#4a4a4a" d="M154,-215.7C154,-207.98 154,-198.71 154,-190.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-190.1 154,-180.1 150.5,-190.1 157.5,-190.1"/>
+<path fill="none" stroke="#4a4a4a" d="M27,-215.7C27,-207.98 27,-198.71 27,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-190.1 27,-180.1 23.5,-190.1 30.5,-190.1"/>
+</a>
+</g>
+</g>
+<!-- E -->
+<g id="node2" class="node">
+<title>E</title>
+<g id="a_node2"><a xlink:title="(5) E">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">E</text>
+</a>
+</g>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<g id="a_node4"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M96.57,-74.83C106.75,-64.94 120.52,-51.55 132.03,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="134.47,-42.87 139.2,-33.38 129.59,-37.85 134.47,-42.87"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node6" class="node">
+<title>X</title>
+<g id="a_node6"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="82" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="82" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;X -->
+<g id="edge2" class="edge">
+<title>E-&gt;X</title>
+<g id="a_edge2"><a xlink:title="(5, 7) : ">
+<path fill="none" stroke="#4a4a4a" d="M82,-71.7C82,-63.98 82,-54.71 82,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="85.5,-46.1 82,-36.1 78.5,-46.1 85.5,-46.1"/>
 </a>
 </g>
 </g>
 <!-- B -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>B</title>
-<g id="a_node4"><a xlink:title="(4) B">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+<g id="a_node3"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
 </a>
 </g>
 </g>
@@ -729,8 +568,8 @@ title="Print to PDF"
 <g id="edge1" class="edge">
 <title>B-&gt;D</title>
 <g id="a_edge1"><a xlink:title="(4, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+<path fill="none" stroke="#4a4a4a" d="M154,-71.7C154,-63.98 154,-54.71 154,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-46.1 154,-36.1 150.5,-46.1 157.5,-46.1"/>
 </a>
 </g>
 </g>
@@ -738,17 +577,17 @@ title="Print to PDF"
 <g id="edge6" class="edge">
 <title>T-&gt;E</title>
 <g id="a_edge6"><a xlink:title="(2, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
+<path fill="none" stroke="#4a4a4a" d="M38.93,-145.81C46.21,-136.55 55.66,-124.52 63.85,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="66.66,-116.18 70.09,-106.16 61.16,-111.86 66.66,-116.18"/>
 </a>
 </g>
 </g>
 <!-- S -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>S</title>
-<g id="a_node6"><a xlink:title="(1) S">
-<ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="54" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">S</text>
+<g id="a_node7"><a xlink:title="(1) S">
+<ellipse fill="#404040" stroke="black" cx="126" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="126" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">S</text>
 </a>
 </g>
 </g>
@@ -756,17 +595,17 @@ title="Print to PDF"
 <g id="edge3" class="edge">
 <title>S-&gt;B</title>
 <g id="a_edge3"><a xlink:title="(1, 4) : ">
-<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+<path fill="none" stroke="#4a4a4a" d="M129.38,-215.87C134.17,-191.56 142.99,-146.82 148.67,-118.01"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="152.11,-118.68 150.61,-108.19 145.24,-117.32 152.11,-118.68"/>
 </a>
 </g>
 </g>
 <!-- L -->
-<g id="node7" class="node">
+<g id="node8" class="node">
 <title>L</title>
-<g id="a_node7"><a xlink:title="(3) L">
-<ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="82" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">L</text>
+<g id="a_node8"><a xlink:title="(3) L">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
 </g>
 </g>
@@ -774,8 +613,8 @@ title="Print to PDF"
 <g id="edge7" class="edge">
 <title>S-&gt;L</title>
 <g id="a_edge7"><a xlink:title="(1, 3) : ">
-<path fill="none" stroke="#4a4a4a" d="M60.64,-216.41C63.91,-208.22 67.94,-198.14 71.62,-188.95"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="74.95,-190.05 75.41,-179.47 68.45,-187.45 74.95,-190.05"/>
+<path fill="none" stroke="#4a4a4a" d="M119.6,-216.41C116.49,-208.34 112.67,-198.43 109.17,-189.35"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="112.4,-188.03 105.54,-179.96 105.87,-190.55 112.4,-188.03"/>
 </a>
 </g>
 </g>
@@ -783,8 +622,8 @@ title="Print to PDF"
 <g id="edge8" class="edge">
 <title>L-&gt;E</title>
 <g id="a_edge8"><a xlink:title="(3, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M86.12,-144.05C88.01,-136.26 90.3,-126.82 92.42,-118.08"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="95.85,-118.82 94.8,-108.28 89.04,-117.17 95.85,-118.82"/>
+<path fill="none" stroke="#4a4a4a" d="M94.88,-144.05C92.99,-136.26 90.7,-126.82 88.58,-118.08"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="91.96,-117.17 86.2,-108.28 85.15,-118.82 91.96,-117.17"/>
 </a>
 </g>
 </g>
@@ -818,7 +657,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="randomizing-the-parameters">
-<h2>Randomizing the parameters<a class="headerlink" href="#randomizing-the-parameters" title="Permalink to this headline">#</a></h2>
+<h2>Randomizing the parameters<a class="headerlink" href="#randomizing-the-parameters" title="Permalink to this headline">¶</a></h2>
 <p>Next, for both BNs the values of the CPTs are randomized</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -840,17 +679,17 @@ title="Print to PDF"
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#b4c964;text-align:right;'>0.5837</td><td style='color:black;background-color:#c9b464;text-align:right;'>0.4163</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#84f964;text-align:right;'>0.9563</td><td style='color:black;background-color:#f98464;text-align:right;'>0.0437</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#9de064;text-align:right;'>0.7590</td><td style='color:black;background-color:#e09d64;text-align:right;'>0.2410</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#ccb164;text-align:right;'>0.3935</td><td style='color:black;background-color:#b1cc64;text-align:right;'>0.6065</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#b8c564;text-align:right;'>0.5542</td><td style='color:black;background-color:#c5b864;text-align:right;'>0.4458</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#d3aa64;text-align:right;'>0.3381</td><td style='color:black;background-color:#aad364;text-align:right;'>0.6619</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bbc264;text-align:right;'>0.5251</td><td style='color:black;background-color:#c2bb64;text-align:right;'>0.4749</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#c8b564;text-align:right;'>0.4253</td><td style='color:black;background-color:#b5c864;text-align:right;'>0.5747</td></tr>
 </table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='2'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>D</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>E</center></th><th style='border:1px solid black;color:black;background-color:#808080'><center>B</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#b5c864;text-align:right;'>0.5750</td><td style='color:black;background-color:#c8b564;text-align:right;'>0.4250</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#a0dd64;text-align:right;'>0.7417</td><td style='color:black;background-color:#dda064;text-align:right;'>0.2583</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#fe7f64;text-align:right;'>0.0064</td><td style='color:black;background-color:#7ffe64;text-align:right;'>0.9936</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#c7b664;text-align:right;'>0.4308</td><td style='color:black;background-color:#b6c764;text-align:right;'>0.5692</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>0</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#f48964;text-align:right;'>0.0807</td><td style='color:black;background-color:#89f464;text-align:right;'>0.9193</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#f48964;text-align:right;'>0.0820</td><td style='color:black;background-color:#89f464;text-align:right;'>0.9180</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB;' rowspan = '2'><center>1</center></th><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#86f764;text-align:right;'>0.9439</td><td style='color:black;background-color:#f78664;text-align:right;'>0.0561</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#de9f64;text-align:right;'>0.2513</td><td style='color:black;background-color:#9fde64;text-align:right;'>0.7487</td></tr>
 </table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Dyspnoae bn</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Dyspnoae bn2</small></div></td></tr></table></div></div>
 </div>
 <div class="cell docutils container">
@@ -864,18 +703,18 @@ title="Print to PDF"
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#c8b564;text-align:right;'>0.4222</td><td style='color:black;background-color:#b5c864;text-align:right;'>0.5778</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#99e464;text-align:right;'>0.7922</td><td style='color:black;background-color:#e49964;text-align:right;'>0.2078</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bbc264;text-align:right;'>0.5240</td><td style='color:black;background-color:#c2bb64;text-align:right;'>0.4760</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#d5a864;text-align:right;'>0.3281</td><td style='color:black;background-color:#a8d564;text-align:right;'>0.6719</td></tr>
 </table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#add064;text-align:right;'>0.6376</td><td style='color:black;background-color:#d0ad64;text-align:right;'>0.3624</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#a5d864;text-align:right;'>0.7000</td><td style='color:black;background-color:#d8a564;text-align:right;'>0.3000</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#dba264;text-align:right;'>0.2789</td><td style='color:black;background-color:#a2db64;text-align:right;'>0.7211</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#eb9264;text-align:right;'>0.1490</td><td style='color:black;background-color:#92eb64;text-align:right;'>0.8510</td></tr>
 </table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Lung Cancer bn</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>CPT Lung Cancer bn2</small></div></td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="exact-kl-divergence">
-<h2>Exact KL-divergence<a class="headerlink" href="#exact-kl-divergence" title="Permalink to this headline">#</a></h2>
+<h2>Exact KL-divergence<a class="headerlink" href="#exact-kl-divergence" title="Permalink to this headline">¶</a></h2>
 <p>A Bayesian Network represents a joint probability distribution (JPT). For measuring the  similarity of two probability distributions, different metrics exist. Here, we apply the <a class="reference external" href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback-Leibler (KL) Divergence</a>. The lower the KL-divergence, the higher the similarity of the two distributions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -886,7 +725,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.494440511346402
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5456837029201016
 </pre></div>
 </div>
 </div>
@@ -913,20 +752,20 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;klPQ&#39;: 6.494440511346402,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;klPQ&#39;: 3.5456837029201016,
  &#39;errorPQ&#39;: 0,
- &#39;klQP&#39;: 5.1873702504149835,
+ &#39;klQP&#39;: 3.0663170340565506,
  &#39;errorQP&#39;: 0,
- &#39;hellinger&#39;: 1.1364291459312235,
- &#39;bhattacharya&#39;: 1.0377117572316064,
- &#39;jensen-shannon&#39;: 0.7377899551333961}
+ &#39;hellinger&#39;: 0.9508820962666108,
+ &#39;bhattacharya&#39;: 0.6016412833258841,
+ &#39;jensen-shannon&#39;: 0.556406807362838}
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="generate-a-data-from-the-original-bn">
-<h2>Generate a data from the original BN<a class="headerlink" href="#generate-a-data-from-the-original-bn" title="Permalink to this headline">#</a></h2>
+<h2>Generate a data from the original BN<a class="headerlink" href="#generate-a-data-from-the-original-bn" title="Permalink to this headline">¶</a></h2>
 <p>By applying the methode <code class="docutils literal notranslate"><span class="pre">generateCSV()</span></code> one can sample data from a Bayesian Network. In the code-cell below 10000 samples, each describing the values of the 8 random variables for one fictional patient, are generated and saved in <code class="docutils literal notranslate"><span class="pre">out/test.csv</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -935,14 +774,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-59999.38898497243
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-73852.17543001856
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="learn-cpts-of-bayesian-network-from-data">
-<h2>Learn CPTs of Bayesian Network from Data<a class="headerlink" href="#learn-cpts-of-bayesian-network-from-data" title="Permalink to this headline">#</a></h2>
+<h2>Learn CPTs of Bayesian Network from Data<a class="headerlink" href="#learn-cpts-of-bayesian-network-from-data" title="Permalink to this headline">¶</a></h2>
 <p>Next, we will apply the data, as sampled from Bayesian Network <code class="docutils literal notranslate"><span class="pre">bn</span></code> above, to learn the CPTs of another Bayesian Network <code class="docutils literal notranslate"><span class="pre">bnx</span></code> with the same topology as <code class="docutils literal notranslate"><span class="pre">bn</span></code>. We expect, that after a successfull learning process, the KL-Divergence between <code class="docutils literal notranslate"><span class="pre">bn</span></code> and <code class="docutils literal notranslate"><span class="pre">bn2</span></code> is low, i.e. both nets are similar.</p>
 <p>There exist different options to learn the CPTs of a Bayesian Network. Below, we implement the following 3 options:</p>
 <ol class="simple">
@@ -951,7 +790,7 @@ title="Print to PDF"
 <li><p>the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.23/generated/pandas.crosstab.html">pandas crosstab() method</a> for calculating CPTs</p></li>
 </ol>
 <div class="section" id="apply-pyagrum-learners">
-<h3>Apply pyAgrum Learners<a class="headerlink" href="#apply-pyagrum-learners" title="Permalink to this headline">#</a></h3>
+<h3>Apply pyAgrum Learners<a class="headerlink" href="#apply-pyagrum-learners" title="Permalink to this headline">¶</a></h3>
 <p><strong>BNLearner() without smoothing:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -982,15 +821,15 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL-Divergence for option without smoothing :0.0007735364983577491
-KL-Divergence for option with smooting(100):0.01973086533146106
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL-Divergence for option without smoothing :0.0009396635868373577
+KL-Divergence for option with smooting(100):0.0027387882012826267
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="apply-pandas-to-learn-cpts">
-<h3>Apply pandas to learn CPTs<a class="headerlink" href="#apply-pandas-to-learn-cpts" title="Permalink to this headline">#</a></h3>
+<h3>Apply pandas to learn CPTs<a class="headerlink" href="#apply-pandas-to-learn-cpts" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
@@ -1018,37 +857,37 @@ KL-Divergence for option with smooting(100):0.01973086533146106
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>T</th>
       <th>L</th>
-      <th>B</th>
-      <th>D</th>
-      <th>E</th>
-      <th>A</th>
       <th>X</th>
+      <th>D</th>
+      <th>B</th>
+      <th>A</th>
       <th>S</th>
+      <th>T</th>
+      <th>E</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1056,33 +895,33 @@ KL-Divergence for option with smooting(100):0.01973086533146106
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1140,17 +979,17 @@ KL-Divergence for option with smooting(100):0.01973086533146106
   <tbody>
     <tr>
       <th>0</th>
-      <td>2180</td>
-      <td>2649</td>
-      <td>1456</td>
-      <td>609</td>
+      <td>500</td>
+      <td>1613</td>
+      <td>370</td>
+      <td>1616</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1547</td>
-      <td>132</td>
-      <td>480</td>
-      <td>947</td>
+      <td>423</td>
+      <td>3014</td>
+      <td>344</td>
+      <td>2120</td>
     </tr>
   </tbody>
 </table>
@@ -1208,17 +1047,17 @@ KL-Divergence for option with smooting(100):0.01973086533146106
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.584921</td>
-      <td>0.952535</td>
-      <td>0.752066</td>
-      <td>0.391388</td>
+      <td>0.541712</td>
+      <td>0.348606</td>
+      <td>0.518207</td>
+      <td>0.432548</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.415079</td>
-      <td>0.047465</td>
-      <td>0.247934</td>
-      <td>0.608612</td>
+      <td>0.458288</td>
+      <td>0.651394</td>
+      <td>0.481793</td>
+      <td>0.567452</td>
     </tr>
   </tbody>
 </table>
@@ -1227,7 +1066,7 @@ KL-Divergence for option with smooting(100):0.01973086533146106
 </div>
 </div>
 <div class="section" id="a-global-method-for-estimating-bayesian-network-parameters-from-csv-file-using-pandas">
-<h2>A global method for estimating Bayesian network parameters from CSV file using PANDAS<a class="headerlink" href="#a-global-method-for-estimating-bayesian-network-parameters-from-csv-file-using-pandas" title="Permalink to this headline">#</a></h2>
+<h2>A global method for estimating Bayesian network parameters from CSV file using PANDAS<a class="headerlink" href="#a-global-method-for-estimating-bayesian-network-parameters-from-csv-file-using-pandas" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">computeCPTfromDF</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">df</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
@@ -1280,9 +1119,9 @@ KL-Divergence for option with smooting(100):0.01973086533146106
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BEFORE LEARNING
-6.494440511346402
+3.5456837029201016
 AFTER LEARNING
-4.597607609165015
+0.09812130579500389
 </pre></div>
 </div>
 </div>
@@ -1300,18 +1139,18 @@ AFTER LEARNING
 <div class="output text_html"><table style="border-style: hidden; border-collapse: collapse;" width="100%"><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#c8b564;text-align:right;'>0.4222</td><td style='color:black;background-color:#b5c864;text-align:right;'>0.5778</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#99e464;text-align:right;'>0.7922</td><td style='color:black;background-color:#e49964;text-align:right;'>0.2078</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bbc264;text-align:right;'>0.5240</td><td style='color:black;background-color:#c2bb64;text-align:right;'>0.4760</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#d5a864;text-align:right;'>0.3281</td><td style='color:black;background-color:#a8d564;text-align:right;'>0.6719</td></tr>
 </table></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center" style=""><table style="border:1px solid black;">
 <tr><th colspan='1'></th><th colspan='2' style='border:1px solid black;color:black;background-color:#808080;'><center>L</center></th></tr>
 <tr><th style='border:1px solid black;color:black;background-color:#808080'><center>S</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>0</center></th><th style='border:1px solid black;border-bottom-style: double;color:black;background-color:#BBBBBB'><center>1</center></th></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#cab364;text-align:right;'>0.4127</td><td style='color:black;background-color:#b3ca64;text-align:right;'>0.5873</td></tr>
-<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#99e464;text-align:right;'>0.7917</td><td style='color:black;background-color:#e49964;text-align:right;'>0.2083</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>0</center></th><td style='color:black;background-color:#bbc264;text-align:right;'>0.5293</td><td style='color:black;background-color:#c2bb64;text-align:right;'>0.4707</td></tr>
+<tr><th style='border:1px solid black;color:black;background-color:#BBBBBB'><center>1</center></th><td style='color:black;background-color:#d3aa64;text-align:right;'>0.3378</td><td style='color:black;background-color:#aad364;text-align:right;'>0.6622</td></tr>
 </table></div></td></tr><tr><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>Original BN</small></div></td><td style="border-top:hidden;border-bottom:hidden;"><div align="center"><small>learned BN</small></div></td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters">
-<h2>Influence of the size of the database on the quality of learned parameters<a class="headerlink" href="#influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters" title="Permalink to this headline">#</a></h2>
+<h2>Influence of the size of the database on the quality of learned parameters<a class="headerlink" href="#influence-of-the-size-of-the-database-on-the-quality-of-learned-parameters" title="Permalink to this headline">¶</a></h2>
 <p>What is the effect of increasing the size of the database on the KL ? We expect that the KL decreases to 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1359,41 +1198,33 @@ AFTER LEARNING
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="BayesNetAsia.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Bayesian Networks with pyAgrum</p>
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="BayesNetAsia.html" title="previous page">Bayesian Networks with pyAgrum</a>
+
         </div>
-    </a>
-</div>
-            </footer>
+        
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Prof. Dr. Johannes Maucher<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
     </div>
-    
-</div>
+  </footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
+  
   </body>
 </html>

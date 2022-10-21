@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bayesian Networks with pyAgrum &#8212; Modelling of Uncertainty</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,64 +18,48 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Learn CPTs of Bayesian Netork" href="BayesNetLearningWithPandas.html" />
     <link rel="prev" title="Correlation is not Causality" href="Thrombosis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -85,15 +68,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
       
@@ -104,17 +82,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Basic Concepts of Probability Theory for AI and ML
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Basic Concepts of Probability Theory for AI and ML
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   Probability Theory
  </span>
@@ -136,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Exercises and Applications
  </span>
@@ -158,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Bayesian Networks
  </span>
@@ -177,327 +154,170 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/BayesNetAsia.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/BayesNetAsia.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-network-topology">
+   Create the network topology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-variables">
+     Create the variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-arcs">
+     Create the arcs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-probability-tables">
+     Create the probability tables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-and-loading-bayes-nets">
+   Saving and Loading Bayes Nets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markov-blanket">
+   Markov Blanket
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inference-in-bayesian-networks">
+   Inference in Bayesian networks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-without-evidence">
+     Inference without evidence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-with-evidence">
+     Inference with evidence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inference-in-the-whole-bayes-net">
+   Inference in the whole Bayes net
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Inference with evidence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-with-soft-and-hard-evidence">
+     Inference with soft and hard evidence
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
-    <div id="rtd-footer-container"></div>
 </div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/BayesNetAsia.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/BayesNetAsia.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
-</div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-the-network-topology">
-   Create the network topology
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-variables">
-     Create the variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-arcs">
-     Create the arcs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-probability-tables">
-     Create the probability tables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#saving-and-loading-bayes-nets">
-   Saving and Loading Bayes Nets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markov-blanket">
-   Markov Blanket
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-in-bayesian-networks">
-   Inference in Bayesian networks
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference-without-evidence">
-     Inference without evidence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference-with-evidence">
-     Inference with evidence
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-in-the-whole-bayes-net">
-   Inference in the whole Bayes net
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Inference with evidence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference-with-soft-and-hard-evidence">
-     Inference with soft and hard evidence
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Bayesian Networks with pyAgrum</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-the-network-topology">
-   Create the network topology
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-variables">
-     Create the variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-arcs">
-     Create the arcs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-the-probability-tables">
-     Create the probability tables
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#saving-and-loading-bayes-nets">
-   Saving and Loading Bayes Nets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markov-blanket">
-   Markov Blanket
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-in-bayesian-networks">
-   Inference in Bayesian networks
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference-without-evidence">
-     Inference without evidence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference-with-evidence">
-     Inference with evidence
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-in-the-whole-bayes-net">
-   Inference in the whole Bayes net
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Inference with evidence
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference-with-soft-and-hard-evidence">
-     Inference with soft and hard evidence
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <main id="main-content" role="main">
-                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="bayesian-networks-with-pyagrum">
-<h1>Bayesian Networks with pyAgrum<a class="headerlink" href="#bayesian-networks-with-pyagrum" title="Permalink to this headline">#</a></h1>
+  <div class="section" id="bayesian-networks-with-pyagrum">
+<h1>Bayesian Networks with pyAgrum<a class="headerlink" href="#bayesian-networks-with-pyagrum" title="Permalink to this headline">¶</a></h1>
 <p>Bayesian Networks (BNs) are class of Probabilistic Graphical Models that are capable to reason under uncertainty. They can be seen as a probabilistic expert system: the domain knowledge (business knowledge) is modeled as direct acyclic graph (DAG). The nodes of this DAG represent the <strong>random variables</strong> and the arcs between the nodes represent the <strong>probabilistic dependencies</strong> (correlation, causation or influence) between the variables. Morevoer, a <strong>conditional probability table</strong> (CPT) is associated with each node. It contains the conditional probability distribution of the node given its parents in the DAG.</p>
 <p>In this section the famous <em>Visit Asia</em><a class="footnote-reference brackets" href="#id3" id="id1">1</a> Bayes Net shall be implemented in <a class="reference external" href="https://pyagrum.readthedocs.io/en/0.20.1/">pyAgrum</a>.</p>
 <p>The asia data set contains the following variables:</p>
@@ -526,7 +346,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="create-the-network-topology">
-<h2>Create the network topology<a class="headerlink" href="#create-the-network-topology" title="Permalink to this headline">#</a></h2>
+<h2>Create the network topology<a class="headerlink" href="#create-the-network-topology" title="Permalink to this headline">¶</a></h2>
 <p>The next line creates an empty BN network with a ‘name’ property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -542,7 +362,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="create-the-variables">
-<h3>Create the variables<a class="headerlink" href="#create-the-variables" title="Permalink to this headline">#</a></h3>
+<h3>Create the variables<a class="headerlink" href="#create-the-variables" title="Permalink to this headline">¶</a></h3>
 <p>pyAgrum provides 3 types of variables :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">LabelizedVariable</span></code></p></li>
@@ -591,7 +411,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="create-the-arcs">
-<h3>Create the arcs<a class="headerlink" href="#create-the-arcs" title="Permalink to this headline">#</a></h3>
+<h3>Create the arcs<a class="headerlink" href="#create-the-arcs" title="Permalink to this headline">¶</a></h3>
 <p>Now we have to connect nodes, i.e., to add arcs linking the nodes. Remember that <tt>c</tt> and <tt>s</tt> are ids for nodes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,39 +451,39 @@ title="Print to PDF"
 <div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
-<!-- D -->
+<!-- T -->
 <g id="node1" class="node">
-<title>D</title>
-<g id="a_node1"><a xlink:title="(6) D">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
-</a>
-</g>
-</g>
-<!-- X -->
-<g id="node2" class="node">
-<title>X</title>
-<g id="a_node2"><a xlink:title="(7) X">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+<title>T</title>
+<g id="a_node1"><a xlink:title="(2) T">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
 </a>
 </g>
 </g>
 <!-- E -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>E</title>
-<g id="a_node3"><a xlink:title="(5) E">
+<g id="a_node2"><a xlink:title="(5) E">
 <ellipse fill="#404040" stroke="black" cx="99" cy="-90" rx="27" ry="18"/>
 <text text-anchor="middle" x="99" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">E</text>
 </a>
 </g>
 </g>
-<!-- E&#45;&gt;D -->
-<g id="edge5" class="edge">
-<title>E-&gt;D</title>
-<g id="a_edge5"><a xlink:title="(5, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+<!-- T&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>T-&gt;E</title>
+<g id="a_edge6"><a xlink:title="(2, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node4" class="node">
+<title>X</title>
+<g id="a_node4"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
 </a>
 </g>
 </g>
@@ -676,19 +496,82 @@ title="Print to PDF"
 </a>
 </g>
 </g>
+<!-- D -->
+<g id="node5" class="node">
+<title>D</title>
+<g id="a_node5"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+</a>
+</g>
+</g>
+<!-- A -->
+<g id="node3" class="node">
+<title>A</title>
+<g id="a_node3"><a xlink:title="(0) A">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+</a>
+</g>
+</g>
+<!-- A&#45;&gt;T -->
+<g id="edge4" class="edge">
+<title>A-&gt;T</title>
+<g id="a_edge4"><a xlink:title="(0, 2) : ">
+<path fill="none" stroke="#4a4a4a" d="M154,-215.7C154,-207.98 154,-198.71 154,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-190.1 154,-180.1 150.5,-190.1 157.5,-190.1"/>
+</a>
+</g>
+</g>
+<!-- B -->
+<g id="node6" class="node">
+<title>B</title>
+<g id="a_node6"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</a>
+</g>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>B-&gt;D</title>
+<g id="a_edge1"><a xlink:title="(4, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+</a>
+</g>
+</g>
 <!-- S -->
-<g id="node4" class="node">
+<g id="node7" class="node">
 <title>S</title>
-<g id="a_node4"><a xlink:title="(1) S">
+<g id="a_node7"><a xlink:title="(1) S">
 <ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
 <text text-anchor="middle" x="54" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">S</text>
 </a>
 </g>
 </g>
+<!-- S&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>S-&gt;B</title>
+<g id="a_edge3"><a xlink:title="(1, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+</a>
+</g>
+</g>
 <!-- L -->
-<g id="node6" class="node">
+<g id="node8" class="node">
 <title>L</title>
-<g id="a_node6"><a xlink:title="(3) L">
+<g id="a_node8"><a xlink:title="(3) L">
 <ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
 <text text-anchor="middle" x="82" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
@@ -703,51 +586,6 @@ title="Print to PDF"
 </a>
 </g>
 </g>
-<!-- B -->
-<g id="node7" class="node">
-<title>B</title>
-<g id="a_node7"><a xlink:title="(4) B">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
-</a>
-</g>
-</g>
-<!-- S&#45;&gt;B -->
-<g id="edge3" class="edge">
-<title>S-&gt;B</title>
-<g id="a_edge3"><a xlink:title="(1, 4) : ">
-<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
-</a>
-</g>
-</g>
-<!-- A -->
-<g id="node5" class="node">
-<title>A</title>
-<g id="a_node5"><a xlink:title="(0) A">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
-</a>
-</g>
-</g>
-<!-- T -->
-<g id="node8" class="node">
-<title>T</title>
-<g id="a_node8"><a xlink:title="(2) T">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
-</a>
-</g>
-</g>
-<!-- A&#45;&gt;T -->
-<g id="edge4" class="edge">
-<title>A-&gt;T</title>
-<g id="a_edge4"><a xlink:title="(0, 2) : ">
-<path fill="none" stroke="#4a4a4a" d="M154,-215.7C154,-207.98 154,-198.71 154,-190.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-190.1 154,-180.1 150.5,-190.1 157.5,-190.1"/>
-</a>
-</g>
-</g>
 <!-- L&#45;&gt;E -->
 <g id="edge8" class="edge">
 <title>L-&gt;E</title>
@@ -757,30 +595,12 @@ title="Print to PDF"
 </a>
 </g>
 </g>
-<!-- B&#45;&gt;D -->
-<g id="edge1" class="edge">
-<title>B-&gt;D</title>
-<g id="a_edge1"><a xlink:title="(4, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
-</a>
-</g>
-</g>
-<!-- T&#45;&gt;E -->
-<g id="edge6" class="edge">
-<title>T-&gt;E</title>
-<g id="a_edge6"><a xlink:title="(2, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
-</a>
-</g>
-</g>
 </g>
 </svg></div></div>
 </div>
 </div>
 <div class="section" id="create-the-probability-tables">
-<h3>Create the probability tables<a class="headerlink" href="#create-the-probability-tables" title="Permalink to this headline">#</a></h3>
+<h3>Create the probability tables<a class="headerlink" href="#create-the-probability-tables" title="Permalink to this headline">¶</a></h3>
 <p>Once the network topology is constructed, we must initialize the conditional probability tables (CPT) distributions.</p>
 <p>To get the CPT of a variable, the <code class="docutils literal notranslate"><span class="pre">cpt</span></code> method of the BayesNet instance with the variable’s id as parameter is applied as shown below:</p>
 <div class="cell docutils container">
@@ -970,7 +790,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="section" id="saving-and-loading-bayes-nets">
-<h2>Saving and Loading Bayes Nets<a class="headerlink" href="#saving-and-loading-bayes-nets" title="Permalink to this headline">#</a></h2>
+<h2>Saving and Loading Bayes Nets<a class="headerlink" href="#saving-and-loading-bayes-nets" title="Permalink to this headline">¶</a></h2>
 <p>The specified Bayes Net can be saved in different formats. A list of supported formats can be displayed as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1086,39 +906,39 @@ probability (X | E) {
 <div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189pt" height="260pt" viewBox="0.00 0.00 189.00 260.00">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <title>G</title>
-<!-- D -->
+<!-- T -->
 <g id="node1" class="node">
-<title>D</title>
-<g id="a_node1"><a xlink:title="(6) D">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
-</a>
-</g>
-</g>
-<!-- X -->
-<g id="node2" class="node">
-<title>X</title>
-<g id="a_node2"><a xlink:title="(7) X">
-<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
-<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
+<title>T</title>
+<g id="a_node1"><a xlink:title="(2) T">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
 </a>
 </g>
 </g>
 <!-- E -->
-<g id="node3" class="node">
+<g id="node2" class="node">
 <title>E</title>
-<g id="a_node3"><a xlink:title="(5) E">
+<g id="a_node2"><a xlink:title="(5) E">
 <ellipse fill="#404040" stroke="black" cx="99" cy="-90" rx="27" ry="18"/>
 <text text-anchor="middle" x="99" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">E</text>
 </a>
 </g>
 </g>
-<!-- E&#45;&gt;D -->
-<g id="edge5" class="edge">
-<title>E-&gt;D</title>
-<g id="a_edge5"><a xlink:title="(5, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+<!-- T&#45;&gt;E -->
+<g id="edge6" class="edge">
+<title>T-&gt;E</title>
+<g id="a_edge6"><a xlink:title="(2, 5) : ">
+<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
+</a>
+</g>
+</g>
+<!-- X -->
+<g id="node4" class="node">
+<title>X</title>
+<g id="a_node4"><a xlink:title="(7) X">
+<ellipse fill="#404040" stroke="black" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">X</text>
 </a>
 </g>
 </g>
@@ -1131,19 +951,82 @@ probability (X | E) {
 </a>
 </g>
 </g>
+<!-- D -->
+<g id="node5" class="node">
+<title>D</title>
+<g id="a_node5"><a xlink:title="(6) D">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-14.3" font-family="Times,serif" font-size="14.00" fill="white">D</text>
+</a>
+</g>
+</g>
+<!-- E&#45;&gt;D -->
+<g id="edge5" class="edge">
+<title>E-&gt;D</title>
+<g id="a_edge5"><a xlink:title="(5, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M84.43,-74.83C74.25,-64.94 60.48,-51.55 48.97,-40.36"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="51.41,-37.85 41.8,-33.38 46.53,-42.87 51.41,-37.85"/>
+</a>
+</g>
+</g>
+<!-- A -->
+<g id="node3" class="node">
+<title>A</title>
+<g id="a_node3"><a xlink:title="(0) A">
+<ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="154" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
+</a>
+</g>
+</g>
+<!-- A&#45;&gt;T -->
+<g id="edge4" class="edge">
+<title>A-&gt;T</title>
+<g id="a_edge4"><a xlink:title="(0, 2) : ">
+<path fill="none" stroke="#4a4a4a" d="M154,-215.7C154,-207.98 154,-198.71 154,-190.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-190.1 154,-180.1 150.5,-190.1 157.5,-190.1"/>
+</a>
+</g>
+</g>
+<!-- B -->
+<g id="node6" class="node">
+<title>B</title>
+<g id="a_node6"><a xlink:title="(4) B">
+<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
+</a>
+</g>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>B-&gt;D</title>
+<g id="a_edge1"><a xlink:title="(4, 6) : ">
+<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+</a>
+</g>
+</g>
 <!-- S -->
-<g id="node4" class="node">
+<g id="node7" class="node">
 <title>S</title>
-<g id="a_node4"><a xlink:title="(1) S">
+<g id="a_node7"><a xlink:title="(1) S">
 <ellipse fill="#404040" stroke="black" cx="54" cy="-234" rx="27" ry="18"/>
 <text text-anchor="middle" x="54" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">S</text>
 </a>
 </g>
 </g>
+<!-- S&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>S-&gt;B</title>
+<g id="a_edge3"><a xlink:title="(1, 4) : ">
+<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
+</a>
+</g>
+</g>
 <!-- L -->
-<g id="node6" class="node">
+<g id="node8" class="node">
 <title>L</title>
-<g id="a_node6"><a xlink:title="(3) L">
+<g id="a_node8"><a xlink:title="(3) L">
 <ellipse fill="#404040" stroke="black" cx="82" cy="-162" rx="27" ry="18"/>
 <text text-anchor="middle" x="82" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">L</text>
 </a>
@@ -1158,75 +1041,12 @@ probability (X | E) {
 </a>
 </g>
 </g>
-<!-- B -->
-<g id="node7" class="node">
-<title>B</title>
-<g id="a_node7"><a xlink:title="(4) B">
-<ellipse fill="#404040" stroke="black" cx="27" cy="-90" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-86.3" font-family="Times,serif" font-size="14.00" fill="white">B</text>
-</a>
-</g>
-</g>
-<!-- S&#45;&gt;B -->
-<g id="edge3" class="edge">
-<title>S-&gt;B</title>
-<g id="a_edge3"><a xlink:title="(1, 4) : ">
-<path fill="none" stroke="#4a4a4a" d="M50.74,-215.87C46.14,-191.67 37.69,-147.21 32.21,-118.39"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="35.57,-117.36 30.27,-108.19 28.7,-118.67 35.57,-117.36"/>
-</a>
-</g>
-</g>
-<!-- A -->
-<g id="node5" class="node">
-<title>A</title>
-<g id="a_node5"><a xlink:title="(0) A">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-234" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-230.3" font-family="Times,serif" font-size="14.00" fill="white">A</text>
-</a>
-</g>
-</g>
-<!-- T -->
-<g id="node8" class="node">
-<title>T</title>
-<g id="a_node8"><a xlink:title="(2) T">
-<ellipse fill="#404040" stroke="black" cx="154" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="154" y="-158.3" font-family="Times,serif" font-size="14.00" fill="white">T</text>
-</a>
-</g>
-</g>
-<!-- A&#45;&gt;T -->
-<g id="edge4" class="edge">
-<title>A-&gt;T</title>
-<g id="a_edge4"><a xlink:title="(0, 2) : ">
-<path fill="none" stroke="#4a4a4a" d="M154,-215.7C154,-207.98 154,-198.71 154,-190.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="157.5,-190.1 154,-180.1 150.5,-190.1 157.5,-190.1"/>
-</a>
-</g>
-</g>
 <!-- L&#45;&gt;E -->
 <g id="edge8" class="edge">
 <title>L-&gt;E</title>
 <g id="a_edge8"><a xlink:title="(3, 5) : ">
 <path fill="none" stroke="#4a4a4a" d="M86.12,-144.05C88.01,-136.26 90.3,-126.82 92.42,-118.08"/>
 <polygon fill="#4a4a4a" stroke="#4a4a4a" points="95.85,-118.82 94.8,-108.28 89.04,-117.17 95.85,-118.82"/>
-</a>
-</g>
-</g>
-<!-- B&#45;&gt;D -->
-<g id="edge1" class="edge">
-<title>B-&gt;D</title>
-<g id="a_edge1"><a xlink:title="(4, 6) : ">
-<path fill="none" stroke="#4a4a4a" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
-</a>
-</g>
-</g>
-<!-- T&#45;&gt;E -->
-<g id="edge6" class="edge">
-<title>T-&gt;E</title>
-<g id="a_edge6"><a xlink:title="(2, 5) : ">
-<path fill="none" stroke="#4a4a4a" d="M142.07,-145.81C134.79,-136.55 125.34,-124.52 117.15,-114.09"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="119.84,-111.86 110.91,-106.16 114.34,-116.18 119.84,-111.86"/>
 </a>
 </g>
 </g>
@@ -1252,7 +1072,7 @@ probability (X | E) {
 <p>In this way you can easily load arbitrary Bayesian Networks, e.g. from <a class="reference external" href="https://www.bnlearn.com/bnrepository/">here</a>.</p>
 </div>
 <div class="section" id="markov-blanket">
-<h2>Markov Blanket<a class="headerlink" href="#markov-blanket" title="Permalink to this headline">#</a></h2>
+<h2>Markov Blanket<a class="headerlink" href="#markov-blanket" title="Permalink to this headline">¶</a></h2>
 <p>The Markov blanket of a node <span class="math notranslate nohighlight">\(X\)</span> is the set of nodes <span class="math notranslate nohighlight">\(M\!B(X)\)</span> such that <span class="math notranslate nohighlight">\(X\)</span> is independent from the rest of the nodes given <span class="math notranslate nohighlight">\(M\!B(X)\)</span>. The Markov Blanket can be visualized as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1261,14 +1081,14 @@ probability (X | E) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170pt" height="188pt" viewBox="0.00 0.00 170.00 188.00">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="242pt" height="209pt" viewBox="0.00 0.00 242.00 208.57">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 204.57)">
 <title>no_name</title>
 <!-- 2 -->
 <g id="node1" class="node">
 <title>2</title>
-<ellipse fill="none" stroke="#4a4a4a" cx="63" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="63" y="-158.3" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">T</text>
+<ellipse fill="none" stroke="#4a4a4a" cx="63" cy="-172.28" rx="27" ry="18"/>
+<text text-anchor="middle" x="63" y="-168.58" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">T</text>
 </g>
 <!-- 5 -->
 <g id="node4" class="node">
@@ -1279,20 +1099,20 @@ probability (X | E) {
 <!-- 2&#45;&gt;5 -->
 <g id="edge1" class="edge">
 <title>2-&gt;5</title>
-<path fill="none" stroke="#4a4a4a" d="M71.35,-144.76C75.71,-136.28 81.15,-125.71 86.04,-116.2"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="89.23,-117.64 90.7,-107.15 83.01,-114.44 89.23,-117.64"/>
+<path fill="none" stroke="#4a4a4a" d="M70.46,-154.65C75.37,-143.7 81.89,-129.16 87.46,-116.74"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="90.78,-117.9 91.67,-107.34 84.39,-115.03 90.78,-117.9"/>
 </g>
 <!-- 3 -->
 <g id="node2" class="node">
 <title>3</title>
-<ellipse fill="none" stroke="#4a4a4a" cx="135" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="135" y="-158.3" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">L</text>
+<ellipse fill="none" stroke="#4a4a4a" cx="135" cy="-172.28" rx="27" ry="18"/>
+<text text-anchor="middle" x="135" y="-168.58" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">L</text>
 </g>
 <!-- 3&#45;&gt;5 -->
 <g id="edge2" class="edge">
 <title>3-&gt;5</title>
-<path fill="none" stroke="#4a4a4a" d="M126.65,-144.76C122.29,-136.28 116.85,-125.71 111.96,-116.2"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="114.99,-114.44 107.3,-107.15 108.77,-117.64 114.99,-114.44"/>
+<path fill="none" stroke="#4a4a4a" d="M127.54,-154.65C122.63,-143.7 116.11,-129.16 110.54,-116.74"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="113.61,-115.03 106.33,-107.34 107.22,-117.9 113.61,-115.03"/>
 </g>
 <!-- 4 -->
 <g id="node3" class="node">
@@ -1330,6 +1150,11 @@ probability (X | E) {
 <path fill="none" stroke="#4a4a4a" d="M99,-71.7C99,-63.98 99,-54.71 99,-46.11"/>
 <polygon fill="#4a4a4a" stroke="#4a4a4a" points="102.5,-46.1 99,-36.1 95.5,-46.1 102.5,-46.1"/>
 </g>
+<!-- \n\n -->
+<g id="node7" class="node">
+<title>\n\n</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="207" cy="-172.28" rx="27" ry="28.07"/>
+</g>
 </g>
 </svg></div></div>
 </div>
@@ -1340,14 +1165,14 @@ probability (X | E) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="134pt" height="188pt" viewBox="0.00 0.00 134.00 188.00">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<div class="output text_html"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="134pt" height="209pt" viewBox="0.00 0.00 134.00 208.57">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 204.57)">
 <title>no_name</title>
 <!-- 1 -->
 <g id="node1" class="node">
 <title>1</title>
-<ellipse fill="none" stroke="#4a4a4a" cx="27" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="27" y="-158.3" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">S</text>
+<ellipse fill="none" stroke="#4a4a4a" cx="27" cy="-172.28" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-168.58" font-family="Times,serif" font-size="14.00" fill="#4a4a4a">S</text>
 </g>
 <!-- 4 -->
 <g id="node2" class="node">
@@ -1358,8 +1183,8 @@ probability (X | E) {
 <!-- 1&#45;&gt;4 -->
 <g id="edge1" class="edge">
 <title>1-&gt;4</title>
-<path fill="none" stroke="#4a4a4a" d="M27,-143.7C27,-135.98 27,-126.71 27,-118.11"/>
-<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-118.1 27,-108.1 23.5,-118.1 30.5,-118.1"/>
+<path fill="none" stroke="#4a4a4a" d="M27,-154.26C27,-143.83 27,-130.24 27,-118.33"/>
+<polygon fill="#4a4a4a" stroke="#4a4a4a" points="30.5,-118 27,-108 23.5,-118 30.5,-118"/>
 </g>
 <!-- 6 -->
 <g id="node4" class="node">
@@ -1385,12 +1210,17 @@ probability (X | E) {
 <path fill="none" stroke="#4a4a4a" d="M90.65,-72.76C86.29,-64.28 80.85,-53.71 75.96,-44.2"/>
 <polygon fill="#4a4a4a" stroke="#4a4a4a" points="78.99,-42.44 71.3,-35.15 72.77,-45.64 78.99,-42.44"/>
 </g>
+<!-- \n\n -->
+<g id="node5" class="node">
+<title>\n\n</title>
+<ellipse fill="none" stroke="#4a4a4a" cx="99" cy="-172.28" rx="27" ry="28.07"/>
+</g>
 </g>
 </svg></div></div>
 </div>
 </div>
 <div class="section" id="inference-in-bayesian-networks">
-<h2>Inference in Bayesian networks<a class="headerlink" href="#inference-in-bayesian-networks" title="Permalink to this headline">#</a></h2>
+<h2>Inference in Bayesian networks<a class="headerlink" href="#inference-in-bayesian-networks" title="Permalink to this headline">¶</a></h2>
 <p>In the inference phase an engine must calculate probabilities, which are queried. PyAgrum provides two inference engines:</p>
 <ul class="simple">
 <li><p><strong>LazyPropagation</strong>: an exact inference method that transforms the Bayesian network into a hypergraph called a join tree or a junction tree. This tree is constructed in order to optimize inference computations.</p></li>
@@ -1405,7 +1235,7 @@ probability (X | E) {
 </div>
 </div>
 <div class="section" id="inference-without-evidence">
-<h3>Inference without evidence<a class="headerlink" href="#inference-without-evidence" title="Permalink to this headline">#</a></h3>
+<h3>Inference without evidence<a class="headerlink" href="#inference-without-evidence" title="Permalink to this headline">¶</a></h3>
 <p>Calculate <span class="math notranslate nohighlight">\(P(L)\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1466,7 +1296,7 @@ probability (X | E) {
 </div>
 </div>
 <div class="section" id="inference-with-evidence">
-<h3>Inference with evidence<a class="headerlink" href="#inference-with-evidence" title="Permalink to this headline">#</a></h3>
+<h3>Inference with evidence<a class="headerlink" href="#inference-with-evidence" title="Permalink to this headline">¶</a></h3>
 <p>As demonstrated below, the probability for <em>lung cancer</em> without evidence is <span class="math notranslate nohighlight">\(0.055\)</span>. Suppose, that we now know the patient is smoker. Does this evidence increase the probability for <em>lung cancer</em>?</p>
 <p>As shown below, evidence can be entered using a dictionary. When you know precisely the value taken by a random variable, the evidence is called a hard evidence. This is the case, for instance, when you know for sure that the patient is a smoker. In this case, the knowledge is entered in the dictionary as <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">name:</span> <span class="pre">label</span></code>:</p>
 <div class="cell docutils container">
@@ -1542,7 +1372,7 @@ Imagine for example that you think that if the patient is not smoking, you have 
 </div>
 </div>
 <div class="section" id="inference-in-the-whole-bayes-net">
-<h2>Inference in the whole Bayes net<a class="headerlink" href="#inference-in-the-whole-bayes-net" title="Permalink to this headline">#</a></h2>
+<h2>Inference in the whole Bayes net<a class="headerlink" href="#inference-in-the-whole-bayes-net" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">evs</span><span class="o">=</span><span class="p">{})</span>
@@ -1553,7 +1383,7 @@ Imagine for example that you think that if the patient is not smoking, you have 
 <img alt="_images/BayesNetAsia_74_0.svg" src="_images/BayesNetAsia_74_0.svg" /></div>
 </div>
 <div class="section" id="id2">
-<h3>Inference with evidence<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Inference with evidence<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
@@ -1565,7 +1395,7 @@ Imagine for example that you think that if the patient is not smoking, you have 
 </div>
 </div>
 <div class="section" id="inference-with-soft-and-hard-evidence">
-<h3>Inference with soft and hard evidence<a class="headerlink" href="#inference-with-soft-and-hard-evidence" title="Permalink to this headline">#</a></h3>
+<h3>Inference with soft and hard evidence<a class="headerlink" href="#inference-with-soft-and-hard-evidence" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span><span class="o">.</span><span class="n">showInference</span><span class="p">(</span><span class="n">bn</span><span class="p">,</span><span class="n">evs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;S&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">:[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">]})</span>
@@ -1607,48 +1437,34 @@ Imagine for example that you think that if the patient is not smoking, you have 
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Thrombosis.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Correlation is not Causality</p>
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Thrombosis.html" title="previous page">Correlation is not Causality</a>
+    <a class='right-next' id="next-link" href="BayesNetLearningWithPandas.html" title="next page">Learn CPTs of Bayesian Netork</a>
+
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="BayesNetLearningWithPandas.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Learn CPTs of Bayesian Netork</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
+        
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Prof. Dr. Johannes Maucher<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Dr. Johannes Maucher<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
     </div>
-    
-</div>
+  </footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
+  
   </body>
 </html>
