@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Multiple Random Variables &#8212; Modelling of Uncertainty</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,48 +20,64 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Estimating Probabilities" href="estimateProbability.html" />
     <link rel="prev" title="Discrete and Continuous Random Variables" href="ProbabilityUnivariate.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,10 +86,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="_static/hdmlogomed.jpg" class="logo" alt="logo">
       
@@ -82,16 +105,17 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Basic Concepts of Probability Theory for AI and ML
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Basic Concepts of Probability Theory for AI and ML
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Probability Theory
  </span>
@@ -112,8 +136,13 @@
    Estimating Probabilities
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="KullbackLeiblerDivergence.html">
+   Kullback-Leibler Divergence
+  </a>
+ </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Exercises and Applications
  </span>
@@ -135,7 +164,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bayesian Networks
  </span>
@@ -154,91 +183,164 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ProbabilityMultivariate.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ProbabilityMultivariate.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ProbabilityMultivariate.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ProbabilityMultivariate.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example-to-be-used-in-this-section">
    Example to be used in this section
@@ -271,23 +373,71 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Multiple Random Variables</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-to-be-used-in-this-section">
+   Example to be used in this section
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#joint-probability">
+   Joint Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independence-of-random-variables">
+   Independence of random variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#marginal-probability">
+   Marginal Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-probability">
+   Conditional Probability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-continuous-random-variables">
+   Multiple Continuous Random Variables
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="multiple-random-variables">
-<h1>Multiple Random Variables<a class="headerlink" href="#multiple-random-variables" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="multiple-random-variables">
+<h1>Multiple Random Variables<a class="headerlink" href="#multiple-random-variables" title="Permalink to this headline">#</a></h1>
 <p>In the <a class="reference internal" href="ProbabilityUnivariate.html"><span class="doc std std-doc">previous section</span></a> discrete and continuous random variables, the concept of probability and common distributions of random variables have been introduced.</p>
 <p>Recall, that a a random variable <span class="math notranslate nohighlight">\(X\)</span> is a variable that can take multiple values <span class="math notranslate nohighlight">\(X=x_i\)</span> and the set of possible values, that can be taken by the variable is denoted by <span class="math notranslate nohighlight">\(V(X)\)</span>.</p>
 <p>Now we consider the case of multiple random variables. In the case that we have only 2 or 3 of them we usually denote them by <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>, respectively. In the general case of <span class="math notranslate nohighlight">\(N\)</span> random variables they are denoted by <span class="math notranslate nohighlight">\(
 X_1,X_2,\ldots, X_N\)</span> and their corresponding values <span class="math notranslate nohighlight">\(x_1,x_2,\ldots, x_N\)</span>.</p>
-<div class="section" id="example-to-be-used-in-this-section">
-<h2>Example to be used in this section<a class="headerlink" href="#example-to-be-used-in-this-section" title="Permalink to this headline">¶</a></h2>
+<section id="example-to-be-used-in-this-section">
+<h2>Example to be used in this section<a class="headerlink" href="#example-to-be-used-in-this-section" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -357,9 +507,9 @@ X_1,X_2,\ldots, X_N\)</span> and their corresponding values <span class="math no
 <p>For <code class="docutils literal notranslate"><span class="pre">Vaccine</span></code> the value range is</p>
 <div class="math notranslate nohighlight">
 \[V(\mbox{Vaccine})=\left\{BionTech, AstraZeneca, Moderna\right\}.\]</div>
-</div>
-<div class="section" id="joint-probability">
-<h2>Joint Probability<a class="headerlink" href="#joint-probability" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="joint-probability">
+<h2>Joint Probability<a class="headerlink" href="#joint-probability" title="Permalink to this headline">#</a></h2>
 <p>The <strong>Joint Probability</strong> of two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures the probability that variable <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x_i\)</span> <strong>and</strong> <span class="math notranslate nohighlight">\(Y\)</span> takes the value <span class="math notranslate nohighlight">\(y_j\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -434,9 +584,9 @@ P(X_1=x_{i_1},X_2=x_{i_2}, \ldots, X_N=x_{i_N}) \quad \mbox{ or for short} \quad
 <p>measures the probability, that <span class="math notranslate nohighlight">\(X_1\)</span> takes the value <span class="math notranslate nohighlight">\(x_{i_1}\)</span> <strong>and</strong> <span class="math notranslate nohighlight">\(X_2\)</span> takes the value <span class="math notranslate nohighlight">\(x_{i_2}\)</span> <strong>and</strong>, … <span class="math notranslate nohighlight">\(X_N\)</span> takes the value <span class="math notranslate nohighlight">\(x_{i_N}\)</span>. The set of all Joint Probabilities for all possible values in the value range of the variables is called the Joint Probability of the given <span class="math notranslate nohighlight">\(N\)</span> random variables.</p>
 <p>In the case of continuous variables, the joint probability distribution can be expressed either in terms of a joint cumulative distribution function (<strong>cdf</strong>) or in terms of a joint probability density function (<strong>pdf</strong>). For discrete random variables the probability mass function (<strong>pmf</strong>) or the <strong>cdf</strong> describe the joint probability distribution. These in turn can be used to find two other types of distributions: the <a class="reference external" href="#margProb">marginal distribution</a> giving the probabilities for any one of the variables with no reference to any specific ranges of values for the other variables, and the <a class="reference external" href="#condprob">conditional probability distribution</a>. Both of them are described below.</p>
 <p><a id="independence"></a></p>
-</div>
-<div class="section" id="independence-of-random-variables">
-<h2>Independence of random variables<a class="headerlink" href="#independence-of-random-variables" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="independence-of-random-variables">
+<h2>Independence of random variables<a class="headerlink" href="#independence-of-random-variables" title="Permalink to this headline">#</a></h2>
 <p>Random variables can be dependent or independent. A pair of random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is called independent, if the value of the value of the other has no influence on the value of the other. For example, if you roll a dice twice in a row, the result of the second roll will be completely independent of the result of the first roll.</p>
 <p>If and only if the random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent of each other, the conditional probabilty can be calculated by factorisation:</p>
 <div class="math notranslate nohighlight">
@@ -450,9 +600,9 @@ P(X=1,Y=2)= P(X=1) \cdot P(Y=2)=\frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}
 \]</div>
 <p>On the other hand experiments such as <strong>Lotto</strong>, where balls are drawn without laying them back are dependent: The result of the second draw certainly depends on the result of the first draw.</p>
 <p><a id="margProb"></a></p>
-</div>
-<div class="section" id="marginal-probability">
-<h2>Marginal Probability<a class="headerlink" href="#marginal-probability" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="marginal-probability">
+<h2>Marginal Probability<a class="headerlink" href="#marginal-probability" title="Permalink to this headline">#</a></h2>
 <p>The marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset. It gives the probabilities of various values of the variables in the subset without reference to the values of the other variables.</p>
 <p>Assume the case that for a set of random variables <span class="math notranslate nohighlight">\(X_1,X_2,\ldots, X_N\)</span> the Joint Probability Distribution, i.e. all probabilities of type</p>
 <div class="math notranslate nohighlight">
@@ -474,7 +624,7 @@ P(X_{i_1},X_{i_2},\ldots, X_{i_Z}).
 <p>In the most simple case we have two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> and we know all Joint Probabilities of type <span class="math notranslate nohighlight">\(P(X=x_i,Y=y_j)\)</span>. If we are interested in <span class="math notranslate nohighlight">\(P(X=x_i)\)</span>, we can obtain this value by marginalising variable <span class="math notranslate nohighlight">\(Y\)</span>, which means that we calculate the sum of the Joint Probabilities <span class="math notranslate nohighlight">\(P(X=x_i,Y=y_j)\)</span> over all possible values <span class="math notranslate nohighlight">\(y_j \in V(Y)\)</span>.</p>
 <p><strong>Marginalisation law:</strong></p>
 <div class="math notranslate nohighlight" id="equation-eq-marg">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-marg" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-marg" title="Permalink to this equation">#</a></span>\[
 P(x_i)=\sum\limits_{y_j \in V(Y)} P(x_i,y_j)
 \]</div>
 <p>The <strong>marginal variables</strong> are those variables in the subset of variables being retained (<span class="math notranslate nohighlight">\(X\)</span> in the equation above).</p>
@@ -518,44 +668,44 @@ P(x_i)=\sum\limits_{y_j \in V(Y)} \sum\limits_{z_k \in V(Z)} P(x_i,y_j,z_k)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_26316_row0_col3, #T_26316_row1_col3 {
+#T_4ae77_row0_col3, #T_4ae77_row1_col3 {
   background-color: red;
 }
-#T_26316_row2_col0, #T_26316_row2_col1, #T_26316_row2_col2 {
+#T_4ae77_row2_col0, #T_4ae77_row2_col1, #T_4ae77_row2_col2 {
   background-color: green;
 }
 </style>
-<table id="T_26316">
+<table id="T_4ae77">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_26316_level0_col0" class="col_heading level0 col0" >BionTech</th>
-      <th id="T_26316_level0_col1" class="col_heading level0 col1" >AstraZeneca</th>
-      <th id="T_26316_level0_col2" class="col_heading level0 col2" >Moderna</th>
-      <th id="T_26316_level0_col3" class="col_heading level0 col3" > </th>
+      <th id="T_4ae77_level0_col0" class="col_heading level0 col0" >BionTech</th>
+      <th id="T_4ae77_level0_col1" class="col_heading level0 col1" >AstraZeneca</th>
+      <th id="T_4ae77_level0_col2" class="col_heading level0 col2" >Moderna</th>
+      <th id="T_4ae77_level0_col3" class="col_heading level0 col3" > </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_26316_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
-      <td id="T_26316_row0_col0" class="data row0 col0" >0.452862</td>
-      <td id="T_26316_row0_col1" class="data row0 col1" >0.041664</td>
-      <td id="T_26316_row0_col2" class="data row0 col2" >0.209881</td>
-      <td id="T_26316_row0_col3" class="data row0 col3" >0.704407</td>
+      <th id="T_4ae77_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
+      <td id="T_4ae77_row0_col0" class="data row0 col0" >0.452862</td>
+      <td id="T_4ae77_row0_col1" class="data row0 col1" >0.041664</td>
+      <td id="T_4ae77_row0_col2" class="data row0 col2" >0.209881</td>
+      <td id="T_4ae77_row0_col3" class="data row0 col3" >0.704407</td>
     </tr>
     <tr>
-      <th id="T_26316_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
-      <td id="T_26316_row1_col0" class="data row1 col0" >0.281872</td>
-      <td id="T_26316_row1_col1" class="data row1 col1" >0.013571</td>
-      <td id="T_26316_row1_col2" class="data row1 col2" >0.000150</td>
-      <td id="T_26316_row1_col3" class="data row1 col3" >0.295593</td>
+      <th id="T_4ae77_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
+      <td id="T_4ae77_row1_col0" class="data row1 col0" >0.281872</td>
+      <td id="T_4ae77_row1_col1" class="data row1 col1" >0.013571</td>
+      <td id="T_4ae77_row1_col2" class="data row1 col2" >0.000150</td>
+      <td id="T_4ae77_row1_col3" class="data row1 col3" >0.295593</td>
     </tr>
     <tr>
-      <th id="T_26316_level0_row2" class="row_heading level0 row2" > </th>
-      <td id="T_26316_row2_col0" class="data row2 col0" >0.734734</td>
-      <td id="T_26316_row2_col1" class="data row2 col1" >0.055235</td>
-      <td id="T_26316_row2_col2" class="data row2 col2" >0.210031</td>
-      <td id="T_26316_row2_col3" class="data row2 col3" >1.000000</td>
+      <th id="T_4ae77_level0_row2" class="row_heading level0 row2" > </th>
+      <td id="T_4ae77_row2_col0" class="data row2 col0" >0.734734</td>
+      <td id="T_4ae77_row2_col1" class="data row2 col1" >0.055235</td>
+      <td id="T_4ae77_row2_col2" class="data row2 col2" >0.210031</td>
+      <td id="T_4ae77_row2_col3" class="data row2 col3" >1.000000</td>
     </tr>
   </tbody>
 </table>
@@ -574,9 +724,9 @@ P(BionTech) \cdot P(Twice) = 0.73 \cdot 0.3 = 0.219
 \]</div>
 <p>are significantly different. Therefore the two variables are not independent of each other.</p>
 <p><a id="condprob"></a></p>
-</div>
-<div class="section" id="conditional-probability">
-<h2>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conditional-probability">
+<h2>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">#</a></h2>
 <p>Given two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> the conditional probability</p>
 <div class="math notranslate nohighlight">
 \[
@@ -586,7 +736,7 @@ P(X=x_i | Y=y_j) \quad \mbox{ or for short } \quad P(x_i | y_j)
 <p>The <strong>marginal probability</strong>, as introduced above, is the probability of a single event occurring, independent of other events. A <strong>conditional probability</strong>, on the other hand, is the probability that an event occurs given that another specific event has already occurred. This means that the calculation for one variable is dependent on the value of another variable.</p>
 <p>The conditional distribution of a variable given another variable is the joint distribution of both variables divided by the marginal distribution of the other variable:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cond">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-cond" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-cond" title="Permalink to this equation">#</a></span>\[
 P(x_i | y_j)=\frac{P(x_i,y_j)}{P(y_j)}
 \]</div>
 <p>In the general case of <span class="math notranslate nohighlight">\(N\)</span> random variables <span class="math notranslate nohighlight">\(X_1,X_2,\ldots, X_N\)</span>, the values of an arbitrary subset of variables can be known and one can ask for the joint probability of all other variables. For example if the values of <span class="math notranslate nohighlight">\(X_k, X_{k+1}, \ldots X_N\)</span> are known, the probability for <span class="math notranslate nohighlight">\(X_1, X_{2}, \ldots X_{k-1}\)</span> given these known values is</p>
@@ -637,7 +787,7 @@ P(x_{i_1}, x_{i_2},  \ldots x_{i_{N}}) = P(x_{i_1} | x_{i_2},  \ldots x_{i_{N}} 
 <p><strong>Bayes Rule and Bayesian Inference:</strong></p>
 <p>From equation <a class="reference internal" href="#equation-eq-cond">(2)</a> one of the central theorems of Artificial Intelligence and Machine Learning can be deduced: The <strong>Bayes Theorem:</strong></p>
 <div class="math notranslate nohighlight" id="equation-eq-bayes">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-bayes" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-bayes" title="Permalink to this equation">#</a></span>\[
 P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
 \]</div>
 <p>In this equation</p>
@@ -649,14 +799,14 @@ P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{P(y_j)}
 </ul>
 <p>By applying marginalisation (<a class="reference internal" href="#equation-eq-marg">(1)</a>) and equation <a class="reference internal" href="#equation-eq-cond">(2)</a> to the evidence (denominator) in the Bayes Theorem, we get:</p>
 <div class="math notranslate nohighlight" id="equation-eq-bayes2">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-bayes2" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-bayes2" title="Permalink to this equation">#</a></span>\[
 P(x_i | y_j)=\frac{P(y_j | x_i) P(x_i)}{\sum\limits_{x_k \in V(X)}P(y_j | x_k) P(x_k)}
 \]</div>
 <p>For <strong>Bayesian Inference</strong> this equation is applied as follows: Assume that you want to estimate the output of a random variable <span class="math notranslate nohighlight">\(X\)</span>, in particular the probability that the random variable takes the value <span class="math notranslate nohighlight">\(X=x_i\)</span>.</p>
 <p>If <strong>prior knowledge</strong> on the distribution of <span class="math notranslate nohighlight">\(X\)</span> is available than <span class="math notranslate nohighlight">\(P(x_i)\)</span> is known. Now, assume that you know the value <span class="math notranslate nohighlight">\(y_i\)</span> of another random variable <span class="math notranslate nohighlight">\(Y\)</span>, which is not independent of <span class="math notranslate nohighlight">\(X\)</span>. Moreover, you have a model <span class="math notranslate nohighlight">\(p(y_i|x_i)\)</span>, which describes the probability of <span class="math notranslate nohighlight">\(Y=y_j\)</span>, if <span class="math notranslate nohighlight">\(X=x_i\)</span> is fixed. Since <span class="math notranslate nohighlight">\(Y\)</span> is not independent of <span class="math notranslate nohighlight">\(X\)</span>, the observation of <span class="math notranslate nohighlight">\(Y=y_j\)</span> provides a better estimate for the probability of <span class="math notranslate nohighlight">\(X=x_i\)</span>. This better estimate is the <strong>a-posteriori</strong> <span class="math notranslate nohighlight">\(P(x_i | y_j)\)</span>, which is calculated according to equation <a class="reference internal" href="#equation-eq-cond">(2)</a>.</p>
 <p>Certainly, the Bayes Theorem is not restricted to only two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. It can be generalized to arbitrary disjoint sets of random variables <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> as follows:</p>
 <div class="math notranslate nohighlight" id="equation-eq-bayesu">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-bayesu" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-bayesu" title="Permalink to this equation">#</a></span>\[
 P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 \]</div>
 <p>Visually, the Bayes Theorem can be explained as shown below:</p>
@@ -664,9 +814,9 @@ P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 <img src="https://maucher.home.hdm-stuttgart.de/Pics/probVisual.png" style="width:600px" align="center">
 <figcaption>
     Visualisation of Bayes Theorem, Joint- and Conditional Probabilities.
-</figcaption></div>
-<div class="section" id="multiple-continuous-random-variables">
-<h2>Multiple Continuous Random Variables<a class="headerlink" href="#multiple-continuous-random-variables" title="Permalink to this headline">¶</a></h2>
+</figcaption></section>
+<section id="multiple-continuous-random-variables">
+<h2>Multiple Continuous Random Variables<a class="headerlink" href="#multiple-continuous-random-variables" title="Permalink to this headline">#</a></h2>
 <p>Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the <strong>marginalisation rule</strong> (equation <a class="reference internal" href="#equation-eq-marg">(1)</a>) the sum over discrete joint probabilities must be replaced by the integral of the <strong>joint probability function</strong> <span class="math notranslate nohighlight">\(p_{X,Y}(x,y)\)</span> in order to calculate the <strong>marginal probability density function</strong> <span class="math notranslate nohighlight">\(p_X(x)\)</span> as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -675,7 +825,7 @@ p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
 <p>with <span class="math notranslate nohighlight">\(y \in \left[a,b\right]\)</span>.</p>
 <p>The most popular multi-dimensional joint probability function for continuous variables is the <strong>multi-dimensional Gaussian distribution</strong>, which is defined as follows:</p>
 <div class="math notranslate nohighlight" id="equation-eq-pdfmulti">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-pdfmulti" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-pdfmulti" title="Permalink to this equation">#</a></span>\[
   p(\mathbf{x})=\frac{1}{(2 \pi)^{d/2} |\Sigma|^{1/2}} \exp\left[-\frac{1}{2}(\mathbf{x}- \boldsymbol\mu)^T \Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right] , \quad -\infty &lt; x &lt; \infty 
 \]</div>
 <p>Here</p>
@@ -753,15 +903,30 @@ p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/68/9tltm6l520v0stj3qjlc5v9w0000gn/T/ipykernel_11114/3923805391.py:18: MatplotlibDeprecationWarning: Calling gca() with keyword arguments was deprecated in Matplotlib 3.4. Starting two minor releases later, gca() will take no keyword arguments. The gca() function should only be used to get the current axes, or if no axes exist, create new axes with default keyword arguments. To create a new axes with non-default arguments, use plt.axes() or plt.subplot().
-  ax = fig.gca(projection=&#39;3d&#39;)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">68</span><span class="o">/</span><span class="mi">9</span><span class="n">tltm6l520v0stj3qjlc5v9w0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_24047</span><span class="o">/</span><span class="mf">2468790525.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">_</span> <span class="o">=</span><span class="n">gauss2d</span><span class="p">()</span>
+
+<span class="nn">/var/folders/68/9tltm6l520v0stj3qjlc5v9w0000gn/T/ipykernel_24047/3923805391.py</span> in <span class="ni">gauss2d</span><span class="nt">(mu, sigma)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">rstride</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: gca() got an unexpected keyword argument &#39;projection&#39;
 </pre></div>
 </div>
-<img alt="_images/ProbabilityMultivariate_27_1.png" src="_images/ProbabilityMultivariate_27_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x1000 with 0 Axes&gt;
+</pre></div>
 </div>
 </div>
 </div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -785,34 +950,48 @@ p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="ProbabilityUnivariate.html" title="previous page">Discrete and Continuous Random Variables</a>
-    <a class='right-next' id="next-link" href="estimateProbability.html" title="next page">Estimating Probabilities</a>
-
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ProbabilityUnivariate.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Discrete and Continuous Random Variables</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="estimateProbability.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Estimating Probabilities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Prof. Dr. Johannes Maucher<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Prof. Dr. Johannes Maucher<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
