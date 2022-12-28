@@ -324,9 +324,23 @@ from scipy.stats import norm
 np.set_printoptions(precision=3)
 
 
-# We calculate $$cdf(2)=0.159$$ and $$cdf(5)=0.997.$$ The answer is then:
+# We calculate 
 # 
-# $$P(2<x\leq5)=0.997-0.159 = 0.819$$
+# $$
+# cdf(2)=0.159
+# $$ 
+# 
+# and 
+# 
+# $$
+# cdf(5)=0.997.
+# $$ 
+# 
+# The answer is then:
+# 
+# $$
+# P(2<x\leq5)=0.997-0.159 = 0.819.
+# $$
 # 
 
 # In[9]:

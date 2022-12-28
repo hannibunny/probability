@@ -368,7 +368,7 @@ plt.show()
 
 # In order to better understand the estimated 2D-Gaussian distribution it's contour-plot is also visualized:
 
-# In[17]:
+# In[21]:
 
 
 fig = plt.figure(num=None, figsize=(12, 10), dpi=80, facecolor='w', edgecolor='k')

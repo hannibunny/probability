@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Multiple Random Variables &#8212; Modelling of Uncertainty</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -133,6 +134,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="estimateProbability.html">
    Estimating Probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="KullbackLeiblerDivergence.html">
+   Kullback-Leibler Divergence
   </a>
  </li>
 </ul>
@@ -424,13 +430,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="multiple-random-variables">
+  <section class="tex2jax_ignore mathjax_ignore" id="multiple-random-variables">
 <h1>Multiple Random Variables<a class="headerlink" href="#multiple-random-variables" title="Permalink to this headline">#</a></h1>
 <p>In the <a class="reference internal" href="ProbabilityUnivariate.html"><span class="doc std std-doc">previous section</span></a> discrete and continuous random variables, the concept of probability and common distributions of random variables have been introduced.</p>
 <p>Recall, that a a random variable <span class="math notranslate nohighlight">\(X\)</span> is a variable that can take multiple values <span class="math notranslate nohighlight">\(X=x_i\)</span> and the set of possible values, that can be taken by the variable is denoted by <span class="math notranslate nohighlight">\(V(X)\)</span>.</p>
 <p>Now we consider the case of multiple random variables. In the case that we have only 2 or 3 of them we usually denote them by <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>, respectively. In the general case of <span class="math notranslate nohighlight">\(N\)</span> random variables they are denoted by <span class="math notranslate nohighlight">\(
 X_1,X_2,\ldots, X_N\)</span> and their corresponding values <span class="math notranslate nohighlight">\(x_1,x_2,\ldots, x_N\)</span>.</p>
-<div class="section" id="example-to-be-used-in-this-section">
+<section id="example-to-be-used-in-this-section">
 <h2>Example to be used in this section<a class="headerlink" href="#example-to-be-used-in-this-section" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -501,8 +507,8 @@ X_1,X_2,\ldots, X_N\)</span> and their corresponding values <span class="math no
 <p>For <code class="docutils literal notranslate"><span class="pre">Vaccine</span></code> the value range is</p>
 <div class="math notranslate nohighlight">
 \[V(\mbox{Vaccine})=\left\{BionTech, AstraZeneca, Moderna\right\}.\]</div>
-</div>
-<div class="section" id="joint-probability">
+</section>
+<section id="joint-probability">
 <h2>Joint Probability<a class="headerlink" href="#joint-probability" title="Permalink to this headline">#</a></h2>
 <p>The <strong>Joint Probability</strong> of two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures the probability that variable <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x_i\)</span> <strong>and</strong> <span class="math notranslate nohighlight">\(Y\)</span> takes the value <span class="math notranslate nohighlight">\(y_j\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -578,8 +584,8 @@ P(X_1=x_{i_1},X_2=x_{i_2}, \ldots, X_N=x_{i_N}) \quad \mbox{ or for short} \quad
 <p>measures the probability, that <span class="math notranslate nohighlight">\(X_1\)</span> takes the value <span class="math notranslate nohighlight">\(x_{i_1}\)</span> <strong>and</strong> <span class="math notranslate nohighlight">\(X_2\)</span> takes the value <span class="math notranslate nohighlight">\(x_{i_2}\)</span> <strong>and</strong>, … <span class="math notranslate nohighlight">\(X_N\)</span> takes the value <span class="math notranslate nohighlight">\(x_{i_N}\)</span>. The set of all Joint Probabilities for all possible values in the value range of the variables is called the Joint Probability of the given <span class="math notranslate nohighlight">\(N\)</span> random variables.</p>
 <p>In the case of continuous variables, the joint probability distribution can be expressed either in terms of a joint cumulative distribution function (<strong>cdf</strong>) or in terms of a joint probability density function (<strong>pdf</strong>). For discrete random variables the probability mass function (<strong>pmf</strong>) or the <strong>cdf</strong> describe the joint probability distribution. These in turn can be used to find two other types of distributions: the <a class="reference external" href="#margProb">marginal distribution</a> giving the probabilities for any one of the variables with no reference to any specific ranges of values for the other variables, and the <a class="reference external" href="#condprob">conditional probability distribution</a>. Both of them are described below.</p>
 <p><a id="independence"></a></p>
-</div>
-<div class="section" id="independence-of-random-variables">
+</section>
+<section id="independence-of-random-variables">
 <h2>Independence of random variables<a class="headerlink" href="#independence-of-random-variables" title="Permalink to this headline">#</a></h2>
 <p>Random variables can be dependent or independent. A pair of random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is called independent, if the value of the value of the other has no influence on the value of the other. For example, if you roll a dice twice in a row, the result of the second roll will be completely independent of the result of the first roll.</p>
 <p>If and only if the random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent of each other, the conditional probabilty can be calculated by factorisation:</p>
@@ -594,8 +600,8 @@ P(X=1,Y=2)= P(X=1) \cdot P(Y=2)=\frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}
 \]</div>
 <p>On the other hand experiments such as <strong>Lotto</strong>, where balls are drawn without laying them back are dependent: The result of the second draw certainly depends on the result of the first draw.</p>
 <p><a id="margProb"></a></p>
-</div>
-<div class="section" id="marginal-probability">
+</section>
+<section id="marginal-probability">
 <h2>Marginal Probability<a class="headerlink" href="#marginal-probability" title="Permalink to this headline">#</a></h2>
 <p>The marginal distribution of a subset of a collection of random variables is the probability distribution of the variables contained in the subset. It gives the probabilities of various values of the variables in the subset without reference to the values of the other variables.</p>
 <p>Assume the case that for a set of random variables <span class="math notranslate nohighlight">\(X_1,X_2,\ldots, X_N\)</span> the Joint Probability Distribution, i.e. all probabilities of type</p>
@@ -661,34 +667,49 @@ P(x_i)=\sum\limits_{y_j \in V(Y)} \sum\limits_{z_k \in V(Z)} P(x_i,y_j,z_k)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style  type="text/css" >
-#T_b834c0a8_13f7_11ed_a330_367ddaa2be67row0_col3,#T_b834c0a8_13f7_11ed_a330_367ddaa2be67row1_col3{
-            background-color:  red;
-        }#T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col0,#T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col1,#T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col2{
-            background-color:  green;
-        }</style><table id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >BionTech</th>        <th class="col_heading level0 col1" >AstraZeneca</th>        <th class="col_heading level0 col2" >Moderna</th>        <th class="col_heading level0 col3" > </th>    </tr></thead><tbody>
-                <tr>
-                        <th id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row0_col0" class="data row0 col0" >0.452862</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row0_col1" class="data row0 col1" >0.041664</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row0_col2" class="data row0 col2" >0.209881</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row0_col3" class="data row0 col3" >0.704407</td>
-            </tr>
-            <tr>
-                        <th id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row1_col0" class="data row1 col0" >0.281872</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row1_col1" class="data row1 col1" >0.013571</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row1_col2" class="data row1 col2" >0.000150</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row1_col3" class="data row1 col3" >0.295593</td>
-            </tr>
-            <tr>
-                        <th id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67level0_row2" class="row_heading level0 row2" > </th>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col0" class="data row2 col0" >0.734734</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col1" class="data row2 col1" >0.055235</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col2" class="data row2 col2" >0.210031</td>
-                        <td id="T_b834c0a8_13f7_11ed_a330_367ddaa2be67row2_col3" class="data row2 col3" >1.000000</td>
-            </tr>
-    </tbody></table></div></div>
+<div class="output text_html"><style type="text/css">
+#T_1f57a_row0_col3, #T_1f57a_row1_col3 {
+  background-color: red;
+}
+#T_1f57a_row2_col0, #T_1f57a_row2_col1, #T_1f57a_row2_col2 {
+  background-color: green;
+}
+</style>
+<table id="T_1f57a">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_1f57a_level0_col0" class="col_heading level0 col0" >BionTech</th>
+      <th id="T_1f57a_level0_col1" class="col_heading level0 col1" >AstraZeneca</th>
+      <th id="T_1f57a_level0_col2" class="col_heading level0 col2" >Moderna</th>
+      <th id="T_1f57a_level0_col3" class="col_heading level0 col3" > </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_1f57a_level0_row0" class="row_heading level0 row0" >Vaccinated Once</th>
+      <td id="T_1f57a_row0_col0" class="data row0 col0" >0.452862</td>
+      <td id="T_1f57a_row0_col1" class="data row0 col1" >0.041664</td>
+      <td id="T_1f57a_row0_col2" class="data row0 col2" >0.209881</td>
+      <td id="T_1f57a_row0_col3" class="data row0 col3" >0.704407</td>
+    </tr>
+    <tr>
+      <th id="T_1f57a_level0_row1" class="row_heading level0 row1" >Vacinated Twice</th>
+      <td id="T_1f57a_row1_col0" class="data row1 col0" >0.281872</td>
+      <td id="T_1f57a_row1_col1" class="data row1 col1" >0.013571</td>
+      <td id="T_1f57a_row1_col2" class="data row1 col2" >0.000150</td>
+      <td id="T_1f57a_row1_col3" class="data row1 col3" >0.295593</td>
+    </tr>
+    <tr>
+      <th id="T_1f57a_level0_row2" class="row_heading level0 row2" > </th>
+      <td id="T_1f57a_row2_col0" class="data row2 col0" >0.734734</td>
+      <td id="T_1f57a_row2_col1" class="data row2 col1" >0.055235</td>
+      <td id="T_1f57a_row2_col2" class="data row2 col2" >0.210031</td>
+      <td id="T_1f57a_row2_col3" class="data row2 col3" >1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>As can be seen here, the marginal probabilities are typically displayed  in the margins of the Joint Distribution Table.</p>
 <p><strong>Independence Test:</strong> As described in <a class="reference external" href="#independence">subsection Independence</a>, <span class="math notranslate nohighlight">\(P(X,Y)=P(X) \cdot P(Y)\)</span>, if and only if the two random variables are independent of each other. From the joint probability values and the marginal probabilities in the example above, we see that</p>
@@ -703,8 +724,8 @@ P(BionTech) \cdot P(Twice) = 0.73 \cdot 0.3 = 0.219
 \]</div>
 <p>are significantly different. Therefore the two variables are not independent of each other.</p>
 <p><a id="condprob"></a></p>
-</div>
-<div class="section" id="conditional-probability">
+</section>
+<section id="conditional-probability">
 <h2>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">#</a></h2>
 <p>Given two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> the conditional probability</p>
 <div class="math notranslate nohighlight">
@@ -793,8 +814,8 @@ P(U | V)=\frac{P(V | U) P(U)}{P(V)}.
 <img src="https://maucher.home.hdm-stuttgart.de/Pics/probVisual.png" style="width:600px" align="center">
 <figcaption>
     Visualisation of Bayes Theorem, Joint- and Conditional Probabilities.
-</figcaption></div>
-<div class="section" id="multiple-continuous-random-variables">
+</figcaption></section>
+<section id="multiple-continuous-random-variables">
 <h2>Multiple Continuous Random Variables<a class="headerlink" href="#multiple-continuous-random-variables" title="Permalink to this headline">#</a></h2>
 <p>Independence, Marginalisation, Conditional Probability and the Bayes Theorem, which has been introduced for discrete random variables above, also hold for continuous variables. However, in the <strong>marginalisation rule</strong> (equation <a class="reference internal" href="#equation-eq-marg">(1)</a>) the sum over discrete joint probabilities must be replaced by the integral of the <strong>joint probability function</strong> <span class="math notranslate nohighlight">\(p_{X,Y}(x,y)\)</span> in order to calculate the <strong>marginal probability density function</strong> <span class="math notranslate nohighlight">\(p_X(x)\)</span> as follows:</p>
 <div class="math notranslate nohighlight">
@@ -861,7 +882,7 @@ p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
     <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
     
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">rstride</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">antialiased</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
@@ -885,8 +906,8 @@ p_X(x)=\int_{a}^{b} p_{X,Y}(x,y) dy,
 <img alt="_images/ProbabilityMultivariate_27_0.png" src="_images/ProbabilityMultivariate_27_0.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

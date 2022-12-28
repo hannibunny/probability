@@ -6,6 +6,7 @@ parts:
   - file: ProbabilityUnivariate
   - file: ProbabilityMultivariate
   - file: estimateProbability
+  - file: KullbackLeiblerDivergence
 - caption: Exercises and Applications
   chapters:
   - file: exampleProbEst

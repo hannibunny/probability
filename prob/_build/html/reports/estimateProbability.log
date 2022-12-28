@@ -1,20 +1,20 @@
 Traceback (most recent call last):
   File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 1087, in execute
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
   File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/asyncio/base_events.py", line 608, in run_until_complete
     return future.result()
-  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 540, in async_execute
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 832, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/johannes/opt/anaconda3/envs/books/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 from numpy import mgrid
@@ -41,14 +41,14 @@ plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-16-f72c6594f5a4>[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mfrom[0m [0mmatplotlib[0m [0;32mimport[0m [0mcm[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0mx[0m[0;34m,[0m[0my[0m [0;34m=[0m [0mmgrid[0m[0;34m[[0m[0;36m40[0m[0;34m:[0m[0;36m110[0m[0;34m:[0m[0;36m100j[0m[0;34m,[0m [0;36m120[0m[0;34m:[0m[0;36m210[0m[0;34m:[0m[0;36m100j[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0;34m[[0m[0mm1[0m[0;34m,[0m[0mm2[0m[0;34m][0m[0;34m=[0m[0mest_mean[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0ms11[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0mest_cov[0m[0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0ms22[0m[0;34m=[0m[0mnp[0m[0;34m.[0m[0msqrt[0m[0;34m([0m[0mest_cov[0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/68/9tltm6l520v0stj3qjlc5v9w0000gn/T/ipykernel_24066/4212649082.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0;31m##############################################################################################################[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0mfig[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mnum[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m12[0m[0;34m,[0m [0;36m10[0m[0;34m)[0m[0;34m,[0m [0mdpi[0m[0;34m=[0m[0;36m80[0m[0;34m,[0m [0mfacecolor[0m[0;34m=[0m[0;34m'w'[0m[0;34m,[0m [0medgecolor[0m[0;34m=[0m[0;34m'k'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0max[0m [0;34m=[0m [0mfig[0m[0;34m.[0m[0mgca[0m[0;34m([0m[0mprojection[0m[0;34m=[0m[0;34m'3d'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m surf = ax.plot_surface(x,y,a,rstride=1, cstride=1, cmap=cm.jet,
+[1;32m     16[0m         linewidth=0.0, antialiased=False)
 
-[0;31mNameError[0m: name 'est_mean' is not defined
-NameError: name 'est_mean' is not defined
+[0;31mTypeError[0m: gca() got an unexpected keyword argument 'projection'
+TypeError: gca() got an unexpected keyword argument 'projection'
 

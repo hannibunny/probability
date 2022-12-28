@@ -380,7 +380,7 @@ def gauss2d(mu=[0,0], sigma=[1.5,1.5]):
     z=z.reshape(w, h, order='F')
     
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection='3d')
     ax.plot_surface(x, y, z.T,rstride=3, cstride=3, linewidth=1, antialiased=True,cmap=cm.viridis)
     plt.xlabel("x")
     plt.ylabel("y")
@@ -396,4 +396,10 @@ from scipy.stats import multivariate_normal
 from matplotlib import pyplot as plt
 from matplotlib import cm
 _ =gauss2d()
+
+
+# In[ ]:
+
+
+
 

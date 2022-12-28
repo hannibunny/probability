@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Discrete and Continuous Random Variables &#8212; Modelling of Uncertainty</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -133,6 +134,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="estimateProbability.html">
    Estimating Probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="KullbackLeiblerDivergence.html">
+   Kullback-Leibler Divergence
   </a>
  </li>
 </ul>
@@ -466,12 +472,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="discrete-and-continuous-random-variables">
+  <section class="tex2jax_ignore mathjax_ignore" id="discrete-and-continuous-random-variables">
 <h1>Discrete and Continuous Random Variables<a class="headerlink" href="#discrete-and-continuous-random-variables" title="Permalink to this headline">#</a></h1>
 <p>A random variable <span class="math notranslate nohighlight">\(X\)</span> is a variable that can take multiple values <span class="math notranslate nohighlight">\(X=x_i\)</span> depending on the outcome of a random event. We denote the set of possible values, that can be taken by the variable, by <span class="math notranslate nohighlight">\(V(X)\)</span>.</p>
 <p>If the outcomes are finite (for example the 6 possibilities in a die dice-rolling event) the random variable is said to be <strong>discrete</strong>. If the possible outcomes are not finite, for example, drawing a real number <span class="math notranslate nohighlight">\(x \in \left[0,1\right] \subset \mathbb{R}\)</span>, the random variable is said to be <strong>continuous</strong>.</p>
 <p>The probability that the random variable <span class="math notranslate nohighlight">\(X\)</span> takes the value <span class="math notranslate nohighlight">\(x\)</span> is dentoted by <span class="math notranslate nohighlight">\(P(X=x)\)</span> or for short <span class="math notranslate nohighlight">\(P(x)\)</span>. The description of the probabilities <span class="math notranslate nohighlight">\(P(x)\)</span> for all possible <span class="math notranslate nohighlight">\(x \in V(X)\)</span> is called the <strong>probability distribution</strong> of variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
-<div class="section" id="probability-mass-function-and-cumulative-distribution-function-of-discrete-random-variables">
+<section id="probability-mass-function-and-cumulative-distribution-function-of-discrete-random-variables">
 <h2>Probability Mass Function and Cumulative Distribution Function of Discrete Random Variables<a class="headerlink" href="#probability-mass-function-and-cumulative-distribution-function-of-discrete-random-variables" title="Permalink to this headline">#</a></h2>
 <p>In the case of discrete random variables <span class="math notranslate nohighlight">\(X\)</span>, the probability distribution is called <strong>probability mass function (pmf) <span class="math notranslate nohighlight">\(p_X(x)\)</span></strong>, it assigns to all <span class="math notranslate nohighlight">\(x \in V(X)\)</span> the corresponding probability <span class="math notranslate nohighlight">\(P(x)\)</span>. For all probabilities the following conditions must be satisfied:</p>
 <div class="math notranslate nohighlight">
@@ -497,7 +503,7 @@ F_X(x) = P(X \leq x)
 P(a &lt;x \leq b) = F_X(b) - F_X(a)
 \]</div>
 <p>Every CDF is non-decreasing and has a maximum value of 1.</p>
-<div class="section" id="discrete-uniform-distribution">
+<section id="discrete-uniform-distribution">
 <h3>Discrete Uniform Distribution<a class="headerlink" href="#discrete-uniform-distribution" title="Permalink to this headline">#</a></h3>
 <p>For the experiment “rolling a dice” the possible outcomes are 1,2,3,4,5 and 6. The corresponding discrete random variable <span class="math notranslate nohighlight">\(X\)</span>, has the probability mass function <span class="math notranslate nohighlight">\(p_X(x)\)</span>, which is defined by:</p>
 <div class="math notranslate nohighlight">
@@ -529,7 +535,7 @@ P(X=1) = P(X=2) = P(X=3) =P(X=4) = P(X=5) = P(X=6)= \frac{1}{6}
 <img alt="_images/ProbabilityUnivariate_4_0.png" src="_images/ProbabilityUnivariate_4_0.png" />
 </div>
 </div>
-<div class="section" id="bernoulli-distribution">
+<section id="bernoulli-distribution">
 <h4>Bernoulli Distribution<a class="headerlink" href="#bernoulli-distribution" title="Permalink to this headline">#</a></h4>
 <p>A discrete binary random variable <span class="math notranslate nohighlight">\(X\)</span> has only two possible outcomes: <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>, i.e. in this case <span class="math notranslate nohighlight">\(V(X) = \lbrace 0,1 \rbrace\)</span>. The corresponding probability mass function is the <strong>Bernoulli distribution</strong>, which is defined as follows:</p>
 <div class="math notranslate nohighlight">
@@ -555,8 +561,8 @@ p &amp; \mbox{ for } x=1 \\
 <img alt="_images/ProbabilityUnivariate_7_0.png" src="_images/ProbabilityUnivariate_7_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="binomial-distribution">
+</section>
+<section id="binomial-distribution">
 <h4>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">#</a></h4>
 <p>Another important distribution of a discrete random variable is the <strong>Binomial Distribution</strong>. This distribution models the number <span class="math notranslate nohighlight">\(k\)</span> of successes when someone draws <span class="math notranslate nohighlight">\(n\)</span> times with replacement. Each draw or experiment is independent, with two possible outcomes 0 or 1, where <span class="math notranslate nohighlight">\(p\)</span> is the probability that the outcome is 1 (=success). The associated probability mass function is defined by:</p>
 <div class="math notranslate nohighlight">
@@ -614,8 +620,8 @@ p^k (1-p)^{n-k}
 <img alt="_images/ProbabilityUnivariate_10_0.png" src="_images/ProbabilityUnivariate_10_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="geometric-distribution">
+</section>
+<section id="geometric-distribution">
 <h4>Geometric Distribution<a class="headerlink" href="#geometric-distribution" title="Permalink to this headline">#</a></h4>
 <p>The <strong>Geometric Distribution</strong> describes the number <span class="math notranslate nohighlight">\(k\)</span> of trials needed to get one success. Each draw or experiment is independent, with two possible outcomes 0 or 1, where <span class="math notranslate nohighlight">\(p\)</span> is the probability that the outcome is 1 (=success). The associated probability mass function is defined by:</p>
 <div class="math notranslate nohighlight">
@@ -684,8 +690,8 @@ p^k (1-p)^{n-k}
 <img alt="_images/ProbabilityUnivariate_13_0.png" src="_images/ProbabilityUnivariate_13_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="discrete-variables-with-infinite-value-range">
+</section>
+<section id="discrete-variables-with-infinite-value-range">
 <h4>Discrete Variables with infinite value range<a class="headerlink" href="#discrete-variables-with-infinite-value-range" title="Permalink to this headline">#</a></h4>
 <p>For the discrete random variables <span class="math notranslate nohighlight">\(X\)</span> considered above, the value range <span class="math notranslate nohighlight">\(V(X)\)</span> has always been finite. However, it is also possible to habe an infinite value range for discrete variables. For example an experiment, for which the probability mass function is</p>
 <div class="math notranslate nohighlight">
@@ -707,9 +713,9 @@ P(X=i)=\frac{1}{2^i}, \, \mbox{ for } i \in 1,2,3,4,\ldots
 <img alt="_images/ProbabilityUnivariate_15_0.png" src="_images/ProbabilityUnivariate_15_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="probability-density-function-and-cumulative-distribution-function-of-continuous-random-variables">
+</section>
+</section>
+<section id="probability-density-function-and-cumulative-distribution-function-of-continuous-random-variables">
 <h3>Probability Density Function and Cumulative Distribution Function of Continuous Random Variables<a class="headerlink" href="#probability-density-function-and-cumulative-distribution-function-of-continuous-random-variables" title="Permalink to this headline">#</a></h3>
 <p>For <strong>continuous</strong> random variables the <strong>probability density function (PDF)</strong> <span class="math notranslate nohighlight">\(p_X(x)\)</span> describes the distribution of the random variable <span class="math notranslate nohighlight">\(X\)</span> similar as the Probability Mass Function describes the distribution of a discrete random variable.</p>
 <p>The PDF is a function whose value at any given sample (or point) in the sample space can be interpreted as providing a <strong>relative likelihood</strong> that the value of the random variable would equal that sample. In other words, while the absolute likelihood for a continuous random variable to take on any particular value is 0 (since there is an infinite set of possible values to begin with), the value of the PDF at two different samples can be used to infer, in any particular draw of the random variable, how much more likely it is that the random variable would equal one sample compared to the other sample.</p>
@@ -733,7 +739,7 @@ F_X(x)= \int_{-\infty}^{x} p_X(t) \cdot dt
 \[
 P(a&lt; x \leq b) = F_X(b)-F_X(a)=\int_{a}^{b} p_X(t) \cdot dt.
 \]</div>
-<div class="section" id="gaussian-distributed-random-variable">
+<section id="gaussian-distributed-random-variable">
 <h4>Gaussian Distributed Random Variable<a class="headerlink" href="#gaussian-distributed-random-variable" title="Permalink to this headline">#</a></h4>
 <p>The PDF of a <strong>Gaussian distribed random variable <span class="math notranslate nohighlight">\(X\)</span></strong> is:</p>
 <div class="math notranslate nohighlight">
@@ -791,9 +797,21 @@ erf(x) =\frac{2}{\sqrt{\pi}} \int_{-\infty}^{x} e^{- t^2} \cdot dt.
 </div>
 </div>
 </div>
-<p>We calculate $<span class="math notranslate nohighlight">\(cdf(2)=0.159\)</span><span class="math notranslate nohighlight">\( and \)</span><span class="math notranslate nohighlight">\(cdf(5)=0.997.\)</span>$ The answer is then:</p>
+<p>We calculate</p>
 <div class="math notranslate nohighlight">
-\[P(2&lt;x\leq5)=0.997-0.159 = 0.819\]</div>
+\[
+cdf(2)=0.159
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+cdf(5)=0.997.
+\]</div>
+<p>The answer is then:</p>
+<div class="math notranslate nohighlight">
+\[
+P(2&lt;x\leq5)=0.997-0.159 = 0.819.
+\]</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="mi">3</span>
@@ -856,14 +874,14 @@ Probability that value is between 5 and 2 is 0.819
 <img alt="_images/ProbabilityUnivariate_26_0.png" src="_images/ProbabilityUnivariate_26_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="interactive-demo">
+</section>
+</section>
+<section id="interactive-demo">
 <h3>Interactive Demo<a class="headerlink" href="#interactive-demo" title="Permalink to this headline">#</a></h3>
 <p>More discrete and continuous probability distributions are demonstrated in <a class="reference external" href="https://ben18785.shinyapps.io/distribution-zoo/">https://ben18785.shinyapps.io/distribution-zoo/</a></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
